@@ -77,35 +77,26 @@ const addUser = () => {
 // ----------------water widgets
 const dailyWater = document.getElementById("dailyWater");
 const weeklyWater = document.getElementById("weeklyWater");
-// function waterForAddUserFunc (id, hydrationData) {
-//     //(FOR ON LOAD, FOR ADDUSER)
-//     createWaterProfile(id, hydrationData)
-//     //(RETURNS WATERPROFILE)
-// }
+//(FOR ON LOAD, PUT IN ADDUSER)
+function waterForAddUserFunc (id, hydrationData) {
+    createWaterProfile(id, hydrationData);
+    waterTodayWidget();
+    waterThisWeekWidget();
+}
 
 function createWaterProfile (id, hydrationData) {
     let waterProfile = new Hydration(id, hydrationData);
     waterProfile.getOneUserData(hydrationData);
     console.log(waterProfile.oneUserDataSet);
-    //^does this return one user's water? does it match the id?
-    //this should instantiate our hydration class to use the methods,
-    //this should create our constructor property hydration.oneUserDataSet
 }
-//^ call this in the addUser?
+
 function waterTodayWidget () {
     const todayWidgetData = waterProfile.getToday();
     dailyWater.innertext = todayWidgetData;
-    // function to display water consumed today on one of the widgets
-    
-    // (query selector?)
 }
 
-function waterThisWeekWidget () {
+function waterThisWeekWidget () { 
     const weekWidgetData = waterProfile.getOneWeekTotal();
     weeklyWater.innerText = weekWidgetData;
-    // function to display water consumed this week on one of the widgets
-    
-    // (query selector?)
 }
 
-// what is “a display”

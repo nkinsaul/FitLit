@@ -31,10 +31,6 @@ class Hydration {
         return ouncesByDate.numOunces;
     }
 
-    getToday() {
-        return this.today = this.oneUserDataSet[-1];
-    }
-
     getOneWeekTotal() {
         let waterWeek = this.oneUserDataSet.slice(-7);
         return waterWeek;

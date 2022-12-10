@@ -7,6 +7,7 @@ import UserRepository from './UserRepository';
 import {fetchUserData} from './apiCalls'
 import {fetchSleepData} from './apiCalls';
 import {fetchHydrationData} from './apiCalls';
+import Hydration from './Hydration';
 
 // query selectors 👇🏻
 
@@ -19,6 +20,7 @@ const userEmail = document.getElementById("email");
 const userFriends = document.getElementById("friends");
 const userFirstName = document.getElementById("firstName");
 const userStepComparison = document.getElementById("stepCompareResults");
+
 
 // global variables 👇🏻
 
@@ -72,3 +74,38 @@ const addUser = () => {
     userEmail.innerText = aNewUser.email;
     userFirstName.innerText = `Hi ${aNewUser.getFirstName()}!`;
 };
+// ----------------water widgets
+const dailyWater = document.getElementById("dailyWater");
+const weeklyWater = document.getElementById("weeklyWater");
+// function waterForAddUserFunc (id, hydrationData) {
+//     //(FOR ON LOAD, FOR ADDUSER)
+//     createWaterProfile(id, hydrationData)
+//     //(RETURNS WATERPROFILE)
+// }
+
+function createWaterProfile (id, hydrationData) {
+    let waterProfile = new Hydration(id, hydrationData);
+    waterProfile.getOneUserData(hydrationData);
+    console.log(waterProfile.oneUserDataSet);
+    //^does this return one user's water? does it match the id?
+    //this should instantiate our hydration class to use the methods,
+    //this should create our constructor property hydration.oneUserDataSet
+}
+//^ call this in the addUser?
+function waterTodayWidget () {
+    const todayWidgetData = waterProfile.getToday();
+    dailyWater.innertext = todayWidgetData;
+    // function to display water consumed today on one of the widgets
+    
+    // (query selector?)
+}
+
+function waterThisWeekWidget () {
+    const weekWidgetData = waterProfile.getOneWeekTotal();
+    weeklyWater.innerText = weekWidgetData;
+    // function to display water consumed this week on one of the widgets
+    
+    // (query selector?)
+}
+
+// what is “a display”

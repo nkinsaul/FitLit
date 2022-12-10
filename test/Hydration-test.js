@@ -129,6 +129,11 @@ describe ("Hydration", function() {
         expect(ouncesConsumedByDate).to.equal(47);
     });
 
+    it('should have a method to return the date for today', function() {
+        const numOuncesToday = hydration.getToday();
+        expect(numOuncesToday).to.equal(41);
+    });
+
     it('should have a method to return the user hydration for the most recent 7 days', function() {
         const ouncesConsumedInAWeek = hydration.getOneWeekTotal();
         expect(ouncesConsumedInAWeek).to.be.deep.equal(miniHydrationData);

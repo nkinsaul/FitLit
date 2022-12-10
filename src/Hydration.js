@@ -29,6 +29,12 @@ class Hydration {
     getOneDayTotal(thisDate) {
         let ouncesByDate = this.oneUserDataSet.find(element => element.date === thisDate);
         return ouncesByDate.numOunces;
+    } 
+
+    getToday() {
+        let today = this.oneUserDataSet.slice(-1);
+        this.today = today[0].numOunces;
+        return this.today;
     }
 
     getOneWeekTotal() {

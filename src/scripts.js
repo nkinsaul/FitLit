@@ -25,7 +25,8 @@ const dailySleepHours = document.getElementById("dailySleepHours");
 const weeklySleepHours = document.getElementById("weeklySleepHours");
 const dailySleepQuality = document.getElementById("dailySleepQuality");
 const weeklySleepQuality = document.getElementById("weeklySleepQuality");
-const avgSleepData = document.getElementById("avgSleepData");
+const avgSleepHoursAllTime = document.getElementById("avgSleepHoursAllTime");
+const avgSleepQualAllTime = document.getElementById("avgSleepQualAllTime");
 
 // global variables 👇🏻
 
@@ -94,14 +95,16 @@ const instantiateSleep = () => {
 const displayDailySleep = () => {
   let user1 = userSleepData.getUserData(1).reverse();
   let lastNightDate = user1[0].date;
-  dailySleepHours.innerText = `Hours slept last night: ${userSleepData.getHoursSleptOnDay(
-    1,
-    lastNightDate
-  )}`;
-  dailySleepQuality.innerText = `Sleep quality last night: ${userSleepData.getSleepQualityOnDay(
-    1,
-    lastNightDate
-  )}`;
+  dailySleepHours.innerHTML = `
+    <div id="widgetTitle">Hours slept last night: 
+        <div class="widgetDataNumber">${userSleepData.getHoursSleptOnDay(1,lastNightDate)}
+        </div>
+    </div>`;
+  dailySleepQuality.innerHTML = `
+    <div id="widgetTitle">Sleep quality last night: 
+        <div class="widgetDataNumber">${userSleepData.getSleepQualityOnDay(1,lastNightDate)}
+        </div>
+    </div>`;
 };
 
 const displayWeeklySleep = () => {
@@ -135,10 +138,16 @@ const displayWeeklySleepQuality = () => {
 const displayAvgAllTime = () => {
   const avgAllSleepQuality = userSleepData.avgSleepQuality(1);
   const avgAllSleepHours = userSleepData.avgHoursSleptPerDay(1);
-  avgSleepData.innerHTML = `
-    <div id="compareSleepQual">Average all-time sleep quality: ${avgAllSleepQuality}</div>
-    <div id="compareSleepHours">Average all-time hours slept: ${avgAllSleepHours}</div>
-    `;
+  avgSleepHoursAllTime.innerHTML = `
+    <div id="compareSleepQual">All-time average hours slept: 
+        <div class="widgetDataNumber">${avgAllSleepHours} hours
+        </div>
+    </div>`
+  avgSleepQualAllTime.innerHTML = `
+    <div id="compareSleepHours">All-time average sleep quality:
+        <div class="widgetDataNumber">${avgAllSleepQuality}
+        </div>
+    </div>`;
 };
 
 const displaySleepChart = () => {

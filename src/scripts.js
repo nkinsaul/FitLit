@@ -79,8 +79,8 @@ const addUser = () => {
   createNewUser(userData);
   userName.innerText = aNewUser.name;
   userAddress.innerText = aNewUser.address;
-  userStrideLength.innerText = aNewUser.strideLength;
-  userDailyStepGoal.innerText = aNewUser.dailyStepGoal;
+  userStrideLength.innerText = `Stride length: ${aNewUser.strideLength}`;
+  userDailyStepGoal.innerText = `Steps: ${aNewUser.dailyStepGoal}`;
   userEmail.innerText = aNewUser.email;
   userFirstName.innerText = `Hi ${aNewUser.getFirstName()}!`;
 };

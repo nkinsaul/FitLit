@@ -41,7 +41,8 @@ main {
 }
 .big-container-right {
   height: 100vh;
-  width: 75%;
+  width: 100%;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   background-color: blue;
@@ -79,6 +80,8 @@ main {
 .chart-container {
   height: 30vh;
   display: flex;
+  justify-content: space-evenly;
+  padding: 1em;
   background-color:rgb(161, 161, 215)
 }
 
@@ -89,8 +92,8 @@ main {
 .widget5,
 .widget6, 
 .widget7{
-  height: 10em;
-  width: 10em;
+  height: 13em;
+  width: 13em;
   padding: 1em;
   border-radius: 25%;
   text-align: center;

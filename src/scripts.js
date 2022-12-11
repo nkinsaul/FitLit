@@ -97,11 +97,13 @@ const displayDailySleep = () => {
   let lastNightDate = user1[0].date;
   dailySleepHours.innerHTML = `
     <div id="widgetTitle">Hours slept last night: 
-        <div class="widgetDataNumber">${userSleepData.getHoursSleptOnDay(1,lastNightDate)}
+    <BR></BR>
+        <div class="widgetDataNumber">${userSleepData.getHoursSleptOnDay(1,lastNightDate)} hours
         </div>
     </div>`;
   dailySleepQuality.innerHTML = `
     <div id="widgetTitle">Sleep quality last night: 
+    <BR></BR>
         <div class="widgetDataNumber">${userSleepData.getSleepQualityOnDay(1,lastNightDate)}
         </div>
     </div>`;

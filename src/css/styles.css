@@ -105,7 +105,7 @@ main {
 }
 
 .widgetDataNumber {
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: bold;
-  font-style: italic;
+  /* font-style: italic; */
 }

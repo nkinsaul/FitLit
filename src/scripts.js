@@ -66,7 +66,9 @@ function onLoad() {
 const createUserArray = (userData) => {
   newRepo = new UserRepository(userData);
   usersAvgSteps = newRepo.avgStepGoal();
-  userStepComparison.innerText = `${usersAvgSteps} steps`;
+  userStepComparison.innerHTML = `
+    <div class="widgetDataNumber">${usersAvgSteps} steps
+    </div>`;
   return newRepo;
 };
 

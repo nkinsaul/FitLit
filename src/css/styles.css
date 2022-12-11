@@ -53,9 +53,14 @@ main {
   display: flex;
   padding: 1em;
   flex-direction: row;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: space-evenly;
   padding: 2em;
   background-color: rgb(187, 224, 224);
+}
+
+.first-name {
+  font-size: 3em;
 }
 
 .user-info-box,
@@ -64,6 +69,8 @@ main {
   width: 20em;
   padding: 1em;
   float: right;
+  display: flex;
+  align-items: center;
   background-color: aliceblue;
 }
 
@@ -107,5 +114,5 @@ main {
 .widgetDataNumber {
   font-size: 2.5em;
   font-weight: bold;
-  /* font-style: italic; */
+  font-style: italic;
 }

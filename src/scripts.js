@@ -107,26 +107,28 @@ const displayDailySleep = () => {
 const displayWeeklySleep = () => {
   const user = userSleepData.getUserData(1).slice(-7);
   weeklySleepHours.innerHTML = `              
-    <h4>hours slept last 6 days
-        <div id="day1">Day 1: ${user[6].hoursSlept} hours</div>
-        <div id="day2">Day 2: ${user[5].hoursSlept} hours</div>
-        <div id="day3">Day 3: ${user[4].hoursSlept} hours</div>
-        <div id="day4">Day 4: ${user[3].hoursSlept} hours</div>
-        <div id="day5">Day 5: ${user[2].hoursSlept} hours</div>
-        <div id="day6">Day 6: ${user[1].hoursSlept} hours</div>
+    <h4>Hours Slept Last Week
+        <BR></BR>
+        <div id="day1">${user[6].date} : ${user[6].hoursSlept} hours</div>
+        <div id="day2">${user[5].date} : ${user[5].hoursSlept} hours</div>
+        <div id="day3">${user[4].date} : ${user[4].hoursSlept} hours</div>
+        <div id="day4">${user[3].date} : ${user[3].hoursSlept} hours</div>
+        <div id="day5">${user[2].date} : ${user[2].hoursSlept} hours</div>
+        <div id="day6">${user[1].date} : ${user[1].hoursSlept} hours</div>
     </h4>`;
 };
 
 const displayWeeklySleepQuality = () => {
   const user = userSleepData.getUserData(1).slice(-7);
   weeklySleepQuality.innerHTML = `              
-    <h4>sleep quality last 6 days
-        <div id="day1">Day 1: ${user[6].sleepQuality}</div>
-        <div id="day2">Day 2: ${user[5].sleepQuality}</div>
-        <div id="day3">Day 3: ${user[4].sleepQuality}</div>
-        <div id="day4">Day 4: ${user[3].sleepQuality}</div>
-        <div id="day5">Day 5: ${user[2].sleepQuality}</div>
-        <div id="day6">Day 6: ${user[1].sleepQuality}</div>
+    <h4>Sleep Quality Last Week
+        <BR></BR>
+        <div id="day1">${user[6].date} : ${user[6].sleepQuality}</div>
+        <div id="day2">${user[5].date} : ${user[5].sleepQuality}</div>
+        <div id="day3">${user[4].date} : ${user[4].sleepQuality}</div>
+        <div id="day4">${user[3].date} : ${user[3].sleepQuality}</div>
+        <div id="day5">${user[2].date} : ${user[2].sleepQuality}</div>
+        <div id="day6">${user[1].date} : ${user[1].sleepQuality}</div>
     </h4>`;
 };
 

@@ -67,6 +67,13 @@ main {
   background-color: aliceblue;
 }
 
+.chart-container {
+  height: 30vh;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1em;
+  background-color:rgb(161, 161, 215)
+}
 
 .widget-container {
   height: 30vh;
@@ -77,14 +84,6 @@ main {
   align-items: center;
 }
 
-.chart-container {
-  height: 30vh;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 1em;
-  background-color:rgb(161, 161, 215)
-}
-
 .widget1,
 .widget2,
 .widget3,
@@ -92,8 +91,8 @@ main {
 .widget5,
 .widget6, 
 .widget7{
-  height: 13em;
-  width: 13em;
+  height: 14em;
+  width: 14em;
   padding: 1em;
   border-radius: 25%;
   text-align: center;

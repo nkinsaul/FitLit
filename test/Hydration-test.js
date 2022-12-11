@@ -4,7 +4,6 @@ import hydrationData from './MockHydroData.js';
 
 describe ("Hydration", function() {
     let hydration;
-    let hydrationData;
     let id;
     let miniHydrationData = [{
         userID: 3,
@@ -99,11 +98,11 @@ describe ("Hydration", function() {
     });
 
     it('should have a userID', function() {
-        expect(hydration.userID).to.equal(miniHydrationData[0].userID);
+        expect(hydration.userID).to.deep.equal(miniHydrationData[0].userID);
     });
 
     it('should receive information from a data set', function() {
-        expect(hydration.dataSet).to.equal(miniHydrationData)
+        expect(hydration.dataSet).to.deep.equal(miniHydrationData)
     });
 
     it('should have a property to store a data set for one user', function() {

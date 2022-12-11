@@ -44,7 +44,8 @@ Promise.all([fetchUserData(), fetchSleepData(), fetchHydrationData()])
     userData = data[0].userData;
     sleepData = data[1].sleepData;
     hydrationData = data[2].hydrationData;
-    onLoad(userData);
+    onLoad();
+    waterForAddUserFunc();
 });
 
 function onLoad() {
@@ -78,8 +79,12 @@ const addUser = () => {
 const dailyWater = document.getElementById("dailyWater");
 const weeklyWater = document.getElementById("weeklyWater");
 //(FOR ON LOAD, PUT IN ADDUSER)
-function waterForAddUserFunc (id, hydrationData) {
-    createWaterProfile(id, hydrationData);
+//need id & data variables accounted for:
+//aNewUser.id, hydrationData defined in the Promise.all
+// add let id;  ?
+function waterForAddUserFunc () {
+    let idKey = aNewUser.id;
+    createWaterProfile(idKey, hydrationData);
     waterTodayWidget();
     waterThisWeekWidget();
 }

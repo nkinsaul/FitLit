@@ -10,7 +10,7 @@ class Hydration {
                 return element;
             }
         });
-        debugger;
+        // debugger;
         this._oneUserDataSet = oneUserArray;
         return this._oneUserDataSet;
     }
@@ -31,15 +31,18 @@ class Hydration {
     } 
 
     getToday() {
-        let today = this._oneUserDataSet.slice(-1);
-        this.today = today[0].numOunces;
-        return this.today;
+        console.log(this._oneUserDataSet.slice(-1));
+        let currentDay = this._oneUserDataSet.slice(-1)[0].numOunces;
+        console.log(currentDay);
+        return currentDay;
     }
 
     getOneWeekTotal() {
         // TODO(): You need to turn the week array into some string
         // that will get added to innertext
         let waterWeek = this._oneUserDataSet.slice(-7).map(element => element.numOunces);
+        console.log(waterWeek);
+    
         return waterWeek;
     }
 }

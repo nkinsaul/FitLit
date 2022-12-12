@@ -100,7 +100,9 @@ function createWaterProfile (userId, hydrationData) {
 
 function waterTodayWidget (waterProfile) {
     const todayWidgetData = waterProfile.getToday();
-    dailyWater.innertext = todayWidgetData;
+    dailyWater.innerHTML = `<p>${todayWidgetData}</p>`;
+    // dailyWater.innertext = todayWidgetData;
+    console.log(todayWidgetData);
 }
 
 function waterThisWeekWidget (waterProfile) { 

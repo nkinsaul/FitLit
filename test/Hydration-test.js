@@ -130,6 +130,7 @@ describe ("Hydration", function() {
 
     it('should have a method to return the date for today', function() {
         const numOuncesToday = hydration.getToday();
+        console.log(numOuncesToday);
         expect(numOuncesToday).to.equal(41);
     });
 

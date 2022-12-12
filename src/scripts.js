@@ -115,7 +115,7 @@ function waterThisWeekWidget (waterProfile) {
     weeklyWater.innerText = weekWidgetData;
     console.log(weekWidgetData);
 }
-=======
+
 
 const instantiateSleep = () => {
   userSleepData = new Sleep(sleepData);

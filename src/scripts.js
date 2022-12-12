@@ -39,7 +39,6 @@ const avgSleepQualAllTime = document.getElementById("avgSleepQualAllTime");
 
 let newRepo;
 let aNewUser;
-// let userId = 1;
 let randomUserId;
 let usersAvgSteps;
 let userData;
@@ -69,12 +68,12 @@ const generateRandomUserId = () => {
 function onLoad(hydrationData, userData) {
     generateRandomUserId();
     addUser(userData);
+    waterForAddUserFunc(hydrationData, randomUserId);
     displayDailySleep();
     displayWeeklySleep();
     displayWeeklySleepQuality();
     displayAvgAllTime();
     displayCharts();
-    waterForAddUserFunc(hydrationData, randomUserId);
 }
 
 const createUserArray = (userData) => {
@@ -111,8 +110,7 @@ function waterForAddUserFunc (hydrationData, randomUserId) {
 
 function createWaterProfile (randomUserId, hydrationData) {
     waterProfile = new Hydration(randomUserId, hydrationData);
-    console.log('water profile for one user:' , waterProfile.getOneUserData(hydrationData));
-    console.log('water profile in createWaterProfile function: ', waterProfile);
+    waterProfile.getOneUserData(hydrationData);
 }
 
 function waterTodayWidget (waterProfile) {
@@ -127,6 +125,7 @@ function waterTodayWidget (waterProfile) {
 
 function waterThisWeekWidget (waterProfile) { 
     const weekWidgetData = waterProfile.getOneWeekTotal();
+    console.log('weekWidgetData', weekWidgetData)
     weeklyWater.innerHTML = `
       <div id="widgetTitle">Amount of water consumed last week:
         <BR></BR>
@@ -206,10 +205,7 @@ const displayAvgAllTime = () => {
 
 const displayCharts = () => {
   const usersSleepOverWeek = userSleepData.getUserData(randomUserId).slice(-7);
-  console.log('water profile in displayCharts function: ', waterProfile);
-  console.log('this._oneUserDataSet'. waterProfile.this._oneUserDataSet)
   const usersHydrationOverWeek = waterProfile.getOneUserData(hydrationData).slice(-7);
-  console.log('usersHydrationOverWeek" ', usersHydrationOverWeek);
   hoursSleptOverWeekChart(usersSleepOverWeek);
   sleepQualityOverWeekChart(usersSleepOverWeek);
   waterConsumedOverWeekChart(usersHydrationOverWeek);

@@ -35,6 +35,9 @@ const waterConsumedOverWeekChart = (userData) => {
             userData[6].numOunces,
           ],
           borderWidth: 0.5,
+          backgroundColor: [
+            '#214457', '#214457', '#214457', '#214457', '#214457', '#214457', '#214457'
+          ],
         },
       ],
     },

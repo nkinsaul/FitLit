@@ -43,7 +43,7 @@ main {
   align-items: center;
   justify-content: space-evenly;
   padding: 2em;
-  background-color:  #386994; 
+  background-color: #386994; 
 }
 
 .first-name {
@@ -161,6 +161,11 @@ main {
 
 .widgetDataNumber {
   font-size: 2.5em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.widgetDataNumberMiniSize {
   font-weight: bold;
   font-style: italic;
 }

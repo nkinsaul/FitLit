@@ -38,7 +38,7 @@ const avgSleepQualAllTime = document.getElementById("avgSleepQualAllTime");
 
 let newRepo;
 let aNewUser;
-let userId = 1;
+let randomUserId;
 let usersAvgSteps;
 let userData;
 let hydrationData;
@@ -60,14 +60,19 @@ Promise.all([fetchUserData(), fetchSleepData(), fetchHydrationData()]).then(
     onLoad(hydrationData, userData);
 });
 
+const generateRandomUserId = () => {
+    randomUserId = Math.floor(Math.random() * 50)
+}
+
 function onLoad(hydrationData, userData) {
-  addUser(userData);
-  displayDailySleep();
-  displayWeeklySleep();
-  displayWeeklySleepQuality();
-  displayAvgAllTime();
-  displayCharts();
-  waterForAddUserFunc(hydrationData, userId);
+    generateRandomUserId();
+    addUser(userData);
+    waterForAddUserFunc(hydrationData, randomUserId);
+    displayDailySleep();
+    displayWeeklySleep();
+    displayWeeklySleepQuality();
+    displayAvgAllTime();
+    displayCharts();
 }
 
 const createUserArray = (userData) => {
@@ -81,7 +86,7 @@ const createUserArray = (userData) => {
 
 function createNewUser() {
   createUserArray(userData);
-  const userObject = newRepo.getUserData(userId);
+  const userObject = newRepo.getUserData(randomUserId);
   aNewUser = new User(userObject);
   return aNewUser;
 }
@@ -96,14 +101,14 @@ const addUser = () => {
   userFirstName.innerHTML = `Hi, ${aNewUser.getFirstName()}!`;
 };
 
-function waterForAddUserFunc (hydrationData, userId) {
-    createWaterProfile(userId, hydrationData);
+function waterForAddUserFunc (hydrationData, randomUserId) {
+    createWaterProfile(randomUserId, hydrationData);
     waterTodayWidget(waterProfile);
     waterThisWeekWidget(waterProfile);
 }
 
-function createWaterProfile (userId, hydrationData) {
-    waterProfile = new Hydration(userId, hydrationData);
+function createWaterProfile (randomUserId, hydrationData) {
+    waterProfile = new Hydration(randomUserId, hydrationData);
     waterProfile.getOneUserData(hydrationData);
 }
 
@@ -119,6 +124,7 @@ function waterTodayWidget (waterProfile) {
 
 function waterThisWeekWidget (waterProfile) { 
     const weekWidgetData = waterProfile.getOneWeekTotal();
+    console.log('weekWidgetData', weekWidgetData)
     weeklyWater.innerHTML = `
       <div id="widgetTitle">Amount of water consumed last week:
         <BR></BR>
@@ -138,24 +144,24 @@ const instantiateSleep = () => {
 };
 
 const displayDailySleep = () => {
-  let user1 = userSleepData.getUserData(1).reverse();
+  let user1 = userSleepData.getUserData(randomUserId).reverse();
   let lastNightDate = user1[0].date;
   dailySleepHours.innerHTML = `
     <div id="widgetTitle">Hours slept last night: 
     <BR></BR>
-        <div class="widgetDataNumber">${userSleepData.getHoursSleptOnDay(1,lastNightDate)} hours
+        <div class="widgetDataNumber">${userSleepData.getHoursSleptOnDay(randomUserId,lastNightDate)} hours
         </div>
     </div>`;
   dailySleepQuality.innerHTML = `
     <div id="widgetTitle">Sleep quality last night: 
     <BR></BR>
-        <div class="widgetDataNumber">${userSleepData.getSleepQualityOnDay(1,lastNightDate)}
+        <div class="widgetDataNumber">${userSleepData.getSleepQualityOnDay(randomUserId,lastNightDate)}
         </div>
     </div>`;
 };
 
 const displayWeeklySleep = () => {
-  const user = userSleepData.getUserData(1).slice(-7);
+  const user = userSleepData.getUserData(randomUserId).slice(-7);
   weeklySleepHours.innerHTML = `              
     <div id="widgetTitle">Hours slept last week:
         <BR></BR>
@@ -169,7 +175,7 @@ const displayWeeklySleep = () => {
 };
 
 const displayWeeklySleepQuality = () => {
-  const user = userSleepData.getUserData(1).slice(-7);
+  const user = userSleepData.getUserData(randomUserId).slice(-7);
   weeklySleepQuality.innerHTML = `              
     <div id="widgetTitle">Sleep quality last week:
         <BR></BR>
@@ -183,8 +189,8 @@ const displayWeeklySleepQuality = () => {
 };
 
 const displayAvgAllTime = () => {
-  const avgAllSleepQuality = userSleepData.avgSleepQuality(1);
-  const avgAllSleepHours = userSleepData.avgHoursSleptPerDay(1);
+  const avgAllSleepQuality = userSleepData.avgSleepQuality(randomUserId);
+  const avgAllSleepHours = userSleepData.avgHoursSleptPerDay(randomUserId);
   avgSleepHoursAllTime.innerHTML = `
     <div id="compareSleepQual">All-time average hours slept: 
         <div class="widgetDataNumber">${avgAllSleepHours} hours
@@ -198,11 +204,8 @@ const displayAvgAllTime = () => {
 };
 
 const displayCharts = () => {
-  const usersSleepOverWeek = userSleepData.getUserData(1).slice(-7);
-  console.log(usersSleepOverWeek);
-  console.log(waterProfile);
+  const usersSleepOverWeek = userSleepData.getUserData(randomUserId).slice(-7);
   const usersHydrationOverWeek = waterProfile.getOneUserData(hydrationData).slice(-7);
-  console.log(usersHydrationOverWeek);
   hoursSleptOverWeekChart(usersSleepOverWeek);
   sleepQualityOverWeekChart(usersSleepOverWeek);
   waterConsumedOverWeekChart(usersHydrationOverWeek);

@@ -30,9 +30,7 @@ class Hydration {
     } 
 
     getToday() {
-        console.log(this._oneUserDataSet.slice(-1));
         let currentDay = this._oneUserDataSet.slice(-1)[0].numOunces;
-        console.log(currentDay);
         return currentDay;
     }
 

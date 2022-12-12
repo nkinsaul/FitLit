@@ -28,8 +28,28 @@
         </section>
         <section class="chart-container" id="chartContainer">
           <canvas id="hydrationDataChart"></canvas> <!--edit or insert hydration chart here!-->
-          <canvas id="hoursSleptOverWeek"></canvas>
-          <canvas id="sleepQualityOverWeek"></canvas>
+          <div class="flip-box">
+            <div class="flip-box-inner">
+              <div class="flip-box-front">
+                <p>INSERT IMG HERE </p>
+                <p>Hover over for the hours slept chart!</p>
+              </div>
+              <div class="flip-box-back">
+                <canvas id="hoursSleptOverWeek"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="flip-box">
+            <div class="flip-box-inner">
+              <div class="flip-box-front">
+                <p>INSERT IMG HERE </p>
+                <p>Hover over for the sleep quality chart!</p>
+              </div>
+              <div class="flip-box-back">
+                <canvas id="sleepQualityOverWeek"></canvas>
+              </div>
+            </div>
+          </div>
         </section>
         <section class="widget-container" id="widgetContainer">
           <section class="widget1" id="dailyWater">1: daily water</section>

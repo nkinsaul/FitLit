@@ -2,8 +2,6 @@ class Hydration {
     constructor(id, hydrationData) {
          this.userID = id;
          this.dataSet = hydrationData;
-         this.oneUserDataSet;
-         this.today;
     }
 
     getOneUserData(hydrationData) {
@@ -12,8 +10,8 @@ class Hydration {
                 return element;
             }
         });
-        this.oneUserDataSet = oneUserArray;
-        return this.oneUserDataSet;
+        this._oneUserDataSet = oneUserArray;
+        return this._oneUserDataSet;
     }
 
     getAvgConsumed() {
@@ -27,16 +25,21 @@ class Hydration {
     }
 
     getOneDayTotal(thisDate) {
-        let ouncesByDate = this.oneUserDataSet.find(element => element.date === thisDate);
+        let ouncesByDate = this._oneUserDataSet.find(element => element.date === thisDate);
         return ouncesByDate.numOunces;
-    }
+    } 
 
     getToday() {
-        return this.today = this.oneUserDataSet[-1];
+        console.log(this._oneUserDataSet.slice(-1));
+        let currentDay = this._oneUserDataSet.slice(-1)[0].numOunces;
+        console.log(currentDay);
+        return currentDay;
     }
 
     getOneWeekTotal() {
-        let waterWeek = this.oneUserDataSet.slice(-7);
+
+        let waterWeek = this._oneUserDataSet.slice(-7).map(element => element.numOunces);
+        console.log(waterWeek);
         return waterWeek;
     }
 }

@@ -4,7 +4,6 @@ import hydrationData from './MockHydroData.js';
 
 describe ("Hydration", function() {
     let hydration;
-    let hydrationData;
     let id;
     let miniHydrationData = [{
         userID: 3,
@@ -95,14 +94,15 @@ describe ("Hydration", function() {
 
     it('should instantiate our good friend Hydration', function() {
         expect(hydration.dataSet).to.deep.equal(miniHydrationData);
+        expect(hydration.userID).to.deep.equal(3);
     });
 
     it('should have a userID', function() {
-        expect(hydration.userID).to.equal(miniHydrationData[0].userID);
+        expect(hydration.userID).to.deep.equal(miniHydrationData[0].userID);
     });
 
     it('should receive information from a data set', function() {
-        expect(hydration.dataSet).to.equal(miniHydrationData)
+        expect(hydration.dataSet).to.deep.equal(miniHydrationData)
     });
 
     it('should have a property to store a data set for one user', function() {
@@ -128,8 +128,14 @@ describe ("Hydration", function() {
         expect(ouncesConsumedByDate).to.equal(47);
     });
 
+    it('should have a method to return the date for today', function() {
+        const numOuncesToday = hydration.getToday();
+        console.log(numOuncesToday);
+        expect(numOuncesToday).to.equal(41);
+    });
+
     it('should have a method to return the user hydration for the most recent 7 days', function() {
         const ouncesConsumedInAWeek = hydration.getOneWeekTotal();
-        expect(ouncesConsumedInAWeek).to.be.deep.equal(miniHydrationData);
+        expect(ouncesConsumedInAWeek).to.be.deep.equal([ 47, 99, 28, 40, 85, 51, 41 ]);
     });
 });

@@ -29,7 +29,6 @@ const dailySleepHours = document.getElementById("dailySleepHours");
 const weeklySleepHours = document.getElementById("weeklySleepHours");
 const dailySleepQuality = document.getElementById("dailySleepQuality");
 const weeklySleepQuality = document.getElementById("weeklySleepQuality");
-//const avgSleepData = document.getElementById("avgSleepData");
 const dailyWater = document.getElementById("dailyWater");
 const weeklyWater = document.getElementById("weeklyWater");
 const avgSleepHoursAllTime = document.getElementById("avgSleepHoursAllTime");

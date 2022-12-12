@@ -9,6 +9,7 @@ import Sleep from "./Sleep";
 import { fetchUserData } from "./apiCalls";
 import { fetchSleepData } from "./apiCalls";
 import { fetchHydrationData } from "./apiCalls";
+import { waterConsumedOverWeekChart } from "./Chart"
 import { hoursSleptOverWeekChart } from "./Chart";
 import { sleepQualityOverWeekChart } from "./Chart";
 import Hydration from './Hydration';
@@ -28,7 +29,7 @@ const dailySleepHours = document.getElementById("dailySleepHours");
 const weeklySleepHours = document.getElementById("weeklySleepHours");
 const dailySleepQuality = document.getElementById("dailySleepQuality");
 const weeklySleepQuality = document.getElementById("weeklySleepQuality");
-const avgSleepData = document.getElementById("avgSleepData");
+//const avgSleepData = document.getElementById("avgSleepData");
 const dailyWater = document.getElementById("dailyWater");
 const weeklyWater = document.getElementById("weeklyWater");
 const avgSleepHoursAllTime = document.getElementById("avgSleepHoursAllTime");
@@ -56,6 +57,7 @@ Promise.all([fetchUserData(), fetchSleepData(), fetchHydrationData()]).then(
     sleepData = data[1].sleepData;
     hydrationData = data[2].hydrationData;
     instantiateSleep(sleepData);
+    createWaterProfile(1, hydrationData);
     onLoad(hydrationData, userData);
 });
 
@@ -65,7 +67,7 @@ function onLoad(hydrationData, userData) {
   displayWeeklySleep();
   displayWeeklySleepQuality();
   displayAvgAllTime();
-  displaySleepChart();
+  displayCharts();
   waterForAddUserFunc(hydrationData, userId);
 }
 
@@ -104,22 +106,17 @@ function waterForAddUserFunc (hydrationData, userId) {
 function createWaterProfile (userId, hydrationData) {
     waterProfile = new Hydration(userId, hydrationData);
     waterProfile.getOneUserData(hydrationData);
-    console.log(waterProfile._oneUserDataSet);
 }
 
 function waterTodayWidget (waterProfile) {
     const todayWidgetData = waterProfile.getToday();
     dailyWater.innerHTML = `<p>${todayWidgetData}</p>`;
-    // dailyWater.innertext = todayWidgetData;
-    console.log(todayWidgetData);
 }
 
 function waterThisWeekWidget (waterProfile) { 
     const weekWidgetData = waterProfile.getOneWeekTotal();
     weeklyWater.innerText = weekWidgetData;
-    console.log(weekWidgetData);
 }
-
 
 const instantiateSleep = () => {
   userSleepData = new Sleep(sleepData);
@@ -186,8 +183,13 @@ const displayAvgAllTime = () => {
     </div>`;
 };
 
-const displaySleepChart = () => {
+const displayCharts = () => {
   const usersSleepOverWeek = userSleepData.getUserData(1).slice(-7);
+  console.log(usersSleepOverWeek);
+  console.log(waterProfile);
+  const usersHydrationOverWeek = waterProfile.getOneUserData(hydrationData).slice(-7);
+  console.log(usersHydrationOverWeek);
   hoursSleptOverWeekChart(usersSleepOverWeek);
   sleepQualityOverWeekChart(usersSleepOverWeek);
+  waterConsumedOverWeekChart(usersHydrationOverWeek);
 };

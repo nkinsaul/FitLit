@@ -30,16 +30,16 @@ class Hydration {
     } 
 
     getToday() {
-        console.log(this._oneUserDataSet.slice(-1));
+        // console.log(this._oneUserDataSet.slice(-1));
         let currentDay = this._oneUserDataSet.slice(-1)[0].numOunces;
-        console.log(currentDay);
+        // console.log(currentDay);
         return currentDay;
     }
 
     getOneWeekTotal() {
 
         let waterWeek = this._oneUserDataSet.slice(-7).map(element => element.numOunces);
-        console.log(waterWeek);
+        // console.log(waterWeek);
         return waterWeek;
     }
 }

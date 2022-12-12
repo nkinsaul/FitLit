@@ -120,7 +120,16 @@ function waterTodayWidget (waterProfile) {
 
 function waterThisWeekWidget (waterProfile) { 
     const weekWidgetData = waterProfile.getOneWeekTotal();
-    //weeklyWater.innerText = weekWidgetData;
+    weeklyWater.innerHTML = `
+      <div id="widgetTitle">Amount of water consumed last week:
+        <BR></BR>
+        <div id="day1">${weekWidgetData[6]} fl. oz.</div>
+        <div id="day2">${weekWidgetData[5]} fl. oz.</div>
+        <div id="day3">${weekWidgetData[4]} fl. oz.</div>
+        <div id="day4">${weekWidgetData[3]} fl. oz.</div>
+        <div id="day5">${weekWidgetData[2]} fl. oz.</div>
+        <div id="day6">${weekWidgetData[1]} fl. oz.</div>
+      </div>`;
 }
 
 const instantiateSleep = () => {
@@ -162,15 +171,15 @@ const displayWeeklySleep = () => {
 const displayWeeklySleepQuality = () => {
   const user = userSleepData.getUserData(1).slice(-7);
   weeklySleepQuality.innerHTML = `              
-    <h4>Sleep Quality Last Week
+    <div id="widgetTitle">Sleep quality last week:
         <BR></BR>
-        <div id="day1">${user[6].date} : ${user[6].sleepQuality}</div>
-        <div id="day2">${user[5].date} : ${user[5].sleepQuality}</div>
-        <div id="day3">${user[4].date} : ${user[4].sleepQuality}</div>
-        <div id="day4">${user[3].date} : ${user[3].sleepQuality}</div>
-        <div id="day5">${user[2].date} : ${user[2].sleepQuality}</div>
-        <div id="day6">${user[1].date} : ${user[1].sleepQuality}</div>
-    </h4>`;
+        <div id="day1">${user[6].date}: ${user[6].sleepQuality}</div>
+        <div id="day2">${user[5].date}: ${user[5].sleepQuality}</div>
+        <div id="day3">${user[4].date}: ${user[4].sleepQuality}</div>
+        <div id="day4">${user[3].date}: ${user[3].sleepQuality}</div>
+        <div id="day5">${user[2].date}: ${user[2].sleepQuality}</div>
+        <div id="day6">${user[1].date}: ${user[1].sleepQuality}</div>
+    </div>`;
 };
 
 const displayAvgAllTime = () => {

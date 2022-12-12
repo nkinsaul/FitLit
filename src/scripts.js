@@ -53,8 +53,8 @@ Promise.all([fetchUserData(), fetchSleepData(), fetchHydrationData()]).then(
     userData = data[0].userData;
     sleepData = data[1].sleepData;
     hydrationData = data[2].hydrationData;
-    onLoad(hydrationData, userData);
     instantiateSleep(sleepData);
+    onLoad(hydrationData, userData);
 });
 
 function onLoad(hydrationData, userData) {

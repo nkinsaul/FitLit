@@ -123,14 +123,15 @@ function waterThisWeekWidget (waterProfile) {
     weeklyWater.innerHTML = `
       <div id="widgetTitle">Amount of water consumed last week:
         <BR></BR>
-        <div id="day1"><span class="widgetDataNumberMiniSize">${weekWidgetData[6]} fl. oz.</span></div>
-        <div id="day2"><span class="widgetDataNumberMiniSize">${weekWidgetData[5]} fl. oz.</span></div>
-        <div id="day3"><span class="widgetDataNumberMiniSize">${weekWidgetData[4]} fl. oz.</span></div>
-        <div id="day4"><span class="widgetDataNumberMiniSize">${weekWidgetData[3]} fl. oz.</span></div>
-        <div id="day5"><span class="widgetDataNumberMiniSize">${weekWidgetData[2]} fl. oz.</span></div>
-        <div id="day6"><span class="widgetDataNumberMiniSize">${weekWidgetData[1]} fl. oz.</span></div>
+        <div id="day1">${weekWidgetData[6].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[6].numOunces} fl. oz.</span></div>
+        <div id="day2">${weekWidgetData[5].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[5].numOunces} fl. oz.</span></div>
+        <div id="day3">${weekWidgetData[4].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[4].numOunces} fl. oz.</span></div>
+        <div id="day4">${weekWidgetData[3].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[3].numOunces} fl. oz.</span></div>
+        <div id="day5">${weekWidgetData[2].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[2].numOunces} fl. oz.</span></div>
+        <div id="day6">${weekWidgetData[1].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[1].numOunces} fl. oz.</span></div>
+        <div id="day6">${weekWidgetData[0].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[0].numOunces} fl. oz.</span></div>
       </div>`;
-}
+};
 
 const instantiateSleep = () => {
   userSleepData = new Sleep(sleepData);

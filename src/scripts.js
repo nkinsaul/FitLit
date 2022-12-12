@@ -165,6 +165,7 @@ const displayWeeklySleep = () => {
         <div id="day4">${user[3].date}: <span class="widgetDataNumberMiniSize">${user[3].hoursSlept} hours</span></div>
         <div id="day5">${user[2].date}: <span class="widgetDataNumberMiniSize">${user[2].hoursSlept} hours</span></div>
         <div id="day6">${user[1].date}: <span class="widgetDataNumberMiniSize">${user[1].hoursSlept} hours</span></div>
+        <div id="day6">${user[0].date}: <span class="widgetDataNumberMiniSize">${user[0].hoursSlept} hours</span></div>
     </div>`;
 };
 
@@ -179,6 +180,7 @@ const displayWeeklySleepQuality = () => {
         <div id="day4">${user[3].date}: <span class="widgetDataNumberMiniSize">${user[3].sleepQuality}</span></div>
         <div id="day5">${user[2].date}: <span class="widgetDataNumberMiniSize">${user[2].sleepQuality}</span></div>
         <div id="day6">${user[1].date}: <span class="widgetDataNumberMiniSize">${user[1].sleepQuality}</span></div>
+        <div id="day6">${user[0].date}: <span class="widgetDataNumberMiniSize">${user[0].sleepQuality}</span></div>
     </div>`;
 };
 

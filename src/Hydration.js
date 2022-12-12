@@ -37,9 +37,7 @@ class Hydration {
     }
 
     getOneWeekTotal() {
-
-        let waterWeek = this._oneUserDataSet.slice(-7).map(element => element.numOunces);
-        console.log(waterWeek);
+        let waterWeek = this._oneUserDataSet.slice(-7);
         return waterWeek;
     }
 }

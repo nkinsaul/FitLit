@@ -65,6 +65,8 @@ main {
   display: flex;
   align-items: center;
   background-color: rgb(33, 68, 87, 0.8);
+  border: 2px;
+  border-radius: 5px;
 }
 
 .step-goal-box {
@@ -93,7 +95,7 @@ main {
   width: 400px;
   height: 300px;
   border: .1px solid #f1f1f1;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
 .flip-box-inner {

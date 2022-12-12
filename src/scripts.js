@@ -159,13 +159,13 @@ const displayWeeklySleep = () => {
   weeklySleepHours.innerHTML = `              
     <div id="widgetTitle">Hours slept last week:
         <BR></BR>
-        <div id="day1">${user[6].date}: <span class="widgetDataNumberMiniSize">${user[6].hoursSlept} hours</span></div>
-        <div id="day2">${user[5].date}: <span class="widgetDataNumberMiniSize">${user[5].hoursSlept} hours</span></div>
-        <div id="day3">${user[4].date}: <span class="widgetDataNumberMiniSize">${user[4].hoursSlept} hours</span></div>
-        <div id="day4">${user[3].date}: <span class="widgetDataNumberMiniSize">${user[3].hoursSlept} hours</span></div>
-        <div id="day5">${user[2].date}: <span class="widgetDataNumberMiniSize">${user[2].hoursSlept} hours</span></div>
-        <div id="day6">${user[1].date}: <span class="widgetDataNumberMiniSize">${user[1].hoursSlept} hours</span></div>
-        <div id="day6">${user[0].date}: <span class="widgetDataNumberMiniSize">${user[0].hoursSlept} hours</span></div>
+        <div id="day1">${user[6].date}: <span class="widgetDataNumberMiniSize">${user[6].hoursSlept} hrs</span></div>
+        <div id="day2">${user[5].date}: <span class="widgetDataNumberMiniSize">${user[5].hoursSlept} hrs</span></div>
+        <div id="day3">${user[4].date}: <span class="widgetDataNumberMiniSize">${user[4].hoursSlept} hrs</span></div>
+        <div id="day4">${user[3].date}: <span class="widgetDataNumberMiniSize">${user[3].hoursSlept} hrs</span></div>
+        <div id="day5">${user[2].date}: <span class="widgetDataNumberMiniSize">${user[2].hoursSlept} hrs</span></div>
+        <div id="day6">${user[1].date}: <span class="widgetDataNumberMiniSize">${user[1].hoursSlept} hrs</span></div>
+        <div id="day6">${user[0].date}: <span class="widgetDataNumberMiniSize">${user[0].hoursSlept} hrs</span></div>
     </div>`;
 };
 

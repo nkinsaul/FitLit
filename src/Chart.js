@@ -47,6 +47,13 @@ const waterConsumedOverWeekChart = (userData) => {
           beginAtZero: true,
         },
       },
+      plugins: {
+        title: {
+          display: true,
+          text: "title",
+          position: top,
+        }
+      },
     },
   });
 };

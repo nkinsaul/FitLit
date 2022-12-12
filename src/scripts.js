@@ -94,7 +94,7 @@ const addUser = () => {
   userStrideLength.innerHTML = `Stride length: <span class="widgetDataNumberMiniSize">${aNewUser.strideLength}</span>`;
   userDailyStepGoal.innerHTML = `Steps: <span class="widgetDataNumberMiniSize">${aNewUser.dailyStepGoal}</span>`;
   userEmail.innerHTML = `<span class="widgetDataNumberMiniSize">${aNewUser.email}</span>`;
-  userFirstName.innerHTML = `Hi ${aNewUser.getFirstName()}!`;
+  userFirstName.innerHTML = `Hi, ${aNewUser.getFirstName()}!`;
 };
 
 function waterForAddUserFunc (hydrationData, userId) {

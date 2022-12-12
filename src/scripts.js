@@ -60,12 +60,13 @@ Promise.all([fetchUserData(), fetchSleepData(), fetchHydrationData()]).then(
     onLoad(hydrationData, userData);
 });
 
-const generateRandomUserId = () => {
-    randomUserId = Math.floor(Math.random() * 50)
+const generateRandomUserId = (min, max) => {
+    randomUserId = Math.floor(Math.random() * (max - min) + 1)
 }
 
 function onLoad(hydrationData, userData) {
-    generateRandomUserId();
+    generateRandomUserId(1, 50);
+    console.log(randomUserId);
     addUser(userData);
     waterForAddUserFunc(hydrationData, randomUserId);
     displayDailySleep();

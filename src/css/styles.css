@@ -16,6 +16,7 @@ main {
   font-family: 'Kalam', cursive;
   font-family: 'Space Grotesk', sans-serif;
   background-color: rgb(161, 161, 215);
+  color: white;
 }
 
 .form-bottom-box {
@@ -41,7 +42,7 @@ main {
   align-items: center;
   justify-content: space-evenly;
   padding: 2em;
-  background-color: rgb(187, 224, 224);
+  background-color:  #386994; 
 }
 
 .first-name {

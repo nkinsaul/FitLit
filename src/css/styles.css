@@ -165,4 +165,9 @@ main {
   font-style: italic;
 }
 
+.widgetDataNumberMiniSize {
+  font-weight: bold;
+  font-style: italic;
+}
+
 /* testing */

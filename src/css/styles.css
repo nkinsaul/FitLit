@@ -13,8 +13,9 @@ main {
   width: 100vw;
   display: flex;
   flex-direction: row;
-  font-family: 'Kalam', cursive;
-  font-family: 'Space Grotesk', sans-serif;
+  /* font-family: 'Kalam', cursive; */
+  /* font-family: 'Space Grotesk', sans-serif; */
+  font-family: Georgia;
   background-color: rgb(161, 161, 215);
   color: white;
 }

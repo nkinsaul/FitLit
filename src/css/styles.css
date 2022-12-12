@@ -59,6 +59,13 @@ main {
   background-color: aliceblue;
 }
 
+.step-goal-box {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: space-around;
+}
+
 .chart-container {
   height: 40vh;
   display: flex;
@@ -68,13 +75,18 @@ main {
   background-color:white
 }
 
+.canvas {
+  height: 325px;
+  width: 300px;
+}
+
 /* The flip box container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-box {
   background-color: transparent;
-  width: 300px;
-  height: 200px;
+  width: 400px;
+  height: 300px;
   border: 1px solid #f1f1f1;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  /* perspective: 1000px; Remove this if you don't want the 3D effect */
 }
 
 /* This container is needed to position the front and back side */
@@ -113,7 +125,7 @@ main {
 /* Style the back side */
 .flip-box-back {
   background-color: white;
-  color: white;
+  color: black;
   transform: rotateY(180deg);
 }
 

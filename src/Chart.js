@@ -4,6 +4,8 @@ const myChart = document.getElementById("hoursSleptOverWeek");
 
 const mySecondChart = document.getElementById("sleepQualityOverWeek");
 
+const myThirdChart = document.getElementById("hydrationDataChart");
+
 const hoursSleptOverWeekChart = (userData) => {
   const sleepChart = new Chart(myChart, {
     type: "bar",

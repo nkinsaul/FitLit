@@ -39,7 +39,8 @@ const avgSleepQualAllTime = document.getElementById("avgSleepQualAllTime");
 
 let newRepo;
 let aNewUser;
-let userId = 1;
+// let userId = 1;
+let randomUserId;
 let usersAvgSteps;
 let userData;
 let hydrationData;
@@ -61,6 +62,10 @@ Promise.all([fetchUserData(), fetchSleepData(), fetchHydrationData()]).then(
     onLoad(hydrationData, userData);
 });
 
+const generateRandomUserId = () => {
+    randomUserId = Math.floor(Math.random() * 50)
+}
+
 function onLoad(hydrationData, userData) {
   addUser(userData);
   displayDailySleep();
@@ -69,6 +74,7 @@ function onLoad(hydrationData, userData) {
   displayAvgAllTime();
   displayCharts();
   waterForAddUserFunc(hydrationData, userId);
+  generateRandomUserId();
 }
 
 const createUserArray = (userData) => {

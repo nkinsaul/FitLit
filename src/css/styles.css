@@ -29,8 +29,8 @@ main {
   display: flex;
   flex-direction: row;
   font-family: 'Gelasio', serif;
-  /* background-color: rgb(161, 161, 215); */
-  color: white;
+  background-color: rgb(161, 161, 215, 0.2);
+  /* color: white; */
 }
 .form-bottom-box {
   height: 50vh;
@@ -70,7 +70,7 @@ main {
   float: right;
   display: flex;
   align-items: center;
-  background-color: #214457;
+  background-color: rgb(33, 68, 87, 0.5);
 }
 
 .step-goal-box {

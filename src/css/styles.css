@@ -13,11 +13,12 @@ main {
   width: 100vw;
   display: flex;
   flex-direction: row;
-  font-family: 'Gelasio', serif;
+  font-family: 'Lexend', sans-serif;
 }
 
 body {
-    background-image: url("../images/joseph-chan-xDuA-MDfV2w-unsplash.jpg");
+    /* background-image: url("../images/joseph-chan-xDuA-MDfV2w-unsplash.jpg"); */
+    background-image: url("../images/eduardo-enrietti-_F69aqED-eg-unsplash.jpg");
     background-size: cover;
     padding: 0;
     margin: 0;
@@ -28,14 +29,9 @@ main {
   width: 100vw;
   display: flex;
   flex-direction: row;
-  font-family: 'Gelasio', serif;
+  /* font-family: 'Gelasio', serif; */
   background-color: rgb(161, 161, 215, 0.1);
-  /* color: white; */
-}
-.form-bottom-box {
-  height: 50vh;
-  padding: 1em;
-  /* background-color: aqua; */
+  color: white;
 }
 
 .big-container-right {

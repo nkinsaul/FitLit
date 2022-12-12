@@ -9,45 +9,68 @@
   </head>
   <body>
     <main>
-      <aside class="aside-container" id="asideContainer">
-        <aside class="aside-top-box" id="asideTopBox">
-          <h4>top aside container</h4>
-        </aside>
-        <form class="form-bottom-box" id="formBottomBox">
-          <h4>form here for pop-out window</h4>
-        </form>
-      </aside>
       <section class="big-container-right">
         <section class="info-card-container" id="infoCardContainer">
           <h1 class="first-name" id="firstName">Hi Buddy!</h1>
-          <section class="step-goal-box" id="stepGoalBox">
-            <h3>Average User Step</h3>
-            <h4 id="stepCompareResults">let's compare steps somehow!</h4>
-          </section>
           <section class="user-info-box" id="userInfoBox">
-              <ul>
-                <li id="name">name</li>
-                <li id="email">email</li>
-                <li id="address">address</li>
-                <li id="strideLength">stride length</li>
-                <li id="dailyStepGoal">daily step goal</li>
-                <li id="friends">friends</li>
-              </ul>
+              <div>
+                <div id="name">name</div>
+                <div id="email">email</div>
+                <div id="address">address</div>
+                <div id="strideLength">stride length</div>
+                <div id="dailyStepGoal">daily step goal</div>
+              </div>
+          </section>
+          <section class="step-goal-box" id="stepGoalBox">
+            <h3>Average Steps:</h3>
+            <h4 id="stepCompareResults"></h4>
+            <h3>per day</h3>
           </section>
         </section>
         <section class="chart-container" id="chartContainer">
-            <canvas id="hoursSleptOverWeek"></canvas>
-            <canvas id="sleepQualityOverWeek"></canvas>
+          <div class="flip-box">
+            <div class="flip-box-inner">
+              <div class="flip-box-front">
+                <p>INSERT IMG HERE </p>
+                <p>Hover over for the sleep quality chart!</p>
+              </div>
+              <div class="flip-box-back">
+                <canvas class="canvas" id="hydrationDataChart"></canvas> <!--edit or insert hydration chart here!-->
+              </div>
+            </div>
+          </div>
+          <div class="flip-box">
+            <div class="flip-box-inner">
+              <div class="flip-box-front">
+                <p>INSERT IMG HERE </p>
+                <p>Hover over for the hours slept chart!</p>
+              </div>
+              <div class="flip-box-back">
+                <canvas class="canvas" id="hoursSleptOverWeek"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="flip-box">
+            <div class="flip-box-inner">
+              <div class="flip-box-front">
+                <p>INSERT IMG HERE </p>
+                <p>Hover over for the sleep quality chart!</p>
+              </div>
+              <div class="flip-box-back">
+                <canvas class="canvas" id="sleepQualityOverWeek"></canvas>
+              </div>
+            </div>
+          </div>
         </section>
         <section class="widget-container" id="widgetContainer">
-          <!-- <h4>widgets go in here</h4> -->
           <section class="widget1" id="dailyWater">1: daily water</section>
           <section class="widget2" id="weeklyWater">2: weekly water</section>
           <section class="widget3" id="dailySleepHours">3: hours slept last night</section>
-          <section class="widget4" id="weeklySleepHours">4: hours slept last week</section>
-          <section class="widget5" id="dailySleepQuality">5: sleep quality last night</section>
+          <section class="widget4" id="dailySleepQuality">5: sleep quality last night</section>
+          <section class="widget5" id="weeklySleepHours">4: hours slept last week</section>
           <section class="widget6" id="weeklySleepQuality">6: sleep quality last week</section>
-          <section class="widget7" id="avgSleepData">7: average sleep data</section>
+          <section class="widget7" id="avgSleepHoursAllTime">7: average hours slept all time</section>
+          <section class="widget8" id="avgSleepQualAllTime">8: average sleep quality all time</section>
         </section>
       </section>
     </main>

@@ -31,6 +31,8 @@ const weeklySleepQuality = document.getElementById("weeklySleepQuality");
 const avgSleepData = document.getElementById("avgSleepData");
 const dailyWater = document.getElementById("dailyWater");
 const weeklyWater = document.getElementById("weeklyWater");
+const avgSleepHoursAllTime = document.getElementById("avgSleepHoursAllTime");
+const avgSleepQualAllTime = document.getElementById("avgSleepQualAllTime");
 
 // global variables 👇🏻
 
@@ -70,7 +72,9 @@ function onLoad(hydrationData, userData) {
 const createUserArray = (userData) => {
   newRepo = new UserRepository(userData);
   usersAvgSteps = newRepo.avgStepGoal();
-  userStepComparison.innerText = `${usersAvgSteps} steps`;
+  userStepComparison.innerHTML = `
+    <div class="widgetDataNumber">${usersAvgSteps} steps
+    </div>`;
   return newRepo;
 };
 
@@ -81,14 +85,14 @@ function createNewUser() {
   return aNewUser;
 }
 
-const addUser = (userData) => {
-    createNewUser(userData);
-    userName.innerText = aNewUser.name;
-    userAddress.innerText = aNewUser.address;
-    userStrideLength.innerText = aNewUser.strideLength;
-    userDailyStepGoal.innerText = aNewUser.dailyStepGoal;
-    userEmail.innerText = aNewUser.email;
-    userFirstName.innerText = `Hi ${aNewUser.getFirstName()}!`;
+const addUser = () => {
+  createNewUser(userData);
+  userName.innerText = aNewUser.name;
+  userAddress.innerText = aNewUser.address;
+  userStrideLength.innerText = `Stride length: ${aNewUser.strideLength}`;
+  userDailyStepGoal.innerText = `Steps: ${aNewUser.dailyStepGoal}`;
+  userEmail.innerText = aNewUser.email;
+  userFirstName.innerText = `Hi ${aNewUser.getFirstName()}!`;
 };
 
 function waterForAddUserFunc (hydrationData, userId) {
@@ -125,49 +129,61 @@ const instantiateSleep = () => {
 const displayDailySleep = () => {
   let user1 = userSleepData.getUserData(1).reverse();
   let lastNightDate = user1[0].date;
-  dailySleepHours.innerText = `Hours slept last night: ${userSleepData.getHoursSleptOnDay(
-    1,
-    lastNightDate
-  )}`;
-  dailySleepQuality.innerText = `Sleep quality last night: ${userSleepData.getSleepQualityOnDay(
-    1,
-    lastNightDate
-  )}`;
+  dailySleepHours.innerHTML = `
+    <div id="widgetTitle">Hours slept last night: 
+    <BR></BR>
+        <div class="widgetDataNumber">${userSleepData.getHoursSleptOnDay(1,lastNightDate)} hours
+        </div>
+    </div>`;
+  dailySleepQuality.innerHTML = `
+    <div id="widgetTitle">Sleep quality last night: 
+    <BR></BR>
+        <div class="widgetDataNumber">${userSleepData.getSleepQualityOnDay(1,lastNightDate)}
+        </div>
+    </div>`;
 };
 
 const displayWeeklySleep = () => {
   const user = userSleepData.getUserData(1).slice(-7);
   weeklySleepHours.innerHTML = `              
-    <h4>hours slept last 6 days
-        <div id="day1">Day 1: ${user[6].hoursSlept} hours</div>
-        <div id="day2">Day 2: ${user[5].hoursSlept} hours</div>
-        <div id="day3">Day 3: ${user[4].hoursSlept} hours</div>
-        <div id="day4">Day 4: ${user[3].hoursSlept} hours</div>
-        <div id="day5">Day 5: ${user[2].hoursSlept} hours</div>
-        <div id="day6">Day 6: ${user[1].hoursSlept} hours</div>
+    <h4>Hours Slept Last Week
+        <BR></BR>
+        <div id="day1">${user[6].date} : ${user[6].hoursSlept} hours</div>
+        <div id="day2">${user[5].date} : ${user[5].hoursSlept} hours</div>
+        <div id="day3">${user[4].date} : ${user[4].hoursSlept} hours</div>
+        <div id="day4">${user[3].date} : ${user[3].hoursSlept} hours</div>
+        <div id="day5">${user[2].date} : ${user[2].hoursSlept} hours</div>
+        <div id="day6">${user[1].date} : ${user[1].hoursSlept} hours</div>
     </h4>`;
 };
 
 const displayWeeklySleepQuality = () => {
   const user = userSleepData.getUserData(1).slice(-7);
   weeklySleepQuality.innerHTML = `              
-    <h4>sleep quality last 6 days
-        <div id="day1">Day 1: ${user[6].sleepQuality}</div>
-        <div id="day2">Day 2: ${user[5].sleepQuality}</div>
-        <div id="day3">Day 3: ${user[4].sleepQuality}</div>
-        <div id="day4">Day 4: ${user[3].sleepQuality}</div>
-        <div id="day5">Day 5: ${user[2].sleepQuality}</div>
-        <div id="day6">Day 6: ${user[1].sleepQuality}</div>
+    <h4>Sleep Quality Last Week
+        <BR></BR>
+        <div id="day1">${user[6].date} : ${user[6].sleepQuality}</div>
+        <div id="day2">${user[5].date} : ${user[5].sleepQuality}</div>
+        <div id="day3">${user[4].date} : ${user[4].sleepQuality}</div>
+        <div id="day4">${user[3].date} : ${user[3].sleepQuality}</div>
+        <div id="day5">${user[2].date} : ${user[2].sleepQuality}</div>
+        <div id="day6">${user[1].date} : ${user[1].sleepQuality}</div>
     </h4>`;
 };
 
 const displayAvgAllTime = () => {
   const avgAllSleepQuality = userSleepData.avgSleepQuality(1);
   const avgAllSleepHours = userSleepData.avgHoursSleptPerDay(1);
-  avgSleepData.innerHTML = `
-    <div id="compareSleepQual">Average all-time sleep quality: ${avgAllSleepQuality}</div>
-    <div id="compareSleepHours">Average all-time hours slept: ${avgAllSleepHours}</div>
-    `;
+  avgSleepHoursAllTime.innerHTML = `
+    <div id="compareSleepQual">All-time average hours slept: 
+        <div class="widgetDataNumber">${avgAllSleepHours} hours
+        </div>
+    </div>`
+  avgSleepQualAllTime.innerHTML = `
+    <div id="compareSleepHours">All-time average sleep quality:
+        <div class="widgetDataNumber">${avgAllSleepQuality}
+        </div>
+    </div>`;
 };
 
 const displaySleepChart = () => {

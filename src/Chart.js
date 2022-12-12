@@ -29,7 +29,7 @@ const hoursSleptOverWeekChart = (userData) => {
             userData[5].hoursSlept,
             userData[6].hoursSlept,
           ],
-          borderWidth: 1,
+          borderWidth: 0.5,
         },
       ],
     },

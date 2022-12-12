@@ -110,12 +110,17 @@ function createWaterProfile (userId, hydrationData) {
 
 function waterTodayWidget (waterProfile) {
     const todayWidgetData = waterProfile.getToday();
-    dailyWater.innerHTML = `<p>${todayWidgetData}</p>`;
+    dailyWater.innerHTML = `
+    <div id="widgetTitle">Amount of water consumed today: 
+    <BR></BR>
+        <div class="widgetDataNumber">${todayWidgetData} fl. oz.
+        </div>
+    </div>`;
 }
 
 function waterThisWeekWidget (waterProfile) { 
     const weekWidgetData = waterProfile.getOneWeekTotal();
-    weeklyWater.innerText = weekWidgetData;
+    //weeklyWater.innerText = weekWidgetData;
 }
 
 const instantiateSleep = () => {

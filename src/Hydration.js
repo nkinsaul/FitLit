@@ -39,7 +39,7 @@ class Hydration {
     getOneWeekTotal() {
         // TODO(): You need to turn the week array into some string
         // that will get added to innertext
-        let waterWeek = this._oneUserDataSet.slice(-7);
+        let waterWeek = this._oneUserDataSet.slice(-7).map(element => element.numOunces);
         return waterWeek;
     }
 }

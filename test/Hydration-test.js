@@ -135,6 +135,6 @@ describe ("Hydration", function() {
 
     it('should have a method to return the user hydration for the most recent 7 days', function() {
         const ouncesConsumedInAWeek = hydration.getOneWeekTotal();
-        expect(ouncesConsumedInAWeek).to.be.deep.equal(miniHydrationData);
+        expect(ouncesConsumedInAWeek).to.be.deep.equal([ 47, 99, 28, 40, 85, 51, 41 ]);
     });
 });

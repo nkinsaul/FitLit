@@ -20,7 +20,8 @@ const userEmail = document.getElementById("email");
 const userFriends = document.getElementById("friends");
 const userFirstName = document.getElementById("firstName");
 const userStepComparison = document.getElementById("stepCompareResults");
-
+const dailyWater = document.getElementById("dailyWater");
+const weeklyWater = document.getElementById("weeklyWater");
 
 // global variables 👇🏻
 
@@ -53,8 +54,8 @@ Promise.all([fetchUserData(), fetchSleepData(), fetchHydrationData()])
 function onLoad( hydrationData, userData) {
     addUser(userData);
     // TODO(): change [5] to be the index of the user we want to display
-    // hydration data for.
-    waterForAddUserFunc(hydrationData, userData[5].id);
+    // hydration data for. userData[5].id
+    waterForAddUserFunc(hydrationData, userId);
 };
 
 const createUserArray = (userData) => {
@@ -81,8 +82,6 @@ const addUser = (userData) => {
     userFirstName.innerText = `Hi ${aNewUser.getFirstName()}!`;
 };
 // ----------------water widgets
-const dailyWater = document.getElementById("dailyWater");
-const weeklyWater = document.getElementById("weeklyWater");
 //(FOR ON LOAD, PUT IN ADDUSER)
 //need id & data variables accounted for:
 //aNewUser.id, hydrationData defined in the Promise.all
@@ -93,8 +92,8 @@ function waterForAddUserFunc (hydrationData, userId) {
     waterThisWeekWidget(waterProfile);
 }
 
-function createWaterProfile (idKey, hydrationData) {
-    waterProfile = new Hydration(idKey, hydrationData);
+function createWaterProfile (userId, hydrationData) {
+    waterProfile = new Hydration(userId, hydrationData);
     waterProfile.getOneUserData(hydrationData);
     console.log(waterProfile._oneUserDataSet);
 }
@@ -107,29 +106,5 @@ function waterTodayWidget (waterProfile) {
 function waterThisWeekWidget (waterProfile) { 
     const weekWidgetData = waterProfile.getOneWeekTotal();
     weeklyWater.innerText = weekWidgetData;
+    console.log(weekWidgetData);
 }
-
-{/* <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
-  const ctx = document.getElementById('myChart');
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-</script> */}

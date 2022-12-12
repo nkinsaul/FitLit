@@ -33,7 +33,6 @@ let userData;
 let hydrationData;
 let sleepData;
 let waterProfile;
-// let user;
 
 // event listeners 👇🏻
 
@@ -44,7 +43,6 @@ let waterProfile;
 
 Promise.all([fetchUserData(), fetchSleepData(), fetchHydrationData()])
 .then(data => {
-     // user = new User(data[0].userData);
     userData = data[0].userData;
     sleepData = data[1].sleepData;
     hydrationData = data[2].hydrationData;
@@ -53,8 +51,7 @@ Promise.all([fetchUserData(), fetchSleepData(), fetchHydrationData()])
 
 function onLoad( hydrationData, userData) {
     addUser(userData);
-    // TODO(): change [5] to be the index of the user we want to display
-    // hydration data for. userData[5].id
+
     waterForAddUserFunc(hydrationData, userId);
 };
 
@@ -81,11 +78,7 @@ const addUser = (userData) => {
     userEmail.innerText = aNewUser.email;
     userFirstName.innerText = `Hi ${aNewUser.getFirstName()}!`;
 };
-// ----------------water widgets
-//(FOR ON LOAD, PUT IN ADDUSER)
-//need id & data variables accounted for:
-//aNewUser.id, hydrationData defined in the Promise.all
-// add let id;  ?
+
 function waterForAddUserFunc (hydrationData, userId) {
     createWaterProfile(userId, hydrationData);
     waterTodayWidget(waterProfile);

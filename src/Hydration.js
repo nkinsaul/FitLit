@@ -10,7 +10,6 @@ class Hydration {
                 return element;
             }
         });
-        // debugger;
         this._oneUserDataSet = oneUserArray;
         return this._oneUserDataSet;
     }
@@ -38,11 +37,9 @@ class Hydration {
     }
 
     getOneWeekTotal() {
-        // TODO(): You need to turn the week array into some string
-        // that will get added to innertext
+
         let waterWeek = this._oneUserDataSet.slice(-7).map(element => element.numOunces);
         console.log(waterWeek);
-    
         return waterWeek;
     }
 }

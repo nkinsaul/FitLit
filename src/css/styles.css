@@ -29,7 +29,7 @@ main {
   display: flex;
   flex-direction: row;
   font-family: 'Gelasio', serif;
-  background-color: rgb(161, 161, 215, 0.2);
+  background-color: rgb(161, 161, 215, 0.1);
   /* color: white; */
 }
 .form-bottom-box {
@@ -44,7 +44,7 @@ main {
   padding: 1em;
   display: flex;
   flex-direction: column;
-  /* background-color: #bdd9cd */
+  background-color: rgb(189, 217, 205, 0.5);
 }
 
 .info-card-container {
@@ -55,7 +55,7 @@ main {
   align-items: center;
   justify-content: space-evenly;
   padding: 2em;
-  /* background-color: #386994;  */
+  background-color: rgb(56, 105, 148, 0.6); 
 }
 
 .first-name {
@@ -70,7 +70,7 @@ main {
   float: right;
   display: flex;
   align-items: center;
-  background-color: rgb(33, 68, 87, 0.5);
+  background-color: rgb(33, 68, 87, 0.8);
 }
 
 .step-goal-box {
@@ -86,7 +86,7 @@ main {
   justify-content: space-evenly;
   align-items: center;
   padding: .5em;
-  background-color:#8eaebb
+  background-color: rgb(142, 174, 187, 0.9);
 }
 
 .canvas {
@@ -168,7 +168,7 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #214457;
+  background-color: rgb(33, 68, 87, 0.9);
 }
 
 .widgetDataNumber {

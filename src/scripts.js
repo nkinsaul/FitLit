@@ -31,6 +31,8 @@ let usersAvgSteps;
 let userData;
 let hydrationData;
 let sleepData;
+let waterProfile;
+// let user;
 
 // event listeners 👇🏻
 
@@ -41,15 +43,18 @@ let sleepData;
 
 Promise.all([fetchUserData(), fetchSleepData(), fetchHydrationData()])
 .then(data => {
+     // user = new User(data[0].userData);
     userData = data[0].userData;
     sleepData = data[1].sleepData;
     hydrationData = data[2].hydrationData;
-    onLoad();
-    waterForAddUserFunc();
+    onLoad(hydrationData, userData);
 });
 
-function onLoad() {
-    addUser();
+function onLoad( hydrationData, userData) {
+    addUser(userData);
+    // TODO(): change [5] to be the index of the user we want to display
+    // hydration data for.
+    waterForAddUserFunc(hydrationData, userData[5].id);
 };
 
 const createUserArray = (userData) => {
@@ -66,7 +71,7 @@ function createNewUser() {
     return aNewUser;
 };
 
-const addUser = () => {
+const addUser = (userData) => {
     createNewUser(userData);
     userName.innerText = aNewUser.name;
     userAddress.innerText = aNewUser.address;
@@ -82,26 +87,49 @@ const weeklyWater = document.getElementById("weeklyWater");
 //need id & data variables accounted for:
 //aNewUser.id, hydrationData defined in the Promise.all
 // add let id;  ?
-function waterForAddUserFunc () {
-    let idKey = aNewUser.id;
-    createWaterProfile(idKey, hydrationData);
-    waterTodayWidget();
-    waterThisWeekWidget();
+function waterForAddUserFunc (hydrationData, userId) {
+    createWaterProfile(userId, hydrationData);
+    waterTodayWidget(waterProfile);
+    waterThisWeekWidget(waterProfile);
 }
 
-function createWaterProfile (id, hydrationData) {
-    let waterProfile = new Hydration(id, hydrationData);
+function createWaterProfile (idKey, hydrationData) {
+    waterProfile = new Hydration(idKey, hydrationData);
     waterProfile.getOneUserData(hydrationData);
-    console.log(waterProfile.oneUserDataSet);
+    console.log(waterProfile._oneUserDataSet);
 }
 
-function waterTodayWidget () {
+function waterTodayWidget (waterProfile) {
     const todayWidgetData = waterProfile.getToday();
     dailyWater.innertext = todayWidgetData;
 }
 
-function waterThisWeekWidget () { 
+function waterThisWeekWidget (waterProfile) { 
     const weekWidgetData = waterProfile.getOneWeekTotal();
     weeklyWater.innerText = weekWidgetData;
 }
 
+{/* <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script> */}

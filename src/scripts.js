@@ -1,5 +1,6 @@
 // imports 👇🏻
 
+
 import "./images/turing-logo.png";
 import "./css/styles.css";
 import User from "./User";
@@ -10,6 +11,7 @@ import { fetchSleepData } from "./apiCalls";
 import { fetchHydrationData } from "./apiCalls";
 import { hoursSleptOverWeekChart } from "./Chart";
 import { sleepQualityOverWeekChart } from "./Chart";
+import Hydration from './Hydration';
 
 // query selectors 👇🏻
 
@@ -21,10 +23,14 @@ const userDailyStepGoal = document.getElementById("dailyStepGoal");
 const userEmail = document.getElementById("email");
 const userFirstName = document.getElementById("firstName");
 const userStepComparison = document.getElementById("stepCompareResults");
+
 const dailySleepHours = document.getElementById("dailySleepHours");
 const weeklySleepHours = document.getElementById("weeklySleepHours");
 const dailySleepQuality = document.getElementById("dailySleepQuality");
 const weeklySleepQuality = document.getElementById("weeklySleepQuality");
+const avgSleepData = document.getElementById("avgSleepData");
+const dailyWater = document.getElementById("dailyWater");
+const weeklyWater = document.getElementById("weeklyWater");
 const avgSleepHoursAllTime = document.getElementById("avgSleepHoursAllTime");
 const avgSleepQualAllTime = document.getElementById("avgSleepQualAllTime");
 
@@ -37,6 +43,7 @@ let usersAvgSteps;
 let userData;
 let hydrationData;
 let sleepData;
+let waterProfile;
 let userSleepData;
 
 // event listeners 👇🏻
@@ -45,22 +52,21 @@ let userSleepData;
 
 Promise.all([fetchUserData(), fetchSleepData(), fetchHydrationData()]).then(
   (data) => {
-    // console.log(data)
     userData = data[0].userData;
     sleepData = data[1].sleepData;
     hydrationData = data[2].hydrationData;
     instantiateSleep(sleepData);
-    onLoad(userData);
-  }
-);
+    onLoad(hydrationData, userData);
+});
 
-function onLoad() {
-  addUser();
+function onLoad(hydrationData, userData) {
+  addUser(userData);
   displayDailySleep();
   displayWeeklySleep();
   displayWeeklySleepQuality();
   displayAvgAllTime();
   displaySleepChart();
+  waterForAddUserFunc(hydrationData, userId);
 }
 
 const createUserArray = (userData) => {
@@ -88,6 +94,32 @@ const addUser = () => {
   userEmail.innerText = aNewUser.email;
   userFirstName.innerText = `Hi ${aNewUser.getFirstName()}!`;
 };
+
+function waterForAddUserFunc (hydrationData, userId) {
+    createWaterProfile(userId, hydrationData);
+    waterTodayWidget(waterProfile);
+    waterThisWeekWidget(waterProfile);
+}
+
+function createWaterProfile (userId, hydrationData) {
+    waterProfile = new Hydration(userId, hydrationData);
+    waterProfile.getOneUserData(hydrationData);
+    console.log(waterProfile._oneUserDataSet);
+}
+
+function waterTodayWidget (waterProfile) {
+    const todayWidgetData = waterProfile.getToday();
+    dailyWater.innerHTML = `<p>${todayWidgetData}</p>`;
+    // dailyWater.innertext = todayWidgetData;
+    console.log(todayWidgetData);
+}
+
+function waterThisWeekWidget (waterProfile) { 
+    const weekWidgetData = waterProfile.getOneWeekTotal();
+    weeklyWater.innerText = weekWidgetData;
+    console.log(weekWidgetData);
+}
+
 
 const instantiateSleep = () => {
   userSleepData = new Sleep(sleepData);

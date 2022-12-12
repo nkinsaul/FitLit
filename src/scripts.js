@@ -1,6 +1,5 @@
 // imports 👇🏻
 
-
 import "./images/turing-logo.png";
 import "./css/styles.css";
 import User from "./User";
@@ -16,7 +15,6 @@ import Hydration from './Hydration';
 
 // query selectors 👇🏻
 
-const userInfoBox = document.getElementById("userInfoBox");
 const userName = document.getElementById("name");
 const userAddress = document.getElementById("address");
 const userStrideLength = document.getElementById("strideLength");
@@ -46,8 +44,6 @@ let sleepData;
 let waterProfile;
 let userSleepData;
 
-// event listeners 👇🏻
-
 // functions 👇🏻
 
 Promise.all([fetchUserData(), fetchSleepData(), fetchHydrationData()]).then(
@@ -66,7 +62,6 @@ const generateRandomUserId = (min, max) => {
 
 function onLoad(hydrationData, userData) {
     generateRandomUserId(1, 50);
-    console.log(randomUserId);
     addUser(userData);
     waterForAddUserFunc(hydrationData, randomUserId);
     displayDailySleep();
@@ -125,7 +120,6 @@ function waterTodayWidget (waterProfile) {
 
 function waterThisWeekWidget (waterProfile) { 
     const weekWidgetData = waterProfile.getOneWeekTotal();
-    console.log('weekWidgetData', weekWidgetData)
     weeklyWater.innerHTML = `
       <div id="widgetTitle">Amount of water consumed last week:
         <BR></BR>
@@ -166,12 +160,13 @@ const displayWeeklySleep = () => {
   weeklySleepHours.innerHTML = `              
     <div id="widgetTitle">Hours slept last week:
         <BR></BR>
-        <div id="day1">${user[6].date}: <span class="widgetDataNumberMiniSize">${user[6].hoursSlept} hours</span></div>
-        <div id="day2">${user[5].date}: <span class="widgetDataNumberMiniSize">${user[5].hoursSlept} hours</span></div>
-        <div id="day3">${user[4].date}: <span class="widgetDataNumberMiniSize">${user[4].hoursSlept} hours</span></div>
-        <div id="day4">${user[3].date}: <span class="widgetDataNumberMiniSize">${user[3].hoursSlept} hours</span></div>
-        <div id="day5">${user[2].date}: <span class="widgetDataNumberMiniSize">${user[2].hoursSlept} hours</span></div>
-        <div id="day6">${user[1].date}: <span class="widgetDataNumberMiniSize">${user[1].hoursSlept} hours</span></div>
+        <div id="day1">${user[6].date}: <span class="widgetDataNumberMiniSize">${user[6].hoursSlept} hrs</span></div>
+        <div id="day2">${user[5].date}: <span class="widgetDataNumberMiniSize">${user[5].hoursSlept} hrs</span></div>
+        <div id="day3">${user[4].date}: <span class="widgetDataNumberMiniSize">${user[4].hoursSlept} hrs</span></div>
+        <div id="day4">${user[3].date}: <span class="widgetDataNumberMiniSize">${user[3].hoursSlept} hrs</span></div>
+        <div id="day5">${user[2].date}: <span class="widgetDataNumberMiniSize">${user[2].hoursSlept} hrs</span></div>
+        <div id="day6">${user[1].date}: <span class="widgetDataNumberMiniSize">${user[1].hoursSlept} hrs</span></div>
+        <div id="day6">${user[0].date}: <span class="widgetDataNumberMiniSize">${user[0].hoursSlept} hrs</span></div>
     </div>`;
 };
 
@@ -186,6 +181,7 @@ const displayWeeklySleepQuality = () => {
         <div id="day4">${user[3].date}: <span class="widgetDataNumberMiniSize">${user[3].sleepQuality}</span></div>
         <div id="day5">${user[2].date}: <span class="widgetDataNumberMiniSize">${user[2].sleepQuality}</span></div>
         <div id="day6">${user[1].date}: <span class="widgetDataNumberMiniSize">${user[1].sleepQuality}</span></div>
+        <div id="day6">${user[0].date}: <span class="widgetDataNumberMiniSize">${user[0].sleepQuality}</span></div>
     </div>`;
 };
 

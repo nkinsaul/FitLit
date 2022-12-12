@@ -17,7 +17,6 @@ main {
 }
 
 body {
-    /* background-image: url("../images/joseph-chan-xDuA-MDfV2w-unsplash.jpg"); */
     background-image: url("../images/eduardo-enrietti-_F69aqED-eg-unsplash.jpg");
     background-size: cover;
     padding: 0;
@@ -29,7 +28,6 @@ main {
   width: 100vw;
   display: flex;
   flex-direction: row;
-  /* font-family: 'Gelasio', serif; */
   background-color: rgb(161, 161, 215, 0.1);
   color: white;
 }
@@ -67,6 +65,8 @@ main {
   display: flex;
   align-items: center;
   background-color: rgb(33, 68, 87, 0.8);
+  border: 2px;
+  border-radius: 5px;
 }
 
 .step-goal-box {
@@ -90,15 +90,14 @@ main {
   width: 300px;
 }
 
-/* The flip box container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-box {
   background-color: transparent;
   width: 400px;
   height: 300px;
-  border: 1px solid #f1f1f1;
+  border: .1px solid #f1f1f1;
+  border-radius: 5px;
 }
 
-/* This container is needed to position the front and back side */
 .flip-box-inner {
   position: relative;
   width: 100%;
@@ -108,12 +107,10 @@ main {
   transform-style: preserve-3d;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
 .flip-box:hover .flip-box-inner {
   transform: rotateY(180deg);
 }
 
-/* Position the front and back side */
 .flip-box-front, .flip-box-back {
   position: absolute;
   width: 100%;
@@ -125,17 +122,21 @@ main {
   backface-visibility: hidden;
 }
 
-/* Style the front side */
 .flip-box-front {
+  background-image: url('../images/page-curl.jpg');
+  background-position: right top;
+  background-repeat: no-repeat;
   background-color: rgb(255, 255, 255);
+  background-size: 30px;
   color: black;
+  cursor: pointer;
 }
 
-/* Style the back side */
 .flip-box-back {
   background-color: white;
   color: black;
   transform: rotateY(180deg);
+  cursor: pointer;
 }
 
 .widget-container {
@@ -155,7 +156,7 @@ main {
 .widget6, 
 .widget7,
 .widget8 {
-  height: 13em;
+  height: 15em;
   width: 13em;
   padding: 1em;
   border-radius: 15%;
@@ -177,5 +178,3 @@ main {
   font-weight: bold;
   font-style: italic;
 }
-
-/* testing */

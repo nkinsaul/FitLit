@@ -1,5 +1,8 @@
 import Chart from "chart.js/auto";
 
+Chart.defaults.color = '#386994';
+Chart.defaults.borderColor = '#8eaebb';
+
 const myChart = document.getElementById("hoursSleptOverWeek");
 
 const mySecondChart = document.getElementById("sleepQualityOverWeek");
@@ -71,6 +74,9 @@ const hoursSleptOverWeekChart = (userData) => {
             userData[6].hoursSlept,
           ],
           borderWidth: 0.5,
+          backgroundColor: [
+            '#214457', '#214457', '#214457', '#214457', '#214457', '#214457', '#214457'
+          ],
         },
       ],
     },
@@ -110,6 +116,9 @@ const sleepQualityOverWeekChart = (userData) => {
             userData[6].sleepQuality,
           ],
           borderWidth: 1,
+          backgroundColor: [
+            '#214457', '#214457', '#214457', '#214457', '#214457', '#214457', '#214457'
+          ],
         },
       ],
     },

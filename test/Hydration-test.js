@@ -130,13 +130,11 @@ describe ("Hydration", function() {
 
     it('should have a method to return the date for today', function() {
         const numOuncesToday = hydration.getToday();
-        console.log(numOuncesToday);
         expect(numOuncesToday).to.equal(41);
     });
 
     it('should have a method to return the user hydration for the most recent 7 days', function() {
         const ouncesConsumedInAWeek = hydration.getOneWeekTotal();
-        console.log(ouncesConsumedInAWeek);
         expect(ouncesConsumedInAWeek[0]).to.be.deep.equal( { userID: 3, date: '2019/06/15', numOunces: 47 });
     });
 });

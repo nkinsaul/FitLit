@@ -11,7 +11,7 @@
   * [Reflections](#reflections)
     + [Challenges](#challenges)
     + [Wins](#wins)
-  * [Reflections](#reflections)
+  * [Acknowledgements](#acknowledgements)
   
 ## Abstract
 **HealthDash** is a web application designed to track and display health and fitness-related information of a particular user onto a dashboard. A user is able to record the following data and much more:
@@ -53,11 +53,8 @@ The activity of a particular user can be optionally displayed in the form of bar
 ## Demonstration
 The video below demonstrates a user interacting with the main HeathDash application interface. They are showing how to show and hide visual displays of charts for the following measurements: water intake over the course of a week by fluid ounces, hours slept over the course of a week, and sleep quality over the course of a week. The web application is also able to show a different user's information upon refreshing the web browser.
 
-![screenshot of a user's main page interface upon loading the HealthDash web application](https://i.postimg.cc/Y0VcmWsH/Health-Dash-Main-Inter-Face.png)
-![screenshot of a user hovering over the chart for water intake over the course of a week](https://i.postimg.cc/02MjXdx7/Health-Dash-Hydration-Chart-Interaction.png)
-![screenshot of a user hovering over the chart for hours slept over the course of a week](https://i.postimg.cc/JhmhhfXQ/Health-Dash-Sleep-Hours-Chart-Interaction.png)
-![screenshot of a user hovering over the chart for sleep quality over the course of a week](https://i.postimg.cc/X7RJRG7m/Health-Dash-Sleep-Quality-Chart-Interaction.png)
-![screenshot of a new random user's information being displayed after refreshing the web browser](https://i.postimg.cc/CM6d46yF/Health-Dash-Refresh-New-user-Interaction.png)
+https://user-images.githubusercontent.com/103916293/207191034-b43fa333-bcd2-4a0f-922e-fb156b81b6ca.mp4
+
 
 ## Technologies Used
 - Javascript (ES5, ES6)
@@ -80,7 +77,7 @@ The video below demonstrates a user interacting with the main HeathDash applicat
 - We successfully utilized Chart.js to display the information of some of our informational widgets other than a text format.
 - We were able to get network requests to run smoothly for the first time that any of our team members have ever implemented them into any project.
 - We learned a lot about proper group communication especially when it comes to having productive and efficient meetings.
-- We completed the first part of the project feeling somewhat comfortable with the new skills taught in this portion of the project (i.e. API fetch calls, Chart.js, git project boards, TDD, using prototype array methods).
+- We completed the first part of the project feeling somewhat comfortable with the new skills taught in this portion of the project (i.e. API fetch calls, Chart.js, Git project boards, TDD, using prototype array methods).
 - We successfully added the GitHub project board feature to our workflow.
 - We implemented intuitive UX/UI features for charts display.
 

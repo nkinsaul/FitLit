@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import Hydration from '../src/Hydration.js';
-import hydrationData from './MockHydroData.js';
+import hydrationData from '../src/data/MockHydroData.js';
 
 describe ("Hydration", function() {
     let hydration;

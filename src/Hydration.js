@@ -6,11 +6,10 @@ class Hydration {
 
     getOneUserData(hydrationData) {
         let oneUserArray = hydrationData.filter(element => {
-            if (this.userID === element.userID) {
-                return element;
-            }
+            return this.userID === element.userID;
         });
         this._oneUserDataSet = oneUserArray;
+        console.log(this._oneUserDataSet);
         return this._oneUserDataSet;
     }
 

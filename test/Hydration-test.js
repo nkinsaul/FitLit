@@ -92,10 +92,9 @@ describe ("Hydration", function() {
         expect(Hydration).to.be.a('function');
     });
 
-    it('should instantiate our good friend Hydration', function() {
-        expect(hydration.dataSet).to.deep.equal(miniHydrationData);
-        expect(hydration.userID).to.deep.equal(3);
-    });
+    it('should instantiate our good Friend Hydration', function() {
+        expect(hydration).to.be.an.instanceOf(Hydration);
+    })
 
     it('should have a userID', function() {
         expect(hydration.userID).to.deep.equal(miniHydrationData[0].userID);

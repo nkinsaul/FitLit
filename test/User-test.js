@@ -2,10 +2,6 @@ import { expect } from 'chai';
 import User from '../src/User';
 import userData from '../src/data/users';
 
-// const chai = require("chai");
-// const expect = chai.expect;
-// const User = require("../src/User.js");
-// const userData = require("../src/data/users.js")
 
 describe ("User", function() {
     let user 

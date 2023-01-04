@@ -5,9 +5,7 @@ import "./css/styles.css";
 import User from "./User";
 import UserRepository from "./UserRepository";
 import Sleep from "./Sleep";
-import { fetchUserData } from "./apiCalls";
-import { fetchSleepData } from "./apiCalls";
-import { fetchHydrationData } from "./apiCalls";
+import { fetchData } from "./apiCalls";
 import { waterConsumedOverWeekChart } from "./Chart"
 import { hoursSleptOverWeekChart } from "./Chart";
 import { sleepQualityOverWeekChart } from "./Chart";
@@ -41,16 +39,18 @@ let usersAvgSteps;
 let userData;
 let hydrationData;
 let sleepData;
+let activityData;
 let waterProfile;
 let userSleepData;
 
 // functions 👇🏻
 
-Promise.all([fetchUserData(), fetchSleepData(), fetchHydrationData()]).then(
-  (data) => {
+Promise.all([fetchData("users"), fetchData("sleep"), fetchData("hydration"), fetchData("activity")])
+.then((data) => {
     userData = data[0].userData;
     sleepData = data[1].sleepData;
     hydrationData = data[2].hydrationData;
+    activityData = data[3].activityData;
     instantiateSleep(sleepData);
     createWaterProfile(1, hydrationData);
     onLoad(hydrationData, userData);

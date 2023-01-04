@@ -9,7 +9,6 @@ class Hydration {
             return this.userID === element.userID;
         });
         this._oneUserDataSet = oneUserArray;
-        console.log(this._oneUserDataSet);
         return this._oneUserDataSet;
     }
 

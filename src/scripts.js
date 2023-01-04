@@ -10,6 +10,7 @@ import { waterConsumedOverWeekChart } from "./Chart"
 import { hoursSleptOverWeekChart } from "./Chart";
 import { sleepQualityOverWeekChart } from "./Chart";
 import Hydration from './Hydration';
+import { addSleepData } from "./apiCalls";
 
 // query selectors 👇🏻
 
@@ -69,6 +70,7 @@ function onLoad(hydrationData, userData) {
     displayWeeklySleepQuality();
     displayAvgAllTime();
     displayCharts();
+    addSleepData(randomUserID);
 }
 
 const createUserArray = (userData) => {

@@ -74,6 +74,7 @@ main {
   flex-direction: column;
   justify-items: center;
   justify-content: space-around;
+  align-items: flex-start;
 }
 
 .chart-container {
@@ -169,7 +170,7 @@ main {
 }
 
 .widgetDataNumber {
-  font-size: 2.5em;
+  font-size: 1.5em;
   font-weight: bold;
   font-style: italic;
 }

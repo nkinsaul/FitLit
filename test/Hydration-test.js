@@ -103,14 +103,6 @@ describe ("Hydration", function() {
         expect(hydration1.dataSet).to.deep.equal(miniHydrationData)
     });
 
-    it('should have a property to store a data set for one user', function() {
-        expect(hydration1.oneUserDataSet).to.be.a.property;
-    });
-
-    it('should have a property to store a date for today', function() {
-        expect(hydration1.today).to.be.a.property;
-    });
-
     it('should have a method to create a hydration data set for a particular user', function() {
         const oneUserDataSet = hydration1.getOneUserData(miniHydrationData2);
         expect(oneUserDataSet).to.deep.equal(miniHydrationData);

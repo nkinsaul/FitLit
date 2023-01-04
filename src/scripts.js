@@ -12,6 +12,7 @@ import { sleepQualityOverWeekChart } from "./Chart";
 import Hydration from './Hydration';
 import { addSleepData } from "./apiCalls";
 import { addHydrationData } from "./apiCalls";
+import { addActivityData } from "./apiCalls";
 
 // query selectors 👇🏻
 
@@ -73,6 +74,7 @@ function onLoad(hydrationData, userData) {
     displayCharts();
     addSleepData(randomUserId);
     addHydrationData(randomUserId);
+    addActivityData(randomUserId);
 }
 
 const createUserArray = (userData) => {

@@ -95,11 +95,13 @@ describe ("Hydration", function() {
         expect(hydration1).to.be.an.instanceOf(Hydration);
     })
 
-    it('should have a userID', function() {
+    it('should have a property for a userID', function() {
+        expect(hydration1.userID).to.be.a.property;
         expect(hydration1.userID).to.deep.equal(miniHydrationData[0].userID);
     });
 
-    it('should receive information from a data set', function() {
+    it('should receive information from a data set and store it as a property', function() {
+        expect(hydration1.dataSet).to.be.a.property;
         expect(hydration1.dataSet).to.deep.equal(miniHydrationData)
     });
 

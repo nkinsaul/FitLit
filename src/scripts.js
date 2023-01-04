@@ -74,9 +74,7 @@ function onLoad(hydrationData, userData) {
 const createUserArray = (userData) => {
   newRepo = new UserRepository(userData);
   usersAvgSteps = newRepo.avgStepGoal();
-  userStepComparison.innerHTML = `
-    <div class="widgetDataNumber">${usersAvgSteps} steps
-    </div>`;
+  
   return newRepo;
 };
 
@@ -95,6 +93,12 @@ const addUser = () => {
   userDailyStepGoal.innerHTML = `Steps: <span class="widgetDataNumberMiniSize">${aNewUser.dailyStepGoal}</span>`;
   userEmail.innerHTML = `<span class="widgetDataNumberMiniSize">${aNewUser.email}</span>`;
   userFirstName.innerHTML = `Hi, ${aNewUser.getFirstName()}!`;
+  userDailyStepGoal.innerHTML = `
+    <div class="widgetDataNumber">${aNewUser.dailyStepGoal} steps
+    </div>`;
+  userStepComparison.innerHTML = `
+  <div class="widgetDataNumber">${usersAvgSteps} steps
+  </div>`;
 };
 
 function waterForAddUserFunc (hydrationData, randomUserId) {

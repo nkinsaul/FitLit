@@ -29,26 +29,31 @@ describe("ActivityRepo", () => {
 
     beforeEach(function() {
         activityRepo1 = new ActivityRepo(smallActivityData);
-    })
+    });
 
     it("Should be a function that is an instanceOf Activity", () => {
         expect(ActivityRepo).to.be.a('function');
         expect(activityRepo1).to.be.an.instanceOf(ActivityRepo);
 
-    })
+    });
 
     it("Should have a property to store activityData", () => {
         expect(activityRepo1.activityData).to.deep.equal(smallActivityData);
-    })
+    });
 
-    //method7 get for all users avg stairs on a date (pass in date param)
-    //method8 get for all users avg steps on a date (pass in date param)
-    //method9 get for all users avg minutesActive on a date (pass in date param)
+    it("Should have a method that takes in a parameter of a date and gets the average stairs climbed for all users on that specific date", () => {
+        //method7 get for all users avg stairs on a date (pass in date param)
+    });
 
-    //method6 find all-time stair-climbing record for 1 user (taking in one userID, get their data from ActivityRepo)
-        //--> could sort() and get index position 0?
-        //--> since this is iterating over all the data for one User, should it be done here? We could have a method to make an array of Objects for one user taking in a userID, then that could be manipulated for a User's averages. So what class should handle one User's array of data?
-        //--> maybe instantiate ActivityRepo in User.js, to call the method to get one User's activity profile(array of objects with the userID), then
-        //-----> method6.5 in User.js to instantiate ActivityRepo, call the ActivityRepo method to filter for one user, return an array of objects to represent the User's activity data. Then in User.js make this function a property. Then refer to this property as needed to find one user's averages
+    it("Should have a method that takes in a parameter of a date and gets the average steps for all users on that specific date", () => {
+        //method8 get for all users avg steps on a date (pass in date param)
+    });
 
+    it("Should have a method that takes in a parameter of a date and gets the average minutes active for all users on that specific date", () => {
+        //method9 get for all users avg minutesActive on a date (pass in date param)
+    });
+
+    it("Should have a method that takes in a parameter of a userID to find all the activity date for that one user", () => {
+        // We could have a method to make an array of Objects for one user taking in a userID, then that could be manipulated for a User's averages. Have ActivityRepo handle its data, then have User.js recieve that data for one user by instantiating ActivityRepo in a method, setting the one user's activity array as a property, and finding the averages for one user in User.js. 
+    });
 })

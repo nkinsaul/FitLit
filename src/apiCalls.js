@@ -5,14 +5,14 @@ const fetchData = (urlPath) => {
             .then(response => response.json());
 }
 
-const addSleepData = (userID) => {
+const addSleepData = (userID, date, hoursSlept, sleepQuality) => {
     fetch('http://localhost:3001/api/v1/sleep', {
         method: "POST",
         body: JSON.stringify({ 
             userID: userID, 
-            date: "12/12/2022" , 
-            hoursSlept: 5.5 , 
-            sleepQuality: 6.6  
+            date: date, 
+            hoursSlept: hoursSlept, 
+            sleepQuality: sleepQuality  
             }),
         headers: {
             "Content-Type" : "application/json"
@@ -22,13 +22,13 @@ const addSleepData = (userID) => {
     .then(json => console.log(json))
 }
 
-const addHydrationData = (userID) => {
+const addHydrationData = (userID, date, numOunces) => {
     fetch('http://localhost:3001/api/v1/hydration', {
         method: "POST",
         body: JSON.stringify({ 
             userID: userID, 
-            date: "12/12/2022" , 
-            numOunces: 37 
+            date: date, 
+            numOunces: numOunces 
             }),
         headers: {
             "Content-Type" : "application/json"
@@ -38,15 +38,15 @@ const addHydrationData = (userID) => {
     .then(json => console.log(json))
 }
 
-const addActivityData = (userID) => {
+const addActivityData = (userID, date, numSteps, minutesActive, flightsOfStairs) => {
     fetch('http://localhost:3001/api/v1/activity', {
         method: "POST",
         body: JSON.stringify({ 
             userID: userID, 
-            date: "2019/06/15",
-            numSteps: 4294,
-            minutesActive: 138,
-            flightsOfStairs: 10
+            date: date,
+            numSteps: numSteps,
+            minutesActive: minutesActive,
+            flightsOfStairs: flightsOfStairs
             }),
         headers: {
             "Content-Type" : "application/json"

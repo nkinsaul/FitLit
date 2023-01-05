@@ -8,8 +8,9 @@ class Hydration {
         let oneUserArray = hydrationData.filter(element => {
             return this.userID === element.userID;
         });
-        this._oneUserDataSet = oneUserArray;
-        return this._oneUserDataSet;
+        this._oneUserH2ODataSet = oneUserArray;
+        return  this._oneUserH2ODataSet;
+
     }
 
     getAvgConsumed() {
@@ -22,18 +23,18 @@ class Hydration {
         return Math.round(ouncesConsumedPerDayTotal / ouncesConsumedPerDayLength);
     }
 
-    getOneDayTotal(thisDate) {
-        let ouncesByDate = this._oneUserDataSet.find(element => element.date === thisDate);
+    getOneDayTotal(oneDay) {
+        let ouncesByDate =  this._oneUserH2ODataSet.find(element => element.date === oneDay);
         return ouncesByDate.numOunces;
     } 
 
     getToday() {
-        let currentDay = this._oneUserDataSet.slice(-1)[0].numOunces;
+        let currentDay =  this._oneUserH2ODataSet.slice(-1)[0].numOunces;
         return currentDay;
     }
 
     getOneWeekTotal() {
-        let waterWeek = this._oneUserDataSet.slice(-7);
+        let waterWeek =  this._oneUserH2ODataSet.slice(-7);
         return waterWeek;
     }
 }

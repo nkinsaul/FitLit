@@ -10,6 +10,7 @@ class Hydration {
         });
         this._oneUserH2ODataSet = oneUserArray;
         return  this._oneUserH2ODataSet;
+
     }
 
     getAvgConsumed() {

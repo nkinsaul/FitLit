@@ -41,8 +41,15 @@ const addHydrationData = (userID, date, numOunces) => {
             "Content-Type" : "application/json"
         }
     })
-    .then(response => response.json())
-    .then(json => console.log(json))
+    .then(response => {
+        if(response.ok) {
+            return response.json()
+        } 
+        throw new Error('Something went wrong')
+    })
+    .catch((error) => {
+        alert(error)
+    })
 }
 
 const addActivityData = (userID, date, numSteps, minutesActive, flightsOfStairs) => {
@@ -59,8 +66,15 @@ const addActivityData = (userID, date, numSteps, minutesActive, flightsOfStairs)
             "Content-Type" : "application/json"
         }
     })
-    .then(response => response.json())
-    .then(json => console.log(json))
+    .then(response => {
+        if(response.ok) {
+            return response.json()
+        } 
+        throw new Error('Something went wrong')
+    })
+    .catch((error) => {
+        alert(error)
+    })
 }
 
 export {fetchData};

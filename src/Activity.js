@@ -3,9 +3,9 @@ class Activity {
         this.userID = userId;
         this.date = activityDate;
         this.activityObj = this.getActivityObject(userId, activityDate, activityData);
-        this.numSteps = activityObj.numSteps;
-        this.minutesActive = activityObj.minutesActive;
-        this.flightsOfStairs = activityObj.flightsOfStairs;
+        this.numSteps = this.activityObj.numSteps;
+        this.minutesActive = this.activityObj.minutesActive;
+        this.flightsOfStairs = this.activityObj.flightsOfStairs;
     }
 
     getActivityObject(userId, activityDate, activityData) {

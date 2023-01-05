@@ -3,14 +3,14 @@ import Activity from "../src/Activity";
 
 describe("Activity", () => {
     let activity1;
-    let activityObject =         {
+    let activityObject = {
         userID: 1,
         date: "2019/06/15",
         numSteps: 3577,
         minutesActive: 140,
         flightsOfStairs: 16
     };
-    let activityData = [
+    let activityData1 = [
         {
         userID: 1,
         date: "2019/06/15",
@@ -31,10 +31,31 @@ describe("Activity", () => {
         numSteps: 7402,
         minutesActive: 116,
         flightsOfStairs: 33
-        }
+        },
+        {
+        userID: 1,
+        date: "2019/06/16",
+        numSteps: 6637,
+        minutesActive: 175,
+        flightsOfStairs: 36
+        },
+        {
+        userID: 2,
+        date: "2019/06/16",
+        numSteps: 4112,
+        minutesActive: 220,
+        flightsOfStairs: 37
+        },
+        {
+        userID: 3,
+        date: "2019/06/16",
+        numSteps: 12304,
+        minutesActive: 152,
+        flightsOfStairs: 8
+        },
     ];
     beforeEach(function() {
-        activity1 = new Activity(activityObject);
+        activity1 = new Activity(1, "2019/06/15", activityData1);
     })
 
     it("Should be a function that is an instanceOf Activity", () => {
@@ -68,5 +89,27 @@ describe("Activity", () => {
         //do we really need this method, or can we just refer to the minutesActive property?
         expect(getMinActive).to.be.equal(140)
     })
+
+    it("Should have a method to find its own activity object using userID and date arguments passed in as parameters", () => {
+        let foundActivityObject = activity1.getActivityObject(1, "2019/06/15");
+        expect(foundActivityObject).to.be.equal({
+            userID: 1,
+            date: "2019/06/15",
+            numSteps: 3577,
+            minutesActive: 140,
+            flightsOfStairs: 16
+        });
+    });
+
+    it("Should store the result of the getActivityObject method as a parameter", () => {
+        expect(this.activityObject).to.be.equal(activityObject);
+        expect(this.activityObject).to.be.equal({
+            userID: 1,
+            date: "2019/06/15",
+            numSteps: 3577,
+            minutesActive: 140,
+            flightsOfStairs: 16
+        });
+    });
  
 })

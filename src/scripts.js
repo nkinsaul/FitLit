@@ -32,6 +32,15 @@ const dailyWater = document.getElementById("dailyWater");
 const weeklyWater = document.getElementById("weeklyWater");
 const avgSleepHoursAllTime = document.getElementById("avgSleepHoursAllTime");
 const avgSleepQualAllTime = document.getElementById("avgSleepQualAllTime");
+const sleepDateInput = document.getElementById("sleepDateInput")
+const hoursSleptInput = document.getElementById("hoursSleptInput")
+const sleepQualityInput = document.getElementById("sleepQualityInput")
+const hydrationDateInput = document.getElementById("hydrationDateInput")
+const numOuncesInput = document.getElementById("numOuncesInput")
+const activityDateInput = document.getElementById("activityDateInput")
+const flightsOfStairsInput = document.getElementById("flightsOfStairsInput")
+const minutesActiveInput = document.getElementById("minutesActiveInput")
+const numStepsInput = document.getElementById("numStepsInput")
 
 // global variables 👇🏻
 

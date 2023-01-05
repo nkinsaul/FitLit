@@ -182,7 +182,9 @@ main {
 
 aside {
   display: flex;
+  flex-direction: column;
   width: 15vw;
+  height: 70%;
 }
 
 form {
@@ -192,4 +194,6 @@ form {
     justify-content: space-evenly;
     padding-left: 2em;
     padding-top: 5px;
+    padding-right: 2em;
+    border: 1px solid black;
 }

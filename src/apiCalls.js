@@ -18,8 +18,15 @@ const addSleepData = (userID, date, hoursSlept, sleepQuality) => {
             "Content-Type" : "application/json"
         }
     })
-    .then(response => response.json())
-    .then(json => console.log(json))
+    .then(response => {
+        if(response.ok) {
+            return response.json()
+        } 
+        throw new Error('Something went wrong')
+    })
+    .catch((error) => {
+        alert(error)
+    })
 }
 
 const addHydrationData = (userID, date, numOunces) => {

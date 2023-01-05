@@ -72,9 +72,9 @@ function onLoad(hydrationData, userData) {
     displayWeeklySleepQuality();
     displayAvgAllTime();
     displayCharts();
-    addSleepData(randomUserId);
-    addHydrationData(randomUserId);
-    addActivityData(randomUserId);
+    addSleepData(randomUserId, 5.5, 6.6);
+    // addHydrationData(randomUserId);
+    // addActivityData(randomUserId);
 }
 
 const createUserArray = (userData) => {
@@ -217,3 +217,7 @@ const displayCharts = () => {
   sleepQualityOverWeekChart(usersSleepOverWeek);
   waterConsumedOverWeekChart(usersHydrationOverWeek);
 };
+
+// const submitUserSleepData = (userID, dateInput, hoursSleptInput, sleepQualityInput) => {
+//   addSleepData(userID, dateInput, hoursSleptInput, sleepQualityInput)
+// }

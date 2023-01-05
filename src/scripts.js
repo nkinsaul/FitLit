@@ -41,6 +41,9 @@ const activityDateInput = document.getElementById("activityDateInput")
 const flightsOfStairsInput = document.getElementById("flightsOfStairsInput")
 const minutesActiveInput = document.getElementById("minutesActiveInput")
 const numStepsInput = document.getElementById("numStepsInput")
+const sleepForm = document.getElementById("sleepForm")
+const hydrationForm = document.getElementById("hydrationForm")
+const activityForm = document.getElementById("activityForm")
 
 // global variables 👇🏻
 
@@ -54,6 +57,17 @@ let sleepData;
 let activityData;
 let waterProfile;
 let userSleepData;
+
+// event lsiteners 👇🏻
+sleepForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+  //need conditional so that user cannot submit wihtout all fields completed
+  if (sleepDateInput.value === "") {
+    sleepDateInput.value = undefined
+  }
+  addSleepData(randomUserId, sleepDateInput.value, hoursSleptInput.value, sleepQualityInput.value);
+})
+
 
 // functions 👇🏻
 

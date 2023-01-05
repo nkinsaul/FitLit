@@ -13,19 +13,19 @@
   </head>
   <body>
     <main>
-      <aside>
-        <form>
-          <input id="sleepDateInput" type="text">Date
-          <input id="hoursSleptInput" type="text">Hours Slept
-          <input id="sleepQualityInput" type="text">Sleep Quality
-          <button>Submit</button>
+      <aside id="aside">
+        <form id="sleepForm">
+          <input id="sleepDateInput" type="date" required>Date
+          <input id="hoursSleptInput" type="number" required>Hours Slept
+          <input id="sleepQualityInput" type="number" required>Sleep Quality
+          <button id="sleepButton" type="submit">Submit</button>
         </form>
-        <form>
+        <form id="hydrationForm">
           <input id="hydrationDateInput" type="text">Date 
           <input id="numOuncesInput" type="text">Number of Ounces
-          <button type="submit">Submit</button>
+          <button id="hydration" type="submit">Submit</button>
         </form>
-        <form>
+        <form id="activityForm">
           <input id="activityDateInput" type="text">Date
           <input id="flightsOfStairsInput" type="text">Flights of Stairs
           <input id="minutesActiveInput" type="text">Minutes Active

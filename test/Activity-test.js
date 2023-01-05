@@ -9,7 +9,7 @@ describe("Activity", () => {
         numSteps: 3577,
         minutesActive: 140,
         flightsOfStairs: 16
-        };
+    };
     let activityData = [
         {
         userID: 1,
@@ -34,7 +34,7 @@ describe("Activity", () => {
         }
     ];
     beforeEach(function() {
-        activity1 = new Activity(1, activityObject);
+        activity1 = new Activity(activityObject);
     })
 
     it("Should be a function that is an instanceOf Activity", () => {
@@ -63,30 +63,10 @@ describe("Activity", () => {
         expect(activity1.flightsOfStairs).to.be.equal(16);
     })
 
-    //method1 miles a user has walked 
-        //--> do we need a mile calculation?
-        //--> #steps(from Activity) + striedLength(from User) to calculate
-
-    //method2 get minutes active on a date
-    
-    //method3 get average minutes active for a week
-        //--> helper function to get a week of data to iterate over?
-
-    //method4 calculate step goal met for a given date (pass in date parameter?)
-        //--> User.dailyStepGoal + Activity.numSteps   
-    
-    //method5 get all days exceeded step goal (call method4?)
-
-    //method6 find all-time stair-climbing record 
-        //--> could sort() and get index position 0?
-
-    //method7 get for all users avg stairs on a date (pass in date param)
-    //method8 get for all users avg steps on a date (pass in date param)
-    //method9 get for all users avg minutesActive on a date (pass in date param)
-
-    //method 10 get stepCount for past week (for function 6 on dash)
-    //method 11 get stairsClimbned for past week (for function 6 on dash)
-    //method 12 get minutesActive for past week (for function 6 on dash)
-
-    
+    it("Should have a method to return minutes active on this activity's date", () => {
+        let getMinActive = activity1.getMinutesActive();
+        //do we really need this method, or can we just refer to the minutesActive property?
+        expect(getMinActive).to.be.equal(140)
+    })
+ 
 })

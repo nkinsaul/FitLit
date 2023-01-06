@@ -91,6 +91,7 @@ describe ("User", function() {
         //method8 to calculate step goal met for a given date (pass in date parameter?)
             //--> User.dailyStepGoal + Activity.numSteps   
     })
+    
     it("Should have a method to get all the days the user's step goal was exceeded", () => {
         //method9 to get all days exceeded step goal (call method4?)    
     });

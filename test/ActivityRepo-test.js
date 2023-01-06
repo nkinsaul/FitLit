@@ -42,18 +42,18 @@ describe("ActivityRepo", () => {
     });
 
     it("Should have a method that takes in a parameter of a date and gets the average stairs climbed for all users on that specific date", () => {
-        //method7 get for all users avg stairs on a date (pass in date param)
+        //method1 get for all users avg stairs on a date (pass in date param)
     });
 
     it("Should have a method that takes in a parameter of a date and gets the average steps for all users on that specific date", () => {
-        //method8 get for all users avg steps on a date (pass in date param)
+        //method2 get for all users avg steps on a date (pass in date param)
     });
 
     it("Should have a method that takes in a parameter of a date and gets the average minutes active for all users on that specific date", () => {
-        //method9 get for all users avg minutesActive on a date (pass in date param)
+        //method3 get for all users avg minutesActive on a date (pass in date param)
     });
 
     it("Should have a method that takes in a parameter of a userID to find all the activity date for that one user", () => {
-        // We could have a method to make an array of Objects for one user taking in a userID, then that could be manipulated for a User's averages. Have ActivityRepo handle its data, then have User.js recieve that data for one user by instantiating ActivityRepo in a method, setting the one user's activity array as a property, and finding the averages for one user in User.js. 
+        //method4 make an array of Objects for one user taking in a userID, then list can be manipulated for a User's averages. Have ActivityRepo handle its data, then have User.js recieve that data for one user by instantiating ActivityRepo in a method, setting the one user's activity array as a property, and doing averages methods for one user in User.js. 
     });
 })

@@ -52,46 +52,46 @@ describe ("User", function() {
     });
 
     it("Should have a method getUserActivityData to instantiate an ActivityRepo to call a method from that class instance and get all of one user's activity data", () => {
-        //-----> method in User.js to instantiate ActivityRepo, call the ActivityRepo method to filter for one user, return an array of objects to represent the User's activity data. Then in User.js make this function a property. Then refer to this property as needed to find one user's averages
-
+        //method 1 to instantiate ActivityRepo, call the ActivityRepo method to filter for one user, return an array of objects to represent the User's activity data. Then in User.js make this function a property (see prompt below). Then refer to this property as needed to find one user's averages.
     });
 
     it("Should have a property this._activityData to store the ActivityRepo's method return of one user's activity data array with a value that stores the return of getUserActivityData method", () => {
+        //since this property isn't in the constructor upon instantiation, it is developer habit to include an underscore like in this prompt^  with "this._activityData"
     });
 
     it("Should have a method to find the all-time stair climbing record for the user using the this.activityData", () => {
-        //method6 find all-time stair-climbing record for 1 user
+        //method2 to find all-time stair-climbing record for 1 user
         //--> could sort() and get index position 0?
     });
 
     it("Should have a method to get the step count for the past week using this.activityData", () => {
-        //method10 get stepCount for past week (for function 6 on dash)
+        //method3 to get stepCount for past week (for function 6 on dash)
     });
 
     it("Should have a method to get the stairs climbed for the past week using this.activityData", () => {
-        //method11 get stairsClimbned for past week (for function 6 on dash)
+        //method4 to get stairsClimbned for past week (for function 6 on dash)
     });
 
     it("Should have a method to get the minutes active for the past week using this.activityData", () => {
-        //method12 get minutesActive for past week (for function 6 on dash)
+        //method5 to get minutesActive for past week (for function 6 on dash)
     });
 
     it("Should have a method to calculate the miles a user has walked", () => {
-        //--> is this for a particular day, week, or all time?
+        //--> method6: is this for a particular day, week, or all time?
         //--> do we need a mile calculation?
-        //--> #steps(from Activity) + striedLength(from User) to calculate
+        //--> #steps(from Activity) + strideLength(from User) to calculate
     });
 
     it("Should get minutes active on a particular date", () => {
-        //method2 get minutes active on a date:
-            //find the date in the user activity list and instantiate the Activity to call the minutesActive property
+        //method7 to get minutes active on a date:
+        //find the date in the user activity list and instantiate the Activity to call the minutesActive property
     });
 
     it("Should have a method to calculate if the step goal was met for a given date passed as a parameter", () => {
-        //method4 calculate step goal met for a given date (pass in date parameter?)
+        //method8 to calculate step goal met for a given date (pass in date parameter?)
             //--> User.dailyStepGoal + Activity.numSteps   
     })
     it("Should have a method to get all the days the user's step goal was exceeded", () => {
-        //method5 get all days exceeded step goal (call method4?)    
+        //method9 to get all days exceeded step goal (call method4?)    
     });
 });

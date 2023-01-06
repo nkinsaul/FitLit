@@ -44,6 +44,7 @@ const numStepsInput = document.getElementById("numStepsInput")
 const sleepForm = document.getElementById("sleepForm")
 const hydrationForm = document.getElementById("hydrationForm")
 const activityForm = document.getElementById("activityForm")
+// const allSleepData = sleepForm.querySelectorAll("inputs")
 
 // global variables 👇🏻
 
@@ -58,18 +59,35 @@ let activityData;
 let waterProfile;
 let userSleepData;
 
-// event lsiteners 👇🏻
-sleepForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  //need conditional so that user cannot submit wihtout all fields completed
-  if (sleepDateInput.value === "") {
-    sleepDateInput.value = undefined
-  }
-  addSleepData(randomUserId, sleepDateInput.value, hoursSleptInput.value, sleepQualityInput.value);
+// event listeners 👇🏻
+sleepForm.addEventListener("submit", function(event) {
+  event.preventDefault()
+  
+  addSleepData(randomUserId, sleepDateInput.value, hoursSleptInput.value, sleepQualityInput.value)
+  clearSleepData()
+})
+
+const clearSleepData = () => {
+  sleepDateInput.value = ''
+  hoursSleptInput.value = ''
+  sleepQualityInput.value = ''
+}
+
+
+// hydrationForm.addEventListener("submit", function(event) {
+//   event.preventDefault()
+//   !hydrationDateInput.value || !numOuncesInput.value? 
+//   addHydrationData(randomUserId, hydrationDateInput.value, numOuncesInput.value)
+// })
+
+activityForm.addEventListener("submit", function(event) {
+  event.preventDefault()
+  addHydrationData(randomUserId, activityDateInput.value, flightsOfStairsInput.value, minutesActiveInput.value, numStepsInput.value)
 })
 
 
 // functions 👇🏻
+
 
 Promise.all([fetchData("users"), fetchData("sleep"), fetchData("hydration"), fetchData("activity")])
 .then((data) => {

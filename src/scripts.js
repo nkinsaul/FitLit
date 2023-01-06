@@ -61,8 +61,13 @@ let userSleepData;
 // event listeners 👇🏻
 sleepForm.addEventListener("submit", function(event) {
   event.preventDefault()
+  if (typeof sleepDateInput.value == 'number' && 
+  typeof sleepQualityInput.value == 'number') {
   addSleepData(randomUserId, sleepDateInput.value, hoursSleptInput.value, sleepQualityInput.value)
-  clearSleepData()
+  clearSleepData() 
+  } else {
+  console.log('please enter a number')
+  }
 })
 
 const clearSleepData = () => {

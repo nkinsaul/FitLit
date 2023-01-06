@@ -44,7 +44,6 @@ const numStepsInput = document.getElementById("numStepsInput")
 const sleepForm = document.getElementById("sleepForm")
 const hydrationForm = document.getElementById("hydrationForm")
 const activityForm = document.getElementById("activityForm")
-// const allSleepData = sleepForm.querySelectorAll("inputs")
 
 // global variables 👇🏻
 
@@ -62,7 +61,6 @@ let userSleepData;
 // event listeners 👇🏻
 sleepForm.addEventListener("submit", function(event) {
   event.preventDefault()
-  
   addSleepData(randomUserId, sleepDateInput.value, hoursSleptInput.value, sleepQualityInput.value)
   clearSleepData()
 })
@@ -74,16 +72,29 @@ const clearSleepData = () => {
 }
 
 
-// hydrationForm.addEventListener("submit", function(event) {
-//   event.preventDefault()
-//   !hydrationDateInput.value || !numOuncesInput.value? 
-//   addHydrationData(randomUserId, hydrationDateInput.value, numOuncesInput.value)
-// })
+hydrationForm.addEventListener("submit", function(event) {
+  event.preventDefault()
+  addHydrationData(randomUserId, hydrationDateInput.value, numOuncesInput.value)
+  clearHydrationData()
+})
+
+const clearHydrationData = () => {
+  hydrationDateInput.value = ''
+  numOuncesInput.value = ''
+}
 
 activityForm.addEventListener("submit", function(event) {
   event.preventDefault()
-  addHydrationData(randomUserId, activityDateInput.value, flightsOfStairsInput.value, minutesActiveInput.value, numStepsInput.value)
+  addActivityData(randomUserId, activityDateInput.value, flightsOfStairsInput.value, minutesActiveInput.value, numStepsInput.value)
+  clearActivityData()
 })
+
+const clearActivityData = () => {
+  activityDateInput.value = ''
+  flightsOfStairsInput.value = ''
+  minutesActiveInput.value = ''
+  numStepsInput.value = ''
+}
 
 
 // functions 👇🏻
@@ -113,9 +124,6 @@ function onLoad(hydrationData, userData) {
     displayWeeklySleepQuality();
     displayAvgAllTime();
     displayCharts();
-    // addSleepData(randomUserId, 5.5, 6.6);
-    // addHydrationData(randomUserId);
-    // addActivityData(randomUserId);
 }
 
 const createUserArray = (userData) => {

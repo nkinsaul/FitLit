@@ -30,6 +30,10 @@ class ActivityRepo {
         return Math.round(avgMinActive/(minActiveData.length));
     }
 
+    findUserActivityObjectsList(userID){
+        const userList = this.activityData.filter(element => element.userID === userID);
+        return userList;
+    }
 }
 
 

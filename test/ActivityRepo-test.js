@@ -3,6 +3,7 @@ import ActivityRepo from "../src/ActivityRepo";
 
 describe("ActivityRepo", () => {
     let activityRepo1;
+    let userID = 2;
     let smallActivityData = [
         {
         userID: 1,
@@ -77,6 +78,20 @@ describe("ActivityRepo", () => {
     });
 
     it("Should have a method that takes in a parameter of a userID to find all the activity date for that one user", () => {
-        //method4 make an array of Objects for one user taking in a userID, then list can be manipulated for a User's averages. Have ActivityRepo handle its data, then have User.js recieve that data for one user by instantiating ActivityRepo in a method, setting the one user's activity array as a property, and doing averages methods for one user in User.js. 
+        let method4 = activityRepo1.findUserActivityObjectsList(userID);
+        expect(method4).to.have.deep.members([
+            {userID: 2,
+            date: "2019/06/15",
+            numSteps: 4294,
+            minutesActive: 138,
+            flightsOfStairs: 10
+            },
+            {
+            userID: 2,
+            date: "2019/06/16",
+            numSteps: 4112,
+            minutesActive: 220,
+            flightsOfStairs: 37
+            }]);
     });
 });

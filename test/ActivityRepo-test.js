@@ -24,7 +24,28 @@ describe("ActivityRepo", () => {
         numSteps: 7402,
         minutesActive: 116,
         flightsOfStairs: 33
-        }
+        },
+        {
+        userID: 1,
+        date: "2019/06/16",
+        numSteps: 6637,
+        minutesActive: 175,
+        flightsOfStairs: 36
+        },
+        {
+        userID: 2,
+        date: "2019/06/16",
+        numSteps: 4112,
+        minutesActive: 220,
+        flightsOfStairs: 37
+        },
+        {
+        userID: 3,
+        date: "2019/06/16",
+        numSteps: 12304,
+        minutesActive: 152,
+        flightsOfStairs: 17
+        },
     ];
 
     beforeEach(function() {
@@ -34,7 +55,6 @@ describe("ActivityRepo", () => {
     it("Should be a function that is an instanceOf Activity", () => {
         expect(ActivityRepo).to.be.a('function');
         expect(activityRepo1).to.be.an.instanceOf(ActivityRepo);
-
     });
 
     it("Should have a property to store activityData", () => {
@@ -42,18 +62,21 @@ describe("ActivityRepo", () => {
     });
 
     it("Should have a method that takes in a parameter of a date and gets the average stairs climbed for all users on that specific date", () => {
-        //method1 get for all users avg stairs on a date (pass in date param)
+        let method1 = activityRepo1.findAvgStairsClimbedOneDay("2019/06/16");
+        expect(method1).to.be.equal(30);
     });
 
     it("Should have a method that takes in a parameter of a date and gets the average steps for all users on that specific date", () => {
-        //method2 get for all users avg steps on a date (pass in date param)
+        let method2 = activityRepo1.findAvgStepsOneDay("2019/06/16");
+        expect(method2).to.be.equal(7684);
     });
 
     it("Should have a method that takes in a parameter of a date and gets the average minutes active for all users on that specific date", () => {
-        //method3 get for all users avg minutesActive on a date (pass in date param)
+        let method3 = activityRepo1.findAvgMinActive("2019/06/16");
+        expect(method3).to.be.equal(182);
     });
 
     it("Should have a method that takes in a parameter of a userID to find all the activity date for that one user", () => {
         //method4 make an array of Objects for one user taking in a userID, then list can be manipulated for a User's averages. Have ActivityRepo handle its data, then have User.js recieve that data for one user by instantiating ActivityRepo in a method, setting the one user's activity array as a property, and doing averages methods for one user in User.js. 
     });
-})
+});

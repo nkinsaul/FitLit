@@ -44,8 +44,9 @@ const numStepsInput = document.getElementById("numStepsInput")
 const sleepForm = document.getElementById("sleepForm")
 const hydrationForm = document.getElementById("hydrationForm")
 const activityForm = document.getElementById("activityForm")
-const popupText = document.getElementById("popupText")
+const popupText = document.getElementById("sleepPopupText")
 const popup = document.getElementById("popup")
+const hydPopupText = document.getElementById("hydrationPopup")
 
 // global variables 👇🏻
 
@@ -62,24 +63,28 @@ let userSleepData;
 
 // event listeners 👇🏻
 
-
 sleepForm.addEventListener("submit", function(event) {
   event.preventDefault()
   if (isNaN(hoursSleptInput.value) || isNaN(sleepQualityInput.value)) {
-    showPopup()
+    showSleepPopup()
   } else {
     addSleepData(randomUserId, sleepDateInput.value, hoursSleptInput.value, sleepQualityInput.value)
     clearSleepData()
-    hidePopup()
+    hideSleepPopup()
   }
 })
 
-const showPopup = () => {
+const showSleepPopup = () => {
   popup.style.visibility = 'visible'
   popupText.innerText = 'Please enter a number'
 }
 
-const hidePopup = () => {
+const showHydrationPopup = () => {
+  hydrationPopup.style.visibility = 'visible'
+  hydPopupText.innerText = 'Please enter a number'
+}
+
+const hideSleepPopup = () => {
   popup.style.visibility = 'hidden'
 }
 
@@ -89,12 +94,22 @@ const clearSleepData = () => {
   sleepQualityInput.value = ''
 }
 
-
 hydrationForm.addEventListener("submit", function(event) {
   event.preventDefault()
-  addHydrationData(randomUserId, hydrationDateInput.value, numOuncesInput.value)
-  clearHydrationData()
+  if (isNaN(numOuncesInput.value)) {
+    showHydrationPopup()
+  } else {
+    addActivityData(randomUserId, hydrationDateInput.value, numOuncesInput.value)
+    hideHydrationPopup();
+    clearHydrationData();
+  }
 })
+// still working on getting the hydration popup to work.  had a 404 server error appear last time with testing it.  looks like it was something with the activity API?  maybe something is wrong with the event listeners for the buttons  
+
+// I realize these functions are redundant.  wrote them that way because I wanted to get it working but there is definitely room to make them more dynamic and remove some of the redundancy
+
+// the clearing functions could probably be done with some sort of iterator over the HTML but I needed to do more research on that so just wrote those to get them working.  Again they could be dynamic to elimnate redundancy
+
 
 const clearHydrationData = () => {
   hydrationDateInput.value = ''

@@ -19,14 +19,17 @@
           <input id="hoursSleptInput" type="text" required>Hours Slept
           <input id="sleepQualityInput" type="text" required>Sleep Quality
           <button id="sleepButton" type="submit">Submit</button>
-          <div id="popup" class="popup hidden">
-            <span id="popupText" class="popup-text">Please enter a number</span>
+          <div id="popup" class="popup">
+            <span id="sleepPopupText" class="popup-text">Please enter a number</span>
           </div>
         </form>
-        <form id="hydrationForm">
+        <form class="hydrationForm" id="hydrationForm">
           <input id="hydrationDateInput" type="date" required>Date 
           <input id="numOuncesInput" type="text" required>Number of Ounces
           <button id="hydration" type="submit">Submit</button>
+          <div id="hydrationPopup" class="hydPopup hidden">
+            <span id="hydPopupText" class="popup-text">Please enter a number</span>
+          </div>
         </form>
         <form id="activityForm">
           <input id="activityDateInput" type="date" required>Date

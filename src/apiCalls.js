@@ -26,6 +26,7 @@ const addSleepData = (userID, date, hoursSlept, sleepQuality) => {
     })
     .catch((error) => {
         console.log(error)
+        throw new Error(error)
     })
 }
 
@@ -48,7 +49,7 @@ const addHydrationData = (userID, date, numOunces) => {
         throw new Error('Something went wrong')
     })
     .catch((error) => {
-        alert(error)
+        console.log(error)
     })
 }
 

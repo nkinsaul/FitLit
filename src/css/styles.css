@@ -209,7 +209,7 @@ input, button {
 }
 
 .popup {
-  /* visibility: hidden; */
+  visibility: hidden;
   width: 80%;
   background-color: rgba(33, 68, 87, 0.6);
   text-align: center;

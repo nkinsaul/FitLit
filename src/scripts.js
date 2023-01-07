@@ -44,6 +44,8 @@ const numStepsInput = document.getElementById("numStepsInput")
 const sleepForm = document.getElementById("sleepForm")
 const hydrationForm = document.getElementById("hydrationForm")
 const activityForm = document.getElementById("activityForm")
+const popupText = document.getElementById("popupText")
+const popup = document.getElementById("popup")
 
 // global variables 👇🏻
 
@@ -59,19 +61,26 @@ let waterProfile;
 let userSleepData;
 
 // event listeners 👇🏻
+
+
 sleepForm.addEventListener("submit", function(event) {
   event.preventDefault()
-  if (typeof sleepDateInput.value == 'number' && 
-  typeof sleepQualityInput.value == 'number') {
-  addSleepData(randomUserId, sleepDateInput.value, hoursSleptInput.value, sleepQualityInput.value)
-  clearSleepData() 
+  if (isNaN(hoursSleptInput.value) || isNaN(sleepQualityInput.value)) {
+    showPopup()
   } else {
-  showPopup();
+    addSleepData(randomUserId, sleepDateInput.value, hoursSleptInput.value, sleepQualityInput.value)
+    clearSleepData()
+    hidePopup()
   }
 })
 
 const showPopup = () => {
-  
+  popup.style.visibility = 'visible'
+  popupText.innerText = 'Please enter a number'
+}
+
+const hidePopup = () => {
+  popup.style.visibility = 'hidden'
 }
 
 const clearSleepData = () => {

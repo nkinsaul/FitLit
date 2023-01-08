@@ -16,8 +16,8 @@
       <aside class="aside" id="aside">
         <form class="sleepForm" id="sleepForm">
           <input id="sleepDateInput" type="date" required>Date
-          <input id="hoursSleptInput" type="text" required>Hours Slept
-          <input id="sleepQualityInput" type="text" required>Sleep Quality
+          <input id="hoursSleptInput" type="number" step="0.1" min="0" max="24" required>Hours Slept
+          <input id="sleepQualityInput" type="number" step="0.1" min="0" max="5" required>Sleep Quality
           <button id="sleepButton" type="submit">Submit</button>
           <div id="popup" class="popup">
             <span id="sleepPopupText" class="popup-text">Please enter a number</span>
@@ -25,7 +25,7 @@
         </form>
         <form class="hydrationForm" id="hydrationForm">
           <input id="hydrationDateInput" type="date" required>Date 
-          <input id="numOuncesInput" type="text" required>Number of Ounces
+          <input id="numOuncesInput" type="number" min="0" required>Number of Ounces
           <button id="hydration" type="submit">Submit</button>
           <div id="hydrationPopup" class="hydPopup hidden">
             <span id="hydPopupText" class="popup-text">Please enter a number</span>
@@ -33,9 +33,9 @@
         </form>
         <form id="activityForm">
           <input id="activityDateInput" type="date" required>Date
-          <input id="flightsOfStairsInput" type="text" required>Flights of Stairs
-          <input id="minutesActiveInput" type="text" required>Minutes Active
-          <input id="numStepsInput" type="text" required>Number of Steps
+          <input id="flightsOfStairsInput" type="number" min="0" required>Flights of Stairs
+          <input id="minutesActiveInput" type="number" min="0" required>Minutes Active
+          <input id="numStepsInput" type="number" min="0" required>Number of Steps
           <button type="submit">Submit</button>
         </form>
       </aside>

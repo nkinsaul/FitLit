@@ -1,12 +1,90 @@
 import { expect } from 'chai';
 import User from '../src/User';
 import userData from '../src/data/users';
+import ActivityRepo from '../src/ActivityRepo';
 
 
 describe ("User", function() {
     let user1; 
+    let user2;
+    let activityRepo1;
+    const userData = [
+        {
+          "id": 1,
+          "name": "Luisa Hane",
+          "address": "15195 Nakia Tunnel, Erdmanport VA 19901-1697",
+          "email": "Diana.Hayes1@hotmail.com",
+          "strideLength": 4.3,
+          "dailyStepGoal": 10000,
+          "friends": [
+            16,
+            4,
+            8
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Jarvis Considine",
+          "address": "30086 Kathryn Port, Ciceroland NE 07273",
+          "email": "Dimitri.Bechtelar11@gmail.com",
+          "strideLength": 4.5,
+          "dailyStepGoal": 5000,
+          "friends": [
+            9,
+            18,
+            24,
+            19
+          ]
+        } 
+    ];
+    const smallActivityData = [
+        {
+        userID: 1,
+        date: "2019/06/15",
+        numSteps: 3577,
+        minutesActive: 140,
+        flightsOfStairs: 16
+        },
+        {
+        userID: 2,
+        date: "2019/06/15",
+        numSteps: 4294,
+        minutesActive: 138,
+        flightsOfStairs: 10
+        },
+        {
+        userID: 3,
+        date: "2019/06/15",
+        numSteps: 7402,
+        minutesActive: 116,
+        flightsOfStairs: 33
+        },
+        {
+        userID: 1,
+        date: "2019/06/16",
+        numSteps: 6637,
+        minutesActive: 175,
+        flightsOfStairs: 36
+        },
+        {
+        userID: 2,
+        date: "2019/06/16",
+        numSteps: 4112,
+        minutesActive: 220,
+        flightsOfStairs: 37
+        },
+        {
+        userID: 3,
+        date: "2019/06/16",
+        numSteps: 12304,
+        minutesActive: 152,
+        flightsOfStairs: 17
+        },
+    ];
     beforeEach(function() {
         user1 = new User(userData[0])
+        user2 = new User(userData[1])
+        activityRepo1 = new ActivityRepo(smallActivityData);
     })
 
     it("should be a function", function() {
@@ -52,12 +130,46 @@ describe ("User", function() {
     });
 
     it("Should have a method getUserActivityData to instantiate an ActivityRepo to call a method from that class instance and get all of one user's activity data", () => {
-        //method 1 to instantiate ActivityRepo, call the ActivityRepo method to filter for one user, return an array of objects to represent the User's activity data. Then in User.js make this function a property (see prompt below). Then refer to this property as needed to find one user's averages.
+        let method1Part1 = user1.getUserActivityData(smallActivityData);
+        let method1Part2 = activityRepo1.findUserActivityObjectsList(1);
+        expect(method1Part1 && method1Part2).to.have.deep.members([
+            {
+              userID: 1,
+              date: '2019/06/15',
+              numSteps: 3577,
+              minutesActive: 140,
+              flightsOfStairs: 16
+            },
+            {
+              userID: 1,
+              date: '2019/06/16',
+              numSteps: 6637,
+              minutesActive: 175,
+              flightsOfStairs: 36
+            }
+          ]);
     });
-
+        
     it("Should have a property this._activityData to store the ActivityRepo's method return of one user's activity data array with a value that stores the return of getUserActivityData method", () => {
-        //since this property isn't in the constructor upon instantiation, it is developer habit to include an underscore like in this prompt^  with "this._activityData"
+        let method1Part3 = user2.getUserActivityData(smallActivityData);
+        let method1Part4 = activityRepo1.findUserActivityObjectsList(2);
+        expect(user2._activityData).to.be.a.property;
+        expect(method1Part3 && method1Part4).to.have.deep.members([
+            {userID: 2,
+                date: "2019/06/15",
+                numSteps: 4294,
+                minutesActive: 138,
+                flightsOfStairs: 10
+            },
+            {
+                userID: 2,
+                date: "2019/06/16",
+                numSteps: 4112,
+                minutesActive: 220,
+                flightsOfStairs: 37
+            }])
     });
+    
 
     it("Should have a method to find the all-time stair climbing record for the user using the this.activityData", () => {
         //method2 to find all-time stair-climbing record for 1 user

@@ -96,33 +96,41 @@ describe ("User", function() {
         },  
         {
         userID: 3,
-        date: "2019/06/16",
+        date: "2019/06/17",
         numSteps: 12304,
         minutesActive: 152,
         flightsOfStairs: 17
         },
         {
         userID: 3,
-        date: "2019/06/16",
+        date: "2019/06/18",
         numSteps: 0,
         minutesActive: 0,
         flightsOfStairs: 0
         },
         {
         userID: 3,
-        date: "2019/06/16",
+        date: "2019/06/19",
         numSteps: 12304,
         minutesActive: 152,
         flightsOfStairs: 17
         },
         {
         userID: 3,
-        date: "2019/06/16",
+        date: "2019/06/20",
+        numSteps: 12304,
+        minutesActive: 152,
+        flightsOfStairs: 17
+        },
+        {
+        userID: 3,
+        date: "2019/06/21",
         numSteps: 12304,
         minutesActive: 152,
         flightsOfStairs: 17
         }
     ];
+
     beforeEach(function() {
         user1 = new User(userData[0]);
         user2 = new User(userData[1]);
@@ -221,15 +229,18 @@ describe ("User", function() {
     });
 
     it("Should have a method to get the step count for the past week using this.activityData", () => {
-        //method3 to get stepCount for past week (for function 6 on dash)
+        let method3 = user3.findWeekStepCount(smallActivityData);
+        expect(method3).to.be.equal(68922);
     });
 
     it("Should have a method to get the stairs climbed for the past week using this.activityData", () => {
-        //method4 to get stairsClimbned for past week (for function 6 on dash)
+        let method4 = user3.findWeekStairsCount(smallActivityData);
+        expect(method4).to.be.equal(118);
     });
 
     it("Should have a method to get the minutes active for the past week using this.activityData", () => {
-        //method5 to get minutesActive for past week (for function 6 on dash)
+        let method5 = user3.findWeekMinutesActive(smallActivityData);
+        expect(method5).to.be.equal(876);
     });
 
     it("Should have a method to calculate the miles a user has walked", () => {

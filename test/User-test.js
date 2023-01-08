@@ -266,6 +266,14 @@ describe ("User", function() {
     })
     
     it("Should have a method to get all the days the user's step goal was exceeded", () => {
-        //method9 to get all days exceeded step goal (call method4?)    
+        const method9 = user3.getDaysStepGoalMet(smallActivityData); 
+        expect(method9).to.have.deep.members([
+            '2019/06/15',
+            '2019/06/16',
+            '2019/06/17',
+            '2019/06/19',
+            '2019/06/20',
+            '2019/06/21'
+          ])
     });
 });

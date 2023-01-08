@@ -19,9 +19,8 @@ class User {
 
     getUserActivityData(activityData) {
         const activityRepo1 = new ActivityRepo(activityData);
-        // console.log("activityRepo1: ", activityRepo1);
         this._activityData = activityRepo1.findUserActivityObjectsList(this.id);
-        console.log("this._activityData: ", this._activityData);
+
         return this._activityData;
     }
 
@@ -85,7 +84,17 @@ class User {
         } else {
             return `On ${dateInput} you did not reach your step goal of ${this.dailyStepGoal} steps.`
         }
-        console.log("stepDayCheck: ", stepDayCheck);
+    }
+
+    getDaysStepGoalMet(activityData) {
+        this.getUserActivityData(activityData);
+        let daysMet = [];
+        this._activityData.forEach(element => {
+            if(element.numSteps >= this.dailyStepGoal) {
+                daysMet.push(element.date);
+            }
+        })
+        return daysMet;
     }
 }
 

@@ -195,13 +195,19 @@ form {
     background-color: rgba(142, 174, 187, 0.5);
 }
 
-.sleepForm {
+.sleep-form {
   height: 25%;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.hydrationForm {
+.hydration-form {
+  height: 21%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.activity-form {
   height: 21%;
   justify-content: space-evenly;
   align-items: center;
@@ -211,20 +217,4 @@ input, button {
   width: 90%;
 }
 
-.popup {
-  visibility: hidden;
-  width: 80%;
-  background-color: rgba(33, 68, 87, 0.6);
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-}
 
-.hydPopup {
-  visibility: hidden;
-  width: 80%;
-  background-color: rgba(33, 68, 87, 0.6);
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-}

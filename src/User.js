@@ -60,6 +60,17 @@ class User {
         return minutes;
     }
 
+    findWeekAvgMinutesActive(activityData) {
+        this.getUserActivityData(activityData);
+        const activeMinWeek = this._activityData.slice(-7);
+        const minutes = activeMinWeek.reduce((acc, curr) => {
+            acc += curr.minutesActive;
+            return acc;
+        }, 0);
+        return Math.round(minutes/activeMinWeek.length);
+
+
+    }
     calculateMilesToday(activityData) {
         this.getUserActivityData(activityData);
         const today = this._activityData.slice(-1);

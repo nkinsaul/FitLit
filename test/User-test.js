@@ -227,9 +227,7 @@ describe ("User", function() {
         expect(method2).to.be.equal(33);
 
     });
-//---DASH implementation notes:
-//the following three methods are weekly TOTALS (add Math.round(returnVar/slicedArray.length) if averages are preferred)
-//if we want a list for week of data, this._activityData.slice(-7) and then .map for desired property, here or in scripts.js
+
     it("Should have a method to get the step count for the past week using this.activityData", () => {
         let method3 = user3.findWeekStepCount(smallActivityData);
         expect(method3).to.be.equal(68922);
@@ -244,6 +242,12 @@ describe ("User", function() {
         let method5 = user3.findWeekMinutesActive(smallActivityData);
         expect(method5).to.be.equal(876);
     });
+
+    it("Should have a method to calculate the average minutes active for a user for the past week", () => {
+        let method5B = user3.findWeekAvgMinutesActive(smallActivityData);
+        expect(method5B).to.be.equal(125);
+    });
+
 //---for DASH: (latest day is "today")
     it("Should have a method to calculate the miles a user has walked for the latest day", () => {
         let method6 = user3.calculateMilesToday(smallActivityData);

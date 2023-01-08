@@ -180,7 +180,7 @@ main {
   font-style: italic;
 }
 
-aside {
+.aside {
   display: flex;
   flex-direction: column;
   width: 15vw;
@@ -190,10 +190,38 @@ aside {
 }
 
 form {
-  display: flex;
+    display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     height: 30%;
+=======
+>>>>>>> 7220f4f9ee2c45158073827ca211730f70452a59
     justify-content: space-evenly;
-    padding: 2em;
-    border: 1px solid black;
+    background-color: rgba(142, 174, 187, 0.9);
+    /* background-color: rgba(56, 105, 148, 0.6); */
+    padding: 0px 0px 0px 15px;
 }
+
+.form-heading {
+  padding: 6px 10px 0px 0px;
+  text-align: center;
+  font-size: 17px;
+}
+
+.sleep-form {
+  height: 25%;
+}
+
+.hydration-form {
+  height: 21%;
+}
+
+.activity-form {
+  height: 32%;
+}
+
+input, button {
+  width: 90%;
+}
+
+

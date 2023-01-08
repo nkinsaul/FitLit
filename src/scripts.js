@@ -58,16 +58,25 @@ let activityData;
 let waterProfile;
 let userSleepData;
 
-// event lsiteners 👇🏻
-sleepForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  //need conditional so that user cannot submit wihtout all fields completed
-  if (sleepDateInput.value === "") {
-    sleepDateInput.value = undefined
-  }
-  addSleepData(randomUserId, sleepDateInput.value, hoursSleptInput.value, sleepQualityInput.value);
-})
+// event listeners 👇🏻
 
+sleepForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+    addSleepData(randomUserId, sleepDateInput.value, hoursSleptInput.value, sleepQualityInput.value)
+    clearSleepData();
+});
+
+hydrationForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+  addHydrationData(randomUserId, hydrationDateInput.value, numOuncesInput.value);
+  clearHydrationData();
+});
+
+activityForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+  addActivityData(randomUserId, activityDateInput.value, flightsOfStairsInput.value, minutesActiveInput.value, numStepsInput.value);
+  clearActivityData();
+});
 
 // functions 👇🏻
 
@@ -95,9 +104,6 @@ function onLoad(hydrationData, userData) {
     displayWeeklySleepQuality();
     displayAvgAllTime();
     displayCharts();
-    // addSleepData(randomUserId, 5.5, 6.6);
-    // addHydrationData(randomUserId);
-    // addActivityData(randomUserId);
 }
 
 const createUserArray = (userData) => {
@@ -239,5 +245,23 @@ const displayCharts = () => {
   hoursSleptOverWeekChart(usersSleepOverWeek);
   sleepQualityOverWeekChart(usersSleepOverWeek);
   waterConsumedOverWeekChart(usersHydrationOverWeek);
+};
+
+const clearSleepData = () => {
+  sleepDateInput.value = '';
+  hoursSleptInput.value = '';
+  sleepQualityInput.value = '';
+};
+
+const clearHydrationData = () => {
+  hydrationDateInput.value = '';
+  numOuncesInput.value = '';
+};
+
+const clearActivityData = () => {
+  activityDateInput.value = '';
+  flightsOfStairsInput.value = '';
+  minutesActiveInput.value = '';
+  numStepsInput.value = '';
 };
 

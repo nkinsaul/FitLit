@@ -24,6 +24,12 @@ class User {
         // console.log("this._activityData: ", this._activityData);
         return this._activityData;
     }
+
+    findStairClimbingRecord(activityData) {
+        this.getUserActivityData(activityData);
+        const record = this._activityData.map(activityObj => activityObj.flightsOfStairs).sort((a, b) => b - a);
+        return record[0];
+    }
 }
 
 export default User;

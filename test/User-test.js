@@ -7,35 +7,49 @@ import ActivityRepo from '../src/ActivityRepo';
 describe ("User", function() {
     let user1; 
     let user2;
+    let user3;
     let activityRepo1;
-    const userData = [
-        {
-          "id": 1,
-          "name": "Luisa Hane",
-          "address": "15195 Nakia Tunnel, Erdmanport VA 19901-1697",
-          "email": "Diana.Hayes1@hotmail.com",
-          "strideLength": 4.3,
-          "dailyStepGoal": 10000,
-          "friends": [
-            16,
-            4,
-            8
-          ]
-        },
-        {
-          "id": 2,
-          "name": "Jarvis Considine",
-          "address": "30086 Kathryn Port, Ciceroland NE 07273",
-          "email": "Dimitri.Bechtelar11@gmail.com",
-          "strideLength": 4.5,
-          "dailyStepGoal": 5000,
-          "friends": [
-            9,
-            18,
-            24,
-            19
-          ]
-        } 
+    const userData = [{
+        "id": 1,
+        "name": "Luisa Hane",
+        "address": "15195 Nakia Tunnel, Erdmanport VA 19901-1697",
+        "email": "Diana.Hayes1@hotmail.com",
+        "strideLength": 4.3,
+        "dailyStepGoal": 10000,
+        "friends": [
+          16,
+          4,
+          8
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Jarvis Considine",
+        "address": "30086 Kathryn Port, Ciceroland NE 07273",
+        "email": "Dimitri.Bechtelar11@gmail.com",
+        "strideLength": 4.5,
+        "dailyStepGoal": 5000,
+        "friends": [
+          9,
+          18,
+          24,
+          19
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Herminia Witting",
+        "address": "85823 Bosco Fork, East Oscarstad MI 85126-5660",
+        "email": "Elwin.Tromp@yahoo.com",
+        "strideLength": 4.4,
+        "dailyStepGoal": 5000,
+        "friends": [
+          19,
+          11,
+          42,
+          33
+        ]
+      }
     ];
     const smallActivityData = [
         {
@@ -79,12 +93,42 @@ describe ("User", function() {
         numSteps: 12304,
         minutesActive: 152,
         flightsOfStairs: 17
+        },  
+        {
+        userID: 3,
+        date: "2019/06/16",
+        numSteps: 12304,
+        minutesActive: 152,
+        flightsOfStairs: 17
         },
+        {
+        userID: 3,
+        date: "2019/06/16",
+        numSteps: 0,
+        minutesActive: 0,
+        flightsOfStairs: 0
+        },
+        {
+        userID: 3,
+        date: "2019/06/16",
+        numSteps: 12304,
+        minutesActive: 152,
+        flightsOfStairs: 17
+        },
+        {
+        userID: 3,
+        date: "2019/06/16",
+        numSteps: 12304,
+        minutesActive: 152,
+        flightsOfStairs: 17
+        }
     ];
     beforeEach(function() {
-        user1 = new User(userData[0])
-        user2 = new User(userData[1])
+        user1 = new User(userData[0]);
+        user2 = new User(userData[1]);
+        user3 = new User(userData[2]);
         activityRepo1 = new ActivityRepo(smallActivityData);
+        // user3.getUserActivityData(smallActivityData);
     })
 
     it("should be a function", function() {
@@ -170,10 +214,10 @@ describe ("User", function() {
             }])
     });
     
-
     it("Should have a method to find the all-time stair climbing record for the user using the this.activityData", () => {
-        //method2 to find all-time stair-climbing record for 1 user
-        //--> could sort() and get index position 0?
+        let method2 = user3.findStairClimbingRecord(smallActivityData);
+        expect(method2).to.be.equal(33);
+
     });
 
     it("Should have a method to get the step count for the past week using this.activityData", () => {

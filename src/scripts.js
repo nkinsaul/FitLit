@@ -63,8 +63,18 @@ let userSleepData;
 sleepForm.addEventListener("submit", function(event) {
   event.preventDefault();
     addSleepData(randomUserId, sleepDateInput.value, hoursSleptInput.value, sleepQualityInput.value)
+    console.log(formatDate(sleepDateInput.value));
+    displayDailySleep();
+    displayWeeklySleep();
+    displayWeeklySleepQuality();
     clearSleepData();
 });
+
+const formatDate = (date) => {
+  let firstDashReplace = date.replace('-', '/');
+  let secondDashReplace = firstDashReplace.replace('-', '/');
+  return secondDashReplace;
+}
 
 hydrationForm.addEventListener("submit", function(event) {
   event.preventDefault();

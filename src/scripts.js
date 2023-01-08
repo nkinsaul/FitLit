@@ -32,6 +32,21 @@ const dailyWater = document.getElementById("dailyWater");
 const weeklyWater = document.getElementById("weeklyWater");
 const avgSleepHoursAllTime = document.getElementById("avgSleepHoursAllTime");
 const avgSleepQualAllTime = document.getElementById("avgSleepQualAllTime");
+const sleepDateInput = document.getElementById("sleepDateInput")
+const hoursSleptInput = document.getElementById("hoursSleptInput")
+const sleepQualityInput = document.getElementById("sleepQualityInput")
+const hydrationDateInput = document.getElementById("hydrationDateInput")
+const numOuncesInput = document.getElementById("numOuncesInput")
+const activityDateInput = document.getElementById("activityDateInput")
+const flightsOfStairsInput = document.getElementById("flightsOfStairsInput")
+const minutesActiveInput = document.getElementById("minutesActiveInput")
+const numStepsInput = document.getElementById("numStepsInput")
+const sleepForm = document.getElementById("sleepForm")
+const hydrationForm = document.getElementById("hydrationForm")
+const activityForm = document.getElementById("activityForm")
+const popupText = document.getElementById("sleepPopupText")
+const popup = document.getElementById("popup")
+const hydPopupText = document.getElementById("hydrationPopup")
 
 // global variables 👇🏻
 
@@ -46,7 +61,47 @@ let activityData;
 let waterProfile;
 let userSleepData;
 
+// event listeners 👇🏻
+
+sleepForm.addEventListener("submit", function(event) {
+    addSleepData(randomUserId, sleepDateInput.value, hoursSleptInput.value, sleepQualityInput.value)
+    clearSleepData()
+})
+
+const clearSleepData = () => {
+  sleepDateInput.value = ''
+  hoursSleptInput.value = ''
+  sleepQualityInput.value = ''
+}
+
+hydrationForm.addEventListener("submit", function(event) {
+  event.preventDefault()
+  addHydrationData(randomUserId, hydrationDateInput.value, numOuncesInput.value)
+  clearHydrationData();
+  
+})  
+
+const clearHydrationData = () => {
+  hydrationDateInput.value = ''
+  numOuncesInput.value = ''
+}
+
+activityForm.addEventListener("submit", function(event) {
+  event.preventDefault()
+  addActivityData(randomUserId, activityDateInput.value, flightsOfStairsInput.value, minutesActiveInput.value, numStepsInput.value)
+  clearActivityData()
+})
+
+const clearActivityData = () => {
+  activityDateInput.value = ''
+  flightsOfStairsInput.value = ''
+  minutesActiveInput.value = ''
+  numStepsInput.value = ''
+}
+
+
 // functions 👇🏻
+
 
 Promise.all([fetchData("users"), fetchData("sleep"), fetchData("hydration"), fetchData("activity")])
 .then((data) => {
@@ -72,9 +127,6 @@ function onLoad(hydrationData, userData) {
     displayWeeklySleepQuality();
     displayAvgAllTime();
     displayCharts();
-    addSleepData(randomUserId);
-    addHydrationData(randomUserId);
-    addActivityData(randomUserId);
 }
 
 const createUserArray = (userData) => {
@@ -217,3 +269,4 @@ const displayCharts = () => {
   sleepQualityOverWeekChart(usersSleepOverWeek);
   waterConsumedOverWeekChart(usersHydrationOverWeek);
 };
+

@@ -179,3 +179,48 @@ main {
   font-weight: bold;
   font-style: italic;
 }
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  width: 15vw;
+  height: 100vh;
+  padding: 10px;
+  justify-content: space-evenly;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgba(142, 174, 187, 0.5);
+}
+
+.sleep-form {
+  height: 25%;
+  
+  padding: 0px 0px 0px 15px;
+  /* align-items: center; */
+}
+
+.form-heading {
+  padding: 6px 10px 0px 0px;
+  text-align: center;
+  font-size: 17px;
+}
+
+.hydration-form {
+  height: 21%;
+  padding: 0px 0px 0px 15px;
+}
+
+.activity-form {
+  height: 32%;
+  padding: 0px 0px 0px 15px;
+}
+
+input, button {
+  width: 90%;
+}
+
+

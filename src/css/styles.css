@@ -149,6 +149,13 @@ main {
   align-items: center;
 }
 
+.water-widgets,
+.sleep-widgets,
+.activity-widgets {
+  display: flex;
+  flex-direction: row;
+}
+
 .widget1,
 .widget2,
 .widget3,
@@ -180,7 +187,7 @@ main {
   font-style: italic;
 }
 
-.aside {
+.leftSection {
   display: flex;
   flex-direction: column;
   width: 15vw;
@@ -192,13 +199,9 @@ main {
 form {
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     height: 30%;
-=======
->>>>>>> 7220f4f9ee2c45158073827ca211730f70452a59
     justify-content: space-evenly;
     background-color: rgba(142, 174, 187, 0.9);
-    /* background-color: rgba(56, 105, 148, 0.6); */
     padding: 0px 0px 0px 15px;
 }
 
@@ -224,4 +227,6 @@ input, button {
   width: 90%;
 }
 
-
+.hidden {
+  display: none;
+}

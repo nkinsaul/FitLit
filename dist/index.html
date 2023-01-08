@@ -13,28 +13,19 @@
   </head>
   <body>
     <main>
-<<<<<<< HEAD
-      <aside id="aside">
-        <form id="sleepForm">
-          <p>Add your sleep data!</p>
-          <input id="sleepDateInput" type="date" required>Date
-          <input id="hoursSleptInput" type="number" required>Hours Slept
-          <input id="sleepQualityInput" type="number" required>Sleep Quality
-=======
-      <aside class="aside" id="aside">
+      <section class="leftSection" id="leftSection">
         <form class="sleep-form" id="sleepForm">
-          <h1 class="sleep-form-heading form-heading">Add Sleep Data</h1>
+          <h2 class="sleep-form-heading form-heading">Add Sleep Data</h2>
           <label for="sleepDateInput">Date:</label>
           <input id="sleepDateInput" type="date" required>
           <label for="hoursSleptInput">Hours Slept:</label>
           <input id="hoursSleptInput" type="number" step="0.1" min="0" max="24" required>
           <label for="sleepQualityInput">Sleep Quality:</label>
           <input id="sleepQualityInput" type="number" step="0.1" min="0" max="5" required>
->>>>>>> 7220f4f9ee2c45158073827ca211730f70452a59
           <button id="sleepButton" type="submit">Submit</button>
         </form>
         <form class="hydration-form" id="hydrationForm">
-          <h1 class="hydration-form-heading form-heading">Add Hydration Data</h1>
+          <h2 class="hydration-form-heading form-heading">Add Hydration Data</h2>
           <label for="hydrationDateInput">Date:</label>
           <input id="hydrationDateInput" type="date" required>
           <label for="numOuncesInput">Water Consumed (oz.) :</label>
@@ -42,7 +33,7 @@
           <button id="hydration" type="submit">Submit</button>
         </form>
         <form class="activity-form" id="activityForm">
-          <h1 class="activity-form-heading form-heading">Add Activity Data</h1>
+          <h2 class="activity-form-heading form-heading">Add Activity Data</h2>
           <label for="activityDateInput">Date:</label>
           <input id="activityDateInput" type="date" required>
           <label for="flightsOfStairsInput">Flights of Stairs:</label>
@@ -53,7 +44,7 @@
           <input id="numStepsInput" type="number" min="0" required>
           <button type="submit">Submit</button>
         </form>
-      </aside>
+      </section>
       <section class="big-container-right">
         <section class="info-card-container" id="infoCardContainer">
           <h1 class="first-name" id="firstName"></h1>
@@ -108,14 +99,28 @@
           </div>
         </section>
         <section class="widget-container" id="widgetContainer">
-          <section class="widget1" id="dailyWater">1: daily water</section>
-          <section class="widget2" id="weeklyWater">2: weekly water</section>
-          <section class="widget3" id="dailySleepHours">3: hours slept last night</section>
-          <section class="widget4" id="dailySleepQuality">5: sleep quality last night</section>
-          <section class="widget5" id="weeklySleepHours">4: hours slept last week</section>
-          <section class="widget6" id="weeklySleepQuality">6: sleep quality last week</section>
-          <section class="widget7" id="avgSleepHoursAllTime">7: average hours slept all time</section>
-          <section class="widget8" id="avgSleepQualAllTime">8: average sleep quality all time</section>
+          <button class="display-water-widget-button" id="displayWaterWidgetButton">Your Water Data</button>
+          <section class="water-widgets">
+            <div class="widget1 hidden" id="dailyWater">1: daily water</div>
+            <div class="widget2 hidden" id="weeklyWater">2: weekly water</div>
+          </section>
+          <button class="display-sleep-widget-button" id="displaySleepWidgetButton">Your Sleep Data</button>
+          <section class="sleep-widgets">
+            <div class="widget3 hidden" id="dailySleepHours">3: hours slept last night</div>
+            <div class="widget4 hidden" id="dailySleepQuality">5: sleep quality last night</div>
+            <div class="widget5 hidden" id="weeklySleepHours">4: hours slept last week</div>
+            <div class="widget6 hidden" id="weeklySleepQuality">6: sleep quality last week</div>
+            <div class="widget7 hidden" id="avgSleepHoursAllTime">7: average hours slept all time</div>
+            <div class="widget8 hidden" id="avgSleepQualAllTime">8: average sleep quality all time</div>
+          </section>
+          <button class="display-activity-widget-button" id="displayActivityWidgetButton">Your Activity Data</button>
+          <section class="activity-widgets">
+            <div class="widget9 hidden" id="numSteps">9: number steps for latest day</div>
+            <div class="widget10 hidden" id="minsActive">10: number minutes active for latest day</div>
+            <div class="widget11 hidden" id="distanceWalked">11: distance walked for latest day</div>
+            <div class="widget10 hidden" id="compareActivity">12: compared to all users for latest day</div>
+            <div class="widget11 hidden" id="weeklyActivityView">13: weekly view of step count flights of stairs climbed and minutes active</div>
+          </section>
         </section>
       </section>
     </main>

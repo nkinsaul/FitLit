@@ -20,7 +20,6 @@ class User {
     getUserActivityData(activityData) {
         const activityRepo1 = new ActivityRepo(activityData);
         this._activityData = activityRepo1.findUserActivityObjectsList(this.id);
-
         return this._activityData;
     }
 
@@ -68,9 +67,8 @@ class User {
             return acc;
         }, 0);
         return Math.round(minutes/activeMinWeek.length);
-
-
     }
+
     calculateMilesToday(activityData) {
         this.getUserActivityData(activityData);
         const today = this._activityData.slice(-1);
@@ -78,7 +76,6 @@ class User {
         let miles = (stepLength) / 5280;
         let milesRounded = Math.round(miles * 100) / 100;
         return milesRounded;
-
     }
 
     getMinutesActiveOnDay(dateInput, activityData) {

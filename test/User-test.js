@@ -1,6 +1,5 @@
 import { expect } from 'chai';
 import User from '../src/User';
-import userData from '../src/data/users';
 import ActivityRepo from '../src/ActivityRepo';
 
 
@@ -136,7 +135,6 @@ describe ("User", function() {
         user2 = new User(userData[1]);
         user3 = new User(userData[2]);
         activityRepo1 = new ActivityRepo(smallActivityData);
-        // user3.getUserActivityData(smallActivityData);
     })
 
     it("should be a function", function() {
@@ -177,7 +175,6 @@ describe ("User", function() {
 
     it('should return users first name', function() {
         const firstName = user1.getFirstName();
-
         expect(firstName).to.equal('Luisa');
     });
 

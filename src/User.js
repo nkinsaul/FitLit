@@ -70,6 +70,12 @@ class User {
         return milesRounded;
 
     }
+
+    getMinutesActiveOnDay(dateInput, activityData) {
+        this.getUserActivityData(activityData);
+        const locateDay = this._activityData.find(element => element.date === dateInput);
+        return locateDay.minutesActive;
+    }
 }
 
 export default User;

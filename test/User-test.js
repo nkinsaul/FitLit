@@ -227,7 +227,9 @@ describe ("User", function() {
         expect(method2).to.be.equal(33);
 
     });
-//these three methods are weekly totals (use Math.round(returnVar/slicedArray.length))
+//---DASH implementation notes:
+//the following three methods are weekly TOTALS (add Math.round(returnVar/slicedArray.length) if averages are preferred)
+//if we want a list for week of data, this._activityData.slice(-7) and then .map for desired property, here or in scripts.js
     it("Should have a method to get the step count for the past week using this.activityData", () => {
         let method3 = user3.findWeekStepCount(smallActivityData);
         expect(method3).to.be.equal(68922);
@@ -242,15 +244,15 @@ describe ("User", function() {
         let method5 = user3.findWeekMinutesActive(smallActivityData);
         expect(method5).to.be.equal(876);
     });
-
+//---for DASH: (latest day is "today")
     it("Should have a method to calculate the miles a user has walked for the latest day", () => {
         let method6 = user3.calculateMilesToday(smallActivityData);
         expect(method6).to.be.equal(10.25);
     });
 
     it("Should get minutes active on a particular date", () => {
-        //method7 to get minutes active on a date:
-        //find the date in the user activity list and instantiate the Activity to call the minutesActive property
+        let method7 = user3.getMinutesActiveOnDay("2019/06/20", smallActivityData);
+        expect(method7).to.be.equal(152);
     });
 
     it("Should have a method to calculate if the step goal was met for a given date passed as a parameter", () => {

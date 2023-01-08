@@ -76,6 +76,17 @@ class User {
         const locateDay = this._activityData.find(element => element.date === dateInput);
         return locateDay.minutesActive;
     }
+
+    calculateStepGoalMet(dateInput, activityData) {
+        this.getUserActivityData(activityData);
+        const stepDayCheck = this._activityData.find(element => element.date === dateInput);
+        if(stepDayCheck.numSteps >= this.dailyStepGoal) {
+            return `On ${dateInput} you beat your step goal of ${this.dailyStepGoal} steps!`
+        } else {
+            return `On ${dateInput} you did not reach your step goal of ${this.dailyStepGoal} steps.`
+        }
+        console.log("stepDayCheck: ", stepDayCheck);
+    }
 }
 
 export default User;

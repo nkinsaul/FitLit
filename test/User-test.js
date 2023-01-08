@@ -253,11 +253,16 @@ describe ("User", function() {
     it("Should get minutes active on a particular date", () => {
         let method7 = user3.getMinutesActiveOnDay("2019/06/20", smallActivityData);
         expect(method7).to.be.equal(152);
+    //--> sad path: what if the date isn't in the repo?
     });
 
     it("Should have a method to calculate if the step goal was met for a given date passed as a parameter", () => {
-        //method8 to calculate step goal met for a given date (pass in date parameter?)
-            //--> User.dailyStepGoal + Activity.numSteps   
+        const dateInput1 = "2019/06/19";
+        const dateInput2 = "2019/06/18";
+        const method8 = user3.calculateStepGoalMet(dateInput1, smallActivityData);
+        const method8B = user3.calculateStepGoalMet(dateInput2, smallActivityData)
+        expect(method8).to.be.equal(`On ${dateInput1} you beat your step goal of ${user3.dailyStepGoal} steps!`)
+        expect(method8B).to.be.equal(`On ${dateInput2} you did not reach your step goal of ${user3.dailyStepGoal} steps.`) 
     })
     
     it("Should have a method to get all the days the user's step goal was exceeded", () => {

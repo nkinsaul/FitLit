@@ -44,9 +44,6 @@ const numStepsInput = document.getElementById("numStepsInput")
 const sleepForm = document.getElementById("sleepForm")
 const hydrationForm = document.getElementById("hydrationForm")
 const activityForm = document.getElementById("activityForm")
-const popupText = document.getElementById("sleepPopupText")
-const popup = document.getElementById("popup")
-const hydPopupText = document.getElementById("hydrationPopup")
 
 // global variables 👇🏻
 
@@ -64,44 +61,24 @@ let userSleepData;
 // event listeners 👇🏻
 
 sleepForm.addEventListener("submit", function(event) {
+  event.preventDefault();
     addSleepData(randomUserId, sleepDateInput.value, hoursSleptInput.value, sleepQualityInput.value)
-    clearSleepData()
-})
-
-const clearSleepData = () => {
-  sleepDateInput.value = ''
-  hoursSleptInput.value = ''
-  sleepQualityInput.value = ''
-}
+    clearSleepData();
+});
 
 hydrationForm.addEventListener("submit", function(event) {
-  event.preventDefault()
-  addHydrationData(randomUserId, hydrationDateInput.value, numOuncesInput.value)
+  event.preventDefault();
+  addHydrationData(randomUserId, hydrationDateInput.value, numOuncesInput.value);
   clearHydrationData();
-  
-})  
-
-const clearHydrationData = () => {
-  hydrationDateInput.value = ''
-  numOuncesInput.value = ''
-}
+});
 
 activityForm.addEventListener("submit", function(event) {
-  event.preventDefault()
-  addActivityData(randomUserId, activityDateInput.value, flightsOfStairsInput.value, minutesActiveInput.value, numStepsInput.value)
-  clearActivityData()
-})
-
-const clearActivityData = () => {
-  activityDateInput.value = ''
-  flightsOfStairsInput.value = ''
-  minutesActiveInput.value = ''
-  numStepsInput.value = ''
-}
-
+  event.preventDefault();
+  addActivityData(randomUserId, activityDateInput.value, flightsOfStairsInput.value, minutesActiveInput.value, numStepsInput.value);
+  clearActivityData();
+});
 
 // functions 👇🏻
-
 
 Promise.all([fetchData("users"), fetchData("sleep"), fetchData("hydration"), fetchData("activity")])
 .then((data) => {
@@ -268,5 +245,23 @@ const displayCharts = () => {
   hoursSleptOverWeekChart(usersSleepOverWeek);
   sleepQualityOverWeekChart(usersSleepOverWeek);
   waterConsumedOverWeekChart(usersHydrationOverWeek);
+};
+
+const clearSleepData = () => {
+  sleepDateInput.value = '';
+  hoursSleptInput.value = '';
+  sleepQualityInput.value = '';
+};
+
+const clearHydrationData = () => {
+  hydrationDateInput.value = '';
+  numOuncesInput.value = '';
+};
+
+const clearActivityData = () => {
+  activityDateInput.value = '';
+  flightsOfStairsInput.value = '';
+  minutesActiveInput.value = '';
+  numStepsInput.value = '';
 };
 

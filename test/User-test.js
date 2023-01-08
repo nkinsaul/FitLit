@@ -227,7 +227,7 @@ describe ("User", function() {
         expect(method2).to.be.equal(33);
 
     });
-
+//these three methods are weekly totals (use Math.round(returnVar/slicedArray.length))
     it("Should have a method to get the step count for the past week using this.activityData", () => {
         let method3 = user3.findWeekStepCount(smallActivityData);
         expect(method3).to.be.equal(68922);
@@ -243,10 +243,9 @@ describe ("User", function() {
         expect(method5).to.be.equal(876);
     });
 
-    it("Should have a method to calculate the miles a user has walked", () => {
-        //--> method6: is this for a particular day, week, or all time?
-        //--> do we need a mile calculation?
-        //--> #steps(from Activity) + strideLength(from User) to calculate
+    it("Should have a method to calculate the miles a user has walked for the latest day", () => {
+        let method6 = user3.calculateMilesToday(smallActivityData);
+        expect(method6).to.be.equal(10.25);
     });
 
     it("Should get minutes active on a particular date", () => {

@@ -60,6 +60,16 @@ class User {
         }, 0);
         return minutes;
     }
+
+    calculateMilesToday(activityData) {
+        this.getUserActivityData(activityData);
+        const today = this._activityData.slice(-1);
+        const stepLength = ((this.strideLength) * (today[0].numSteps));
+        let miles = (stepLength) / 5280;
+        let milesRounded = Math.round(miles * 100) / 100;
+        return milesRounded;
+
+    }
 }
 
 export default User;

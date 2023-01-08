@@ -192,34 +192,31 @@ main {
 form {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     background-color: rgba(142, 174, 187, 0.5);
 }
 
 .sleep-form {
   height: 25%;
-  justify-content: space-evenly;
+  
   padding: 0px 0px 0px 15px;
   /* align-items: center; */
 }
 
 .form-heading {
-  padding: 6px 10px 10px 0px;
+  padding: 6px 10px 0px 0px;
   text-align: center;
   font-size: 17px;
 }
 
 .hydration-form {
   height: 21%;
-  justify-content: space-evenly;
   padding: 0px 0px 0px 15px;
-  /* align-items: center; */
 }
 
 .activity-form {
-  height: 35%;
-  justify-content: space-evenly;
+  height: 32%;
   padding: 0px 0px 0px 15px;
-  /* align-items: center; */
 }
 
 input, button {

@@ -100,12 +100,13 @@
         </section>
         <section class="widget-container" id="widgetContainer">
           <button class="display-water-widget-button" id="displayWaterWidgetButton">Your Water Data</button>
-          <section class="water-widgets">
+          <button class="display-sleep-widget-button" id="displaySleepWidgetButton">Your Sleep Data</button>
+          <button class="display-activity-widget-button" id="displayActivityWidgetButton">Your Activity Data</button>
+          <section class="water-widgets" id="widgetParent">
             <div class="widget1 hidden" id="dailyWater">1: daily water</div>
             <div class="widget2 hidden" id="weeklyWater">2: weekly water</div>
           </section>
-          <button class="display-sleep-widget-button" id="displaySleepWidgetButton">Your Sleep Data</button>
-          <section class="sleep-widgets">
+          <section class="sleep-widgets" id="widgetParent">
             <div class="widget3 hidden" id="dailySleepHours">3: hours slept last night</div>
             <div class="widget4 hidden" id="dailySleepQuality">5: sleep quality last night</div>
             <div class="widget5 hidden" id="weeklySleepHours">4: hours slept last week</div>
@@ -113,8 +114,7 @@
             <div class="widget7 hidden" id="avgSleepHoursAllTime">7: average hours slept all time</div>
             <div class="widget8 hidden" id="avgSleepQualAllTime">8: average sleep quality all time</div>
           </section>
-          <button class="display-activity-widget-button" id="displayActivityWidgetButton">Your Activity Data</button>
-          <section class="activity-widgets">
+          <section class="activity-widgets" id="widgetParent">
             <div class="widget9 hidden" id="numSteps">9: number steps for latest day</div>
             <div class="widget10 hidden" id="minsActive">10: number minutes active for latest day</div>
             <div class="widget11 hidden" id="distanceWalked">11: distance walked for latest day</div>

@@ -23,7 +23,6 @@ const userDailyStepGoal = document.getElementById("dailyStepGoal");
 const userEmail = document.getElementById("email");
 const userFirstName = document.getElementById("firstName");
 const userStepComparison = document.getElementById("stepCompareResults");
-
 const dailySleepHours = document.getElementById("dailySleepHours");
 const weeklySleepHours = document.getElementById("weeklySleepHours");
 const dailySleepQuality = document.getElementById("dailySleepQuality");
@@ -44,6 +43,10 @@ const numStepsInput = document.getElementById("numStepsInput")
 const sleepForm = document.getElementById("sleepForm")
 const hydrationForm = document.getElementById("hydrationForm")
 const activityForm = document.getElementById("activityForm")
+const widgetParent = document.getElementById("widgetParent")
+const waterWidgetButton = document.getElementById("displayWaterWidgetButton")
+const sleepWidgetButton = document.getElementById("displaySleepWidgetButton")
+const activityWidgetButton = document.getElementById("displayActivityWidgetButton")
 
 // global variables 👇🏻
 
@@ -77,6 +80,21 @@ activityForm.addEventListener("submit", function(event) {
   addActivityData(randomUserId, activityDateInput.value, flightsOfStairsInput.value, minutesActiveInput.value, numStepsInput.value);
   clearActivityData();
 });
+
+waterWidgetButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  toggleWaterWidgets()
+})
+
+sleepWidgetButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  console.log(event.target)
+})
+
+activityWidgetButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  console.log(event.target)
+})
 
 // functions 👇🏻
 
@@ -265,3 +283,11 @@ const clearActivityData = () => {
   numStepsInput.value = '';
 };
 
+const toggleWaterWidgets = () => {
+  dailyWater.classList.toggle("hidden")
+  weeklyWater.classList.toggle("hidden")
+}
+
+const toggleSleepWidgets = () => {
+  
+}

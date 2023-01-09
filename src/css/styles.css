@@ -227,6 +227,26 @@ input, button {
   width: 90%;
 }
 
+.display-water-widget-button, 
+.display-sleep-widget-button,
+.display-activity-widget-button {
+  height: 25px;
+  width: 300px;
+  position: absolute;
+  top: 72%;
+  border: 1px solid black;
+  border-radius: 3em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.display-water-widget-button {
+  left: 25%;
+}
+.display-activity-widget-button {
+  right: 12%;
+}
+
 .hidden {
   display: none;
 }

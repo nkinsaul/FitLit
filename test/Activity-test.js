@@ -89,6 +89,10 @@ describe("Activity", () => {
 
     it("Should have a method to return minutes active on this activity's date", () => {
         let getMinActive = activity1.getMinutesActive();
+<<<<<<< HEAD
+        //do we really need this method, or can we just refer to the minutesActive property?
+=======
+>>>>>>> 7220f4f9ee2c45158073827ca211730f70452a59
         expect(getMinActive).to.be.equal(140)
     });
 
@@ -100,6 +104,10 @@ describe("Activity", () => {
 
     it("Should store the result of the getActivityObject method as a parameter", () => {
         let foundActivityObject = activity1.getActivityObject(1, "2019/06/15", activityData1);
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7220f4f9ee2c45158073827ca211730f70452a59
         expect(activity1.activityObj).to.be.a.property;
         expect(activity1.activityObj).to.be.equal(foundActivityObject);
         expect(activity1.activityObj.userID).to.be.equal(1);

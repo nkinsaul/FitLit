@@ -23,7 +23,6 @@ const userDailyStepGoal = document.getElementById("dailyStepGoal");
 const userEmail = document.getElementById("email");
 const userFirstName = document.getElementById("firstName");
 const userStepComparison = document.getElementById("stepCompareResults");
-
 const dailySleepHours = document.getElementById("dailySleepHours");
 const weeklySleepHours = document.getElementById("weeklySleepHours");
 const dailySleepQuality = document.getElementById("dailySleepQuality");
@@ -32,6 +31,8 @@ const dailyWater = document.getElementById("dailyWater");
 const weeklyWater = document.getElementById("weeklyWater");
 const avgSleepHoursAllTime = document.getElementById("avgSleepHoursAllTime");
 const avgSleepQualAllTime = document.getElementById("avgSleepQualAllTime");
+const numSteps = document.getElementById("numSteps")
+const minsActive = document.getElementById("minsActive")
 const sleepDateInput = document.getElementById("sleepDateInput")
 const hoursSleptInput = document.getElementById("hoursSleptInput")
 const sleepQualityInput = document.getElementById("sleepQualityInput")
@@ -44,6 +45,10 @@ const numStepsInput = document.getElementById("numStepsInput")
 const sleepForm = document.getElementById("sleepForm")
 const hydrationForm = document.getElementById("hydrationForm")
 const activityForm = document.getElementById("activityForm")
+const widgetParent = document.getElementById("widgetParent")
+const waterWidgetButton = document.getElementById("displayWaterWidgetButton")
+const sleepWidgetButton = document.getElementById("displaySleepWidgetButton")
+const activityWidgetButton = document.getElementById("displayActivityWidgetButton")
 
 // global variables 👇🏻
 
@@ -77,6 +82,21 @@ activityForm.addEventListener("submit", function(event) {
   addActivityData(randomUserId, activityDateInput.value, flightsOfStairsInput.value, minutesActiveInput.value, numStepsInput.value);
   clearActivityData();
 });
+
+waterWidgetButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  toggleWaterWidgets()
+})
+
+sleepWidgetButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  toggleSleepWidgets()
+})
+
+activityWidgetButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  toggleActivityWidgets();
+})
 
 // functions 👇🏻
 
@@ -151,7 +171,6 @@ function waterTodayWidget (waterProfile) {
     const todayWidgetData = waterProfile.getToday();
     dailyWater.innerHTML = `
     <div id="widgetTitle">Amount of water consumed today: 
-    <BR></BR>
         <div class="widgetDataNumber">${todayWidgetData} fl. oz.
         </div>
     </div>`;
@@ -161,7 +180,6 @@ function waterThisWeekWidget (waterProfile) {
     const weekWidgetData = waterProfile.getOneWeekTotal();
     weeklyWater.innerHTML = `
       <div id="widgetTitle">Amount of water consumed last week:
-        <BR></BR>
         <div id="day1">${weekWidgetData[6].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[6].numOunces} fl. oz.</span></div>
         <div id="day2">${weekWidgetData[5].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[5].numOunces} fl. oz.</span></div>
         <div id="day3">${weekWidgetData[4].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[4].numOunces} fl. oz.</span></div>
@@ -182,13 +200,11 @@ const displayDailySleep = () => {
   let lastNightDate = user1[0].date;
   dailySleepHours.innerHTML = `
     <div id="widgetTitle">Hours slept last night: 
-    <BR></BR>
         <div class="widgetDataNumber">${userSleepData.getHoursSleptOnDay(randomUserId,lastNightDate)} hours
         </div>
     </div>`;
   dailySleepQuality.innerHTML = `
     <div id="widgetTitle">Sleep quality last night: 
-    <BR></BR>
         <div class="widgetDataNumber">${userSleepData.getSleepQualityOnDay(randomUserId,lastNightDate)}
         </div>
     </div>`;
@@ -198,7 +214,6 @@ const displayWeeklySleep = () => {
   const user = userSleepData.getUserData(randomUserId).slice(-7);
   weeklySleepHours.innerHTML = `              
     <div id="widgetTitle">Hours slept last week:
-        <BR></BR>
         <div id="day1">${user[6].date}: <span class="widgetDataNumberMiniSize">${user[6].hoursSlept} hrs</span></div>
         <div id="day2">${user[5].date}: <span class="widgetDataNumberMiniSize">${user[5].hoursSlept} hrs</span></div>
         <div id="day3">${user[4].date}: <span class="widgetDataNumberMiniSize">${user[4].hoursSlept} hrs</span></div>
@@ -213,7 +228,6 @@ const displayWeeklySleepQuality = () => {
   const user = userSleepData.getUserData(randomUserId).slice(-7);
   weeklySleepQuality.innerHTML = `              
     <div id="widgetTitle">Sleep quality last week:
-        <BR></BR>
         <div id="day1">${user[6].date}: <span class="widgetDataNumberMiniSize">${user[6].sleepQuality}</span></div>
         <div id="day2">${user[5].date}: <span class="widgetDataNumberMiniSize">${user[5].sleepQuality}</span></div>
         <div id="day3">${user[4].date}: <span class="widgetDataNumberMiniSize">${user[4].sleepQuality}</span></div>
@@ -265,3 +279,21 @@ const clearActivityData = () => {
   numStepsInput.value = '';
 };
 
+const toggleWaterWidgets = () => {
+  dailyWater.classList.toggle("hidden")
+  weeklyWater.classList.toggle("hidden")
+}
+
+const toggleSleepWidgets = () => {
+  dailySleepHours.classList.toggle("hidden")
+  weeklySleepHours.classList.toggle("hidden")
+  dailySleepQuality.classList.toggle("hidden")
+  weeklySleepHours.classList.toggle("hidden")
+  avgSleepHoursAllTime.classList.toggle("hidden")
+  avgSleepQualAllTime.classList.toggle("hidden")
+}
+
+const toggleActivityWidgets = () => {
+  numSteps.classList.toggle("hidden")
+  minsActive.classList.toggle("hidden")
+}

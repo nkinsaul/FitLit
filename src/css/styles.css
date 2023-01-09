@@ -149,6 +149,14 @@ main {
   align-items: center;
 }
 
+.water-widgets,
+.sleep-widgets,
+.activity-widgets {
+  display: flex;
+  flex-direction: row;
+  padding-top: 25px;
+}
+
 .widget1,
 .widget2,
 .widget3,
@@ -156,8 +164,11 @@ main {
 .widget5,
 .widget6, 
 .widget7,
-.widget8 {
-  height: 15em;
+.widget8,
+.widget9, 
+.widget10,
+.widget11 {
+  height: 13em;
   width: 13em;
   padding: 1em;
   border-radius: 15%;
@@ -167,6 +178,7 @@ main {
   justify-content: space-around;
   align-items: center;
   background-color: rgb(33, 68, 87, 0.9);
+  margin: 5px;
 }
 
 .widgetDataNumber {
@@ -180,7 +192,7 @@ main {
   font-style: italic;
 }
 
-.aside {
+.leftSection {
   display: flex;
   flex-direction: column;
   width: 15vw;
@@ -192,9 +204,9 @@ main {
 form {
     display: flex;
     flex-direction: column;
+    height: 30%;
     justify-content: space-evenly;
     background-color: rgba(142, 174, 187, 0.9);
-    /* background-color: rgba(56, 105, 148, 0.6); */
     padding: 0px 0px 0px 15px;
 }
 
@@ -220,4 +232,27 @@ input, button {
   width: 90%;
 }
 
+.button-section {
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+}
 
+.display-water-widget-button, 
+.display-sleep-widget-button,
+.display-activity-widget-button {
+  height: 25px;
+  width: 300px;
+  top: 72%;
+  border: 1px solid black;
+  border-radius: 3em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+
+.hidden {
+  display: none;
+}

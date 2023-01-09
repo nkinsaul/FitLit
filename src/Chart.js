@@ -10,6 +10,7 @@ const mySecondChart = document.getElementById("sleepQualityOverWeek");
 const myThirdChart = document.getElementById("hydrationDataChart");
 
 let hoursSleptOverWeekChart;
+let sleepQualityOverWeekChart;
 
 const waterConsumedOverWeekChart = (userData) => {
   const waterChart = new Chart(myThirdChart, {
@@ -95,8 +96,8 @@ const createHoursSleptOverWeekChart = (userData) => {
   });
 };
 
-const sleepQualityOverWeekChart = (userData) => {
-  const sleepChart = new Chart(mySecondChart, {
+const createSleepQualityOverWeekChart = (userData) => {
+  sleepQualityOverWeekChart = new Chart(mySecondChart, {
     type: "bar",
     data: {
       labels: [
@@ -140,4 +141,5 @@ const sleepQualityOverWeekChart = (userData) => {
 export { waterConsumedOverWeekChart };
 export { createHoursSleptOverWeekChart };
 export { sleepQualityOverWeekChart };
-export { hoursSleptOverWeekChart }
+export { hoursSleptOverWeekChart };
+export { createSleepQualityOverWeekChart };

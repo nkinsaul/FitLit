@@ -62,29 +62,27 @@ let userSleepData;
 
 sleepForm.addEventListener("submit", function(event) {
   event.preventDefault();
-    addSleepData(randomUserId, sleepDateInput.value, hoursSleptInput.value, sleepQualityInput.value)
-    console.log(formatDate(sleepDateInput.value));
+  addSleepData(randomUserId, sleepDateInput.value.replaceAll('-', '/'), hoursSleptInput.value, sleepQualityInput.value)
+  fetchData('sleep').then(data => {
+    console.log(data);
+    sleepData = data.sleepData
+    instantiateSleep(sleepData)
     displayDailySleep();
     displayWeeklySleep();
     displayWeeklySleepQuality();
-    clearSleepData();
+  })
+  clearSleepData();
 });
-
-const formatDate = (date) => {
-  let firstDashReplace = date.replace('-', '/');
-  let secondDashReplace = firstDashReplace.replace('-', '/');
-  return secondDashReplace;
-}
 
 hydrationForm.addEventListener("submit", function(event) {
   event.preventDefault();
-  addHydrationData(randomUserId, hydrationDateInput.value, numOuncesInput.value);
+  addHydrationData(randomUserId, hydrationDateInput.value.replaceAll('-', '/'), numOuncesInput.value);
   clearHydrationData();
 });
 
 activityForm.addEventListener("submit", function(event) {
   event.preventDefault();
-  addActivityData(randomUserId, activityDateInput.value, flightsOfStairsInput.value, minutesActiveInput.value, numStepsInput.value);
+  addActivityData(randomUserId, activityDateInput.value.replaceAll('-', '/'), flightsOfStairsInput.value, minutesActiveInput.value, numStepsInput.value);
   clearActivityData();
 });
 

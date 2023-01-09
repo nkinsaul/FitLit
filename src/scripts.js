@@ -29,7 +29,7 @@ const weeklySleepHours = document.getElementById("weeklySleepHours");
 const dailySleepQuality = document.getElementById("dailySleepQuality");
 const weeklySleepQuality = document.getElementById("weeklySleepQuality");
 const dailyWater = document.getElementById("dailyWater");
-const weeklyWater = document.getElementById("weeklyWater");
+const weeklyWater1 = document.getElementById("weeklyWater1");
 const avgSleepHoursAllTime = document.getElementById("avgSleepHoursAllTime");
 const avgSleepQualAllTime = document.getElementById("avgSleepQualAllTime");
 const sleepDateInput = document.getElementById("sleepDateInput")
@@ -150,7 +150,7 @@ function waterTodayWidget (waterProfile) {
 
 function waterThisWeekWidget (waterProfile) { 
     const weekWidgetData = waterProfile.getOneWeekTotal();
-    weeklyWater.innerHTML = `
+    weeklyWater1.innerHTML = `
       <div id="widgetTitle">Amount of water consumed last week:
         <div id="day1">${weekWidgetData[6].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[6].numOunces} fl. oz.</span></div>
         <div id="day2">${weekWidgetData[5].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[5].numOunces} fl. oz.</span></div>

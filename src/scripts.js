@@ -169,7 +169,6 @@ function waterTodayWidget (waterProfile) {
     const todayWidgetData = waterProfile.getToday();
     dailyWater.innerHTML = `
     <div id="widgetTitle">Amount of water consumed today: 
-    <BR></BR>
         <div class="widgetDataNumber">${todayWidgetData} fl. oz.
         </div>
     </div>`;
@@ -179,7 +178,6 @@ function waterThisWeekWidget (waterProfile) {
     const weekWidgetData = waterProfile.getOneWeekTotal();
     weeklyWater.innerHTML = `
       <div id="widgetTitle">Amount of water consumed last week:
-        <BR></BR>
         <div id="day1">${weekWidgetData[6].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[6].numOunces} fl. oz.</span></div>
         <div id="day2">${weekWidgetData[5].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[5].numOunces} fl. oz.</span></div>
         <div id="day3">${weekWidgetData[4].date}: <span class="widgetDataNumberMiniSize">${weekWidgetData[4].numOunces} fl. oz.</span></div>
@@ -200,13 +198,11 @@ const displayDailySleep = () => {
   let lastNightDate = user1[0].date;
   dailySleepHours.innerHTML = `
     <div id="widgetTitle">Hours slept last night: 
-    <BR></BR>
         <div class="widgetDataNumber">${userSleepData.getHoursSleptOnDay(randomUserId,lastNightDate)} hours
         </div>
     </div>`;
   dailySleepQuality.innerHTML = `
     <div id="widgetTitle">Sleep quality last night: 
-    <BR></BR>
         <div class="widgetDataNumber">${userSleepData.getSleepQualityOnDay(randomUserId,lastNightDate)}
         </div>
     </div>`;
@@ -216,7 +212,6 @@ const displayWeeklySleep = () => {
   const user = userSleepData.getUserData(randomUserId).slice(-7);
   weeklySleepHours.innerHTML = `              
     <div id="widgetTitle">Hours slept last week:
-        <BR></BR>
         <div id="day1">${user[6].date}: <span class="widgetDataNumberMiniSize">${user[6].hoursSlept} hrs</span></div>
         <div id="day2">${user[5].date}: <span class="widgetDataNumberMiniSize">${user[5].hoursSlept} hrs</span></div>
         <div id="day3">${user[4].date}: <span class="widgetDataNumberMiniSize">${user[4].hoursSlept} hrs</span></div>
@@ -231,7 +226,6 @@ const displayWeeklySleepQuality = () => {
   const user = userSleepData.getUserData(randomUserId).slice(-7);
   weeklySleepQuality.innerHTML = `              
     <div id="widgetTitle">Sleep quality last week:
-        <BR></BR>
         <div id="day1">${user[6].date}: <span class="widgetDataNumberMiniSize">${user[6].sleepQuality}</span></div>
         <div id="day2">${user[5].date}: <span class="widgetDataNumberMiniSize">${user[5].sleepQuality}</span></div>
         <div id="day3">${user[4].date}: <span class="widgetDataNumberMiniSize">${user[4].sleepQuality}</span></div>

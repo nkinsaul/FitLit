@@ -88,12 +88,12 @@ waterWidgetButton.addEventListener("click", function(event) {
 
 sleepWidgetButton.addEventListener("click", function(event) {
   event.preventDefault();
-  console.log(event.target)
+  toggleSleepWidgets()
 })
 
 activityWidgetButton.addEventListener("click", function(event) {
   event.preventDefault();
-  console.log(event.target)
+  toggleActivityWidgets();
 })
 
 // functions 👇🏻
@@ -289,5 +289,14 @@ const toggleWaterWidgets = () => {
 }
 
 const toggleSleepWidgets = () => {
-  
+  dailySleepHours.classList.toggle("hidden")
+  weeklySleepHours.classList.toggle("hidden")
+  dailySleepQuality.classList.toggle("hidden")
+  weeklySleepHours.classList.toggle("hidden")
+  avgSleepHoursAllTime.classList.toggle("hidden")
+  avgSleepQualAllTime.classList.toggle("hidden")
+}
+
+const toggleActivityWidgets = () => {
+  // need to add that activity data to the DOM/new widgets first then can toggle.
 }

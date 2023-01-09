@@ -205,16 +205,8 @@ const displayWeeklySleepQuality = () => {
 const displayAvgAllTime = () => {
   const avgAllSleepQuality = userSleepData.avgSleepQuality(randomUserId);
   const avgAllSleepHours = userSleepData.avgHoursSleptPerDay(randomUserId);
-  avgSleepHoursAllTime.innerHTML = `
-    <div id="compareSleepQual">All-time average hours slept: 
-        <div class="widgetDataNumber">${avgAllSleepHours} hours
-        </div>
-    </div>`
-  avgSleepQualAllTime.innerHTML = `
-    <div id="compareSleepHours">All-time average sleep quality:
-        <div class="widgetDataNumber">${avgAllSleepQuality}
-        </div>
-    </div>`;
+  avgSleepHoursAllTime.innerText = `${avgAllSleepHours} hours`;
+  avgSleepQualAllTime.innerText = `${avgAllSleepQuality}`;
 };
 
 const displayCharts = () => {

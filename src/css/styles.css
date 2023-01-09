@@ -173,7 +173,9 @@ main {
 
 .widget1,
 .widget3,
-.widget4 {
+.widget4,
+.widget7,
+.widget8 {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

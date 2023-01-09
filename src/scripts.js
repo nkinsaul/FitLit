@@ -15,6 +15,7 @@ import Hydration from './Hydration';
 import { addSleepData } from "./apiCalls";
 import { addHydrationData } from "./apiCalls";
 import { addActivityData } from "./apiCalls";
+import { waterChart } from "./Chart"
 
 // query selectors 👇🏻
 
@@ -290,5 +291,8 @@ const updateHydrationData = () => {
     userData = data[0].userData;
     hydrationData = data[1].hydrationData;
     waterForAddUserFunc(hydrationData, randomUserId);
-  })
-}
+    waterChart.destroy();
+    const usersHydrationOverWeek = waterProfile.getOneUserData(hydrationData).slice(-7);
+    waterConsumedOverWeekChart(usersHydrationOverWeek);
+  });
+};

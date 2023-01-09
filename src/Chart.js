@@ -11,9 +11,10 @@ const myThirdChart = document.getElementById("hydrationDataChart");
 
 let hoursSleptOverWeekChart;
 let sleepQualityOverWeekChart;
+let waterChart;
 
 const waterConsumedOverWeekChart = (userData) => {
-  const waterChart = new Chart(myThirdChart, {
+  waterChart = new Chart(myThirdChart, {
     type: "bar",
     data: {
       labels: [
@@ -143,3 +144,4 @@ export { createHoursSleptOverWeekChart };
 export { sleepQualityOverWeekChart };
 export { hoursSleptOverWeekChart };
 export { createSleepQualityOverWeekChart };
+export { waterChart }

@@ -7,6 +7,7 @@ import UserRepository from "./UserRepository";
 import Sleep from "./Sleep";
 import { fetchData } from "./apiCalls";
 import { waterConsumedOverWeekChart } from "./Chart"
+import { createHoursSleptOverWeekChart } from "./Chart";
 import { hoursSleptOverWeekChart } from "./Chart";
 import { sleepQualityOverWeekChart } from "./Chart";
 import Hydration from './Hydration';
@@ -64,13 +65,16 @@ sleepForm.addEventListener("submit", function(event) {
   event.preventDefault();
   addSleepData(randomUserId, sleepDateInput.value.replaceAll('-', '/'), hoursSleptInput.value, sleepQualityInput.value)
   fetchData('sleep').then(data => {
-    console.log(data);
     sleepData = data.sleepData
     instantiateSleep(sleepData)
     displayDailySleep();
     displayWeeklySleep();
     displayWeeklySleepQuality();
-  })
+    const usersSleepOverWeek = userSleepData.getUserData(randomUserId).slice(-7);
+    hoursSleptOverWeekChart.destroy();
+    createHoursSleptOverWeekChart(usersSleepOverWeek);
+    sleepQualityOverWeekChart(usersSleepOverWeek);
+  });
   clearSleepData();
 });
 
@@ -250,7 +254,7 @@ const displayAvgAllTime = () => {
 const displayCharts = () => {
   const usersSleepOverWeek = userSleepData.getUserData(randomUserId).slice(-7);
   const usersHydrationOverWeek = waterProfile.getOneUserData(hydrationData).slice(-7);
-  hoursSleptOverWeekChart(usersSleepOverWeek);
+  createHoursSleptOverWeekChart(usersSleepOverWeek);
   sleepQualityOverWeekChart(usersSleepOverWeek);
   waterConsumedOverWeekChart(usersHydrationOverWeek);
 };

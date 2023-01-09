@@ -171,7 +171,9 @@ main {
   background-color: rgb(33, 68, 87, 0.9);
 }
 
-.widget1 {
+.widget1,
+.widget3,
+.widget4 {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

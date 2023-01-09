@@ -170,16 +170,8 @@ const instantiateSleep = () => {
 const displayDailySleep = () => {
   let user1 = userSleepData.getUserData(randomUserId).reverse();
   let lastNightDate = user1[0].date;
-  dailySleepHours.innerHTML = `
-    <div id="widgetTitle">Hours slept last night: 
-        <div class="widgetDataNumber">${userSleepData.getHoursSleptOnDay(randomUserId,lastNightDate)} hours
-        </div>
-    </div>`;
-  dailySleepQuality.innerHTML = `
-    <div id="widgetTitle">Sleep quality last night: 
-        <div class="widgetDataNumber">${userSleepData.getSleepQualityOnDay(randomUserId,lastNightDate)}
-        </div>
-    </div>`;
+  dailySleepHours.innerText = `${userSleepData.getHoursSleptOnDay(randomUserId,lastNightDate)} hours`;
+  dailySleepQuality.innerText = `${userSleepData.getSleepQualityOnDay(randomUserId,lastNightDate)}`;
 };
 
 const displayWeeklySleep = () => {

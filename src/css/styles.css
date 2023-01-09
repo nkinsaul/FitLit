@@ -67,6 +67,8 @@ main {
   background-color: rgb(33, 68, 87, 0.8);
   border: 2px;
   border-radius: 5px;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .step-goal-box {
@@ -169,6 +171,11 @@ main {
   background-color: rgb(33, 68, 87, 0.9);
 }
 
+.widget1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 .widgetDataNumber {
   font-size: 1.5em;
   font-weight: bold;
@@ -176,6 +183,7 @@ main {
 }
 
 .widgetDataNumberMiniSize {
+  /* move this into widgets line 152? */
   font-weight: bold;
   font-style: italic;
 }

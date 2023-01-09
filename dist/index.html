@@ -15,7 +15,7 @@
     <main>
       <aside class="aside" id="aside">
         <form class="sleep-form" id="sleepForm">
-          <h1 class="sleep-form-heading form-heading">Add Sleep Data</h1>
+          <h4 class="sleep-form-heading form-heading">Add Sleep Data</h4>
           <label for="sleepDateInput">Date:</label>
           <input id="sleepDateInput" type="date" required>
           <label for="hoursSleptInput">Hours Slept:</label>
@@ -25,7 +25,7 @@
           <button id="sleepButton" type="submit">Submit</button>
         </form>
         <form class="hydration-form" id="hydrationForm">
-          <h1 class="hydration-form-heading form-heading">Add Hydration Data</h1>
+          <h5 class="hydration-form-heading form-heading">Add Hydration Data</h5>
           <label for="hydrationDateInput">Date:</label>
           <input id="hydrationDateInput" type="date" required>
           <label for="numOuncesInput">Water Consumed (oz.) :</label>
@@ -33,7 +33,7 @@
           <button id="hydration" type="submit">Submit</button>
         </form>
         <form class="activity-form" id="activityForm">
-          <h1 class="activity-form-heading form-heading">Add Activity Data</h1>
+          <h6 class="activity-form-heading form-heading">Add Activity Data</h6>
           <label for="activityDateInput">Date:</label>
           <input id="activityDateInput" type="date" required>
           <label for="flightsOfStairsInput">Flights of Stairs:</label>
@@ -50,17 +50,17 @@
           <h1 class="first-name" id="firstName"></h1>
           <section class="user-info-box" id="userInfoBox">
               <div>
-                <div id="name">name</div>
-                <div id="email">email</div>
-                <div id="address">address</div>
-                <div id="strideLength">stride length</div>
+                <p id="name">name</p>
+                <p id="email">email</p>
+                <p id="address">address</p>
+                <p id="strideLength">stride length</p>
               </div>
           </section>
           <section class="step-goal-box" id="stepGoalBox">
-            <h3>Your Daily Step Goal</h3>
-            <h4 id="dailyStepGoal"></h4>
+            <h2>Your Daily Step Goal</h2>
+            <p id="dailyStepGoal"></p>
             <h3>Avg Step Goal (all users)</h3>
-            <h4 id="stepCompareResults"></h4>
+            <p id="stepCompareResults"></p>
           </section>
         </section>
         <section class="chart-container" id="chartContainer">
@@ -99,7 +99,10 @@
           </div>
         </section>
         <section class="widget-container" id="widgetContainer">
-          <section class="widget1" id="dailyWater">1: daily water</section>
+          <section class="widget1" id="dailyWater1">
+            <p id="widgetTitle">Amount of water consumed today: </p>
+              <p class="widgetDataNumber" id="dailyWater"></p>
+          </section>
           <section class="widget2" id="weeklyWater">2: weekly water</section>
           <section class="widget3" id="dailySleepHours">3: hours slept last night</section>
           <section class="widget4" id="dailySleepQuality">5: sleep quality last night</section>

@@ -72,6 +72,7 @@ sleepForm.addEventListener("submit", function(event) {
 hydrationForm.addEventListener("submit", function(event) {
   event.preventDefault();
   addHydrationData(randomUserId, hydrationDateInput.value.replaceAll('-', '/'), numOuncesInput.value);
+  updateHydrationData();
   clearHydrationData();
 });
 
@@ -283,4 +284,11 @@ const updateSleepData = () => {
   });
 };
 
-const 
+const updateHydrationData = () => {
+  Promise.all([fetchData("users"), fetchData("hydration")])
+  .then((data) => {
+    userData = data[0].userData;
+    hydrationData = data[1].hydrationData;
+    waterForAddUserFunc(hydrationData, randomUserId);
+  })
+}

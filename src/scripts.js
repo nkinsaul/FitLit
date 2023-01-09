@@ -65,18 +65,7 @@ let userSleepData;
 sleepForm.addEventListener("submit", function(event) {
   event.preventDefault();
   addSleepData(randomUserId, sleepDateInput.value.replaceAll('-', '/'), hoursSleptInput.value, sleepQualityInput.value)
-  fetchData('sleep').then(data => {
-    sleepData = data.sleepData
-    instantiateSleep(sleepData)
-    displayDailySleep();
-    displayWeeklySleep();
-    displayWeeklySleepQuality();
-    const usersSleepOverWeek = userSleepData.getUserData(randomUserId).slice(-7);
-    hoursSleptOverWeekChart.destroy();
-    createHoursSleptOverWeekChart(usersSleepOverWeek);
-    sleepQualityOverWeekChart.destroy();
-    createSleepQualityOverWeekChart(usersSleepOverWeek);
-  });
+  updateSleepData();
   clearSleepData();
 });
 
@@ -279,3 +268,19 @@ const clearActivityData = () => {
   numStepsInput.value = '';
 };
 
+const updateSleepData = () => {
+  fetchData('sleep').then(data => {
+    sleepData = data.sleepData
+    instantiateSleep(sleepData)
+    displayDailySleep();
+    displayWeeklySleep();
+    displayWeeklySleepQuality();
+    const usersSleepOverWeek = userSleepData.getUserData(randomUserId).slice(-7);
+    hoursSleptOverWeekChart.destroy();
+    createHoursSleptOverWeekChart(usersSleepOverWeek);
+    sleepQualityOverWeekChart.destroy();
+    createSleepQualityOverWeekChart(usersSleepOverWeek);
+  });
+};
+
+const 

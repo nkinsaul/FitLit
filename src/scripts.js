@@ -31,6 +31,8 @@ const dailyWater = document.getElementById("dailyWater");
 const weeklyWater = document.getElementById("weeklyWater");
 const avgSleepHoursAllTime = document.getElementById("avgSleepHoursAllTime");
 const avgSleepQualAllTime = document.getElementById("avgSleepQualAllTime");
+const numSteps = document.getElementById("numSteps")
+const minsActive = document.getElementById("minsActive")
 const sleepDateInput = document.getElementById("sleepDateInput")
 const hoursSleptInput = document.getElementById("hoursSleptInput")
 const sleepQualityInput = document.getElementById("sleepQualityInput")
@@ -292,5 +294,6 @@ const toggleSleepWidgets = () => {
 }
 
 const toggleActivityWidgets = () => {
-  // need to add that activity data to the DOM/new widgets first then can toggle.
+  numSteps.classList.toggle("hidden")
+  minsActive.classList.toggle("hidden")
 }

@@ -65,7 +65,7 @@ let userSleepData;
 
 sleepForm.addEventListener("submit", function(event) {
   event.preventDefault();
-  addSleepData(randomUserId, sleepDateInput.value.replaceAll('-', '/'), hoursSleptInput.value, sleepQualityInput.value)
+  addSleepData(randomUserId, sleepDateInput.value.replaceAll('-', '/'), parseInt(hoursSleptInput.value), parseInt(sleepQualityInput.value));
   updateSleepData();
   clearSleepData();
 });
@@ -272,11 +272,12 @@ const clearActivityData = () => {
 
 const updateSleepData = () => {
   fetchData('sleep').then(data => {
-    sleepData = data.sleepData
-    instantiateSleep(sleepData)
+    sleepData = data.sleepData;
+    instantiateSleep(sleepData);
     displayDailySleep();
     displayWeeklySleep();
     displayWeeklySleepQuality();
+    displayAvgAllTime();
     const usersSleepOverWeek = userSleepData.getUserData(randomUserId).slice(-7);
     hoursSleptOverWeekChart.destroy();
     createHoursSleptOverWeekChart(usersSleepOverWeek);
